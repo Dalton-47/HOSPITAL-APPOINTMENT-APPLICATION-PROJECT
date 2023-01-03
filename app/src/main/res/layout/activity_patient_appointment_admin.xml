@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F2FD"
+    tools:context=".PatientAppointmentAdmin">
+
+    <View
+        android:id="@+id/view12"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:background="@drawable/ic_wpwwave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="387dp"
+        android:layout_height="545dp"
+        android:background="@drawable/bottom_left_curve"
+        android:isScrollContainer="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view12">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="396dp"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="serif-monospace"
+                        android:text="@string/selectanappointment"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Spinner
+                        android:id="@+id/spinnerPatientEmails"
+                        android:layout_width="240dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:popupBackground="@drawable/pop_up_appointments_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.102"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+                    <Button
+                        android:id="@+id/buttonViewPatientAppointment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/center_shape"
+                        android:text="@string/view"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/spinnerPatientEmails"
+                        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout7"
+                        android:layout_width="396dp"
+                        android:layout_height="340dp"
+                        android:background="@drawable/pink_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/spinnerPatientEmails">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageView16"
+                                android:layout_width="141dp"
+                                android:layout_height="142dp"
+                                android:layout_marginStart="24dp"
+                                android:background="@drawable/patient"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textViewPatientAdaminName"
+                                android:layout_width="200dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="monospace"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textViewPatientAdminEmail"
+                                android:layout_width="200dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="monospace"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdaminName" />
+
+                            <TextView
+                                android:id="@+id/textViewPatientAdminDepartment"
+                                android:layout_width="200dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="monospace"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminEmail" />
+
+                            <TextView
+                                android:id="@+id/textViewPatientAdminDate"
+                                android:layout_width="200dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="monospace"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                android:textStyle="normal"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminDepartment" />
+
+                            <TextView
+                                android:id="@+id/textViewPatientAdminTime"
+                                android:layout_width="200dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="monospace"
+                                android:textAlignment="textStart"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                android:textStyle="normal"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminDate" />
+
+                            <TextView
+                                android:id="@+id/textViewPatientAdminDescription"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="monospace"
+                                android:textAlignment="textStart"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                android:textStyle="normal"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminTime" />
+
+                            <View
+                                android:id="@+id/divider14"
+                                android:layout_width="200dp"
+                                android:layout_height="4dp"
+                                android:background="?android:attr/listDivider"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdaminName" />
+
+                            <View
+                                android:id="@+id/divider15"
+                                android:layout_width="200dp"
+                                android:layout_height="4dp"
+                                android:background="?android:attr/listDivider"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminEmail" />
+
+                            <View
+                                android:id="@+id/divider16"
+                                android:layout_width="200dp"
+                                android:layout_height="4dp"
+                                android:background="?android:attr/listDivider"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminDepartment" />
+
+                            <View
+                                android:id="@+id/divider17"
+                                android:layout_width="200dp"
+                                android:layout_height="4dp"
+                                android:background="?android:attr/listDivider"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminDate" />
+
+                            <View
+                                android:id="@+id/divider18"
+                                android:layout_width="200dp"
+                                android:layout_height="4dp"
+                                android:background="?android:attr/listDivider"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminTime" />
+
+                            <TextView
+                                android:id="@+id/textView43"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/PATIENT"
+                                android:textColor="#43A047"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@+id/imageView16"
+                                app:layout_constraintEnd_toStartOf="@+id/textViewPatientAdminEmail"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="396dp"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/buttonViewDoctorDetails3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/center_shape"
+                        android:text="@string/view"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+                    <TextView
+                        android:id="@+id/textView49"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="serif-monospace"
+                        android:text="@string/selectadoctor"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Spinner
+                        android:id="@+id/spinnerDoctorEmails3"
+                        android:layout_width="240dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:popupBackground="@drawable/pop_up_appointments_background"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+                    <RelativeLayout
+                        android:layout_width="396dp"
+                        android:layout_height="340dp"
+                        android:background="@drawable/pink_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/spinnerDoctorEmails3">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageView21"
+                                android:layout_width="141dp"
+                                android:layout_height="141dp"
+                                android:layout_marginStart="24dp"
+                                android:background="@drawable/doctor"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textViewDoctorConsultName3"
+                                android:layout_width="200dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="60dp"
+                                android:fontFamily="monospace"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView21"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textViewDoctorConsultEmail3"
+                                android:layout_width="200dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="monospace"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView21"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultName3" />
+
+                            <TextView
+                                android:id="@+id/textViewDoctorConsultPhone3"
+                                android:layout_width="200dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="monospace"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView21"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultEmail3" />
+
+                            <TextView
+                                android:id="@+id/textViewDoctorConsultDepartment3"
+                                android:layout_width="200dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="monospace"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView21"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultPhone3" />
+
+                            <View
+                                android:id="@+id/divider19"
+                                android:layout_width="200dp"
+                                android:layout_height="4dp"
+                                android:background="?android:attr/listDivider"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView21"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultEmail3" />
+
+                            <View
+                                android:id="@+id/divider21"
+                                android:layout_width="200dp"
+                                android:layout_height="4dp"
+                                android:background="?android:attr/listDivider"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.483"
+                                app:layout_constraintStart_toEndOf="@+id/imageView21"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultPhone3" />
+
+                            <View
+                                android:id="@+id/divider20"
+                                android:layout_width="200dp"
+                                android:layout_height="4dp"
+                                android:background="?android:attr/listDivider"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView21"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultName3" />
+
+                            <TextView
+                                android:id="@+id/textView38"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Doctor"
+                                android:textColor="#43A047"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@+id/imageView21"
+                                app:layout_constraintEnd_toStartOf="@+id/textViewDoctorConsultName3"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/buttonAssignDoctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/center_shape"
+        android:text="@string/assign"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

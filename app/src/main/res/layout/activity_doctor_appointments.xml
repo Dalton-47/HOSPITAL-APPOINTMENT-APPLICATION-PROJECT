@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pink_background"
+    tools:context=".DoctorAppointments">
+
+    <Spinner
+        android:id="@+id/spinnerDoctorAppointments"
+        android:layout_width="245dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:popupBackground="@drawable/pop_up_appointments_background"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <View
+        android:id="@+id/view21"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@drawable/ic_wpwwave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginStart="24dp"
+        android:text="@string/emailViewAppointmentsdetails"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view21" />
+
+    <Button
+        android:id="@+id/buttonDoctorViewAppointments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/center_shape"
+        android:text="@string/view"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/spinnerDoctorAppointments"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout8"
+        android:layout_width="385dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerDoctorAppointments">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/people"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="serif-monospace"
+                android:text="@string/name"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif-monospace"
+                android:text="@string/descriptiontext"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif-monospace"
+                android:text="@string/dateCAPS"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif-monospace"
+                android:text="@string/timeavailableCAPS"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+            <View
+                android:id="@+id/divider22"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewPatientNameDoctorAppointments2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView34"
+                app:layout_constraintStart_toEndOf="@+id/divider22" />
+
+            <TextView
+                android:id="@+id/textViewPatientDescriptionDoctorAppointments2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView35"
+                app:layout_constraintStart_toEndOf="@+id/divider22" />
+
+            <TextView
+                android:id="@+id/textViewPatientDateDoctorAppointments2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView39"
+                app:layout_constraintStart_toEndOf="@+id/divider22" />
+
+            <TextView
+                android:id="@+id/textViewPatientTimeDoctorAppointments2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView40"
+                app:layout_constraintStart_toEndOf="@+id/divider22" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/buttonCancelAppointmentDoctor"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/center_shape"
+        android:text="@string/cancelAppointment"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="#BD0606"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonApointmentAttendedDoctor" />
+
+    <Button
+        android:id="@+id/buttonApointmentAttendedDoctor"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/center_shape"
+        android:text="@string/appointmentattended"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="#0A7C0F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout8" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutViewAttend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bottom_left_curve"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView24"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="140dp"
+                android:background="@drawable/check"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="monospace"
+                android:text="@string/detailsAppointment"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+
+            <Button
+                android:id="@+id/buttonBackAfterAppointments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/whiterectangle"
+                android:text="@string/btnBack"
+                android:textColor="#2196F3"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:backgroundTint="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView51" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

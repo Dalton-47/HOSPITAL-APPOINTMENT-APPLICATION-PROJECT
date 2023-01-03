@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_left_curve"
+    tools:context=".GetAppointmentDetails">
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="200dp"
+        android:fontFamily="serif-monospace"
+        android:text="@string/descriptiontext"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextMyDescription"
+        android:layout_width="260dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-medium"
+        android:hint="@string/symptomshint"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
+        app:layout_constraintStart_toEndOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="serif-monospace"
+        android:text="@string/departmentCAPS"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <Spinner
+        android:id="@+id/spinnerDepartmentBooking"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="25dp"
+        android:popupBackground="@drawable/spinnerbackground"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMyDescription" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="serif-monospace"
+        android:text="@string/timeavailableCAPS"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSetDate" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="280dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/whiterectangle"
+        android:fontFamily="serif-monospace"
+        android:text="@string/details"
+        android:textAlignment="center"
+        android:textColor="#0099ff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerTimeBooking"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="23dp"
+        android:popupBackground="@drawable/spinnerbackground"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSetDate" />
+
+    <Button
+        android:id="@+id/btnBackAppointmentsSet"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/whiterectangle"
+        android:fontFamily="serif-monospace"
+        android:text="@string/btnBack"
+        android:textAlignment="center"
+        android:textColor="#B71C1C"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <Button
+        android:id="@+id/buttonDoneSaveAppointment2"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/whiterectangle"
+        android:fontFamily="monospace"
+        android:text="@string/textokay"
+        android:textAlignment="center"
+        android:textColor="#43A047"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTimeBooking" />
+
+    <Button
+        android:id="@+id/buttonSetDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/whiterectangle"
+        android:text="SET DATE"
+        android:textColor="#090909"
+        app:backgroundTint="#E1F5FE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutCalendarAppointments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:background="#E1F5FE"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <CalendarView
+                android:id="@+id/calendarViewappointments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toTopOf="@+id/buttonDoneCalendar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonDoneCalendar"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:background="@drawable/whiterectangle"
+                android:fontFamily="serif-monospace"
+                android:text="@string/proceedbutton"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:backgroundTint="#CE93D8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F2FD"
+    tools:context=".MainPage">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="360dp"
+
+        android:background="@drawable/main_page_scrollviewbackground"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imageButtonBookAppointment"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/main_page_buttons"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/imageButtonPatientConsultDoctor"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/main_page_buttons"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="monospace"
+                        android:text="@string/bookappointment"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageButtonBookAppointment"
+                        app:layout_constraintEnd_toEndOf="@+id/imageButtonBookAppointment"
+                        app:layout_constraintStart_toStartOf="@id/imageButtonBookAppointment" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="monospace"
+                        android:text="@string/consult_a_doctor"
+                        android:textColor="#E1E1E1"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageButtonPatientConsultDoctor"
+                        app:layout_constraintStart_toStartOf="@+id/imageButtonPatientConsultDoctor" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="92dp"
+                        android:layout_height="92dp"
+                        android:background="@drawable/schedule"
+                        app:layout_constraintEnd_toEndOf="@+id/imageButtonBookAppointment"
+                        app:layout_constraintHorizontal_bias="0.524"
+                        app:layout_constraintStart_toStartOf="@id/imageButtonBookAppointment"
+                        app:layout_constraintTop_toTopOf="@+id/imageButtonBookAppointment" />
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="92dp"
+                        android:layout_height="92dp"
+                        android:background="@drawable/chat"
+                        app:layout_constraintEnd_toEndOf="@+id/imageButtonPatientConsultDoctor"
+                        app:layout_constraintStart_toStartOf="@+id/imageButtonPatientConsultDoctor"
+                        app:layout_constraintTop_toTopOf="@+id/imageButtonPatientConsultDoctor" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imageButtonPatientMedicalReports"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/main_page_buttons"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="92dp"
+                        android:layout_height="92dp"
+                        android:background="@drawable/medical_report"
+                        app:layout_constraintEnd_toEndOf="@+id/imageButtonPatientMedicalReports"
+                        app:layout_constraintStart_toStartOf="@id/imageButtonPatientMedicalReports"
+                        app:layout_constraintTop_toTopOf="@+id/imageButtonPatientMedicalReports" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="monospace"
+                        android:text="@string/view_lab_reports"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageButtonPatientMedicalReports"
+                        app:layout_constraintEnd_toEndOf="@+id/imageButtonPatientMedicalReports"
+                        app:layout_constraintStart_toStartOf="@+id/imageButtonPatientMedicalReports" />
+
+                    <ImageButton
+                        android:id="@+id/imageButtonContacts"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/main_page_buttons"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="92dp"
+                        android:layout_height="92dp"
+                        android:background="@drawable/communicate"
+                        app:layout_constraintEnd_toEndOf="@+id/imageButtonContacts"
+                        app:layout_constraintStart_toStartOf="@+id/imageButtonContacts"
+                        app:layout_constraintTop_toTopOf="@+id/imageButtonContacts" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="monospace"
+                        android:text="@string/contact_us"
+                        android:textColor="#FAFAFA"
+                        android:textSize="13.5sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageButtonContacts"
+                        app:layout_constraintEnd_toEndOf="@+id/imageButtonContacts"
+                        app:layout_constraintStart_toStartOf="@+id/imageButtonContacts" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imageButton6"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/main_page_buttons"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@drawable/bottom_left_curve"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/people"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewMainPageHello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif-monospace"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif-monospace"
+                android:text="@string/how_are_you"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMainPageHello" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="210dp"
+        android:background="@drawable/shape_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif-monospace"
+                android:text="FEATURES FOR YOU"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="280dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/center_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

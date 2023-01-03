@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PatientViewDoctorConsult">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F3E5F5">
+
+            <Button
+                android:id="@+id/buttonViewDoctorDetails3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/center_shape"
+                android:text="@string/view"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/spinnerDoctorEmails3"
+                app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginTop="75dp"
+                android:fontFamily="serif-monospace"
+                android:text="@string/selectadoctor"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinnerDoctorEmails3"
+                android:layout_width="240dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:popupBackground="@drawable/pop_up_appointments_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout9"
+                android:layout_width="350dp"
+                android:layout_height="340dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/main_page_buttons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerDoctorEmails3">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="141dp"
+                        android:layout_height="141dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/doctor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewDoctorConsultName3"
+                        android:layout_width="200dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="65dp"
+                        android:fontFamily="monospace"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView21"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewDoctorConsultEmail3"
+                        android:layout_width="200dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="monospace"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView21"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultName3" />
+
+                    <TextView
+                        android:id="@+id/textViewDoctorConsultPhone3"
+                        android:layout_width="200dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="monospace"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView21"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultEmail3" />
+
+                    <TextView
+                        android:id="@+id/textViewDoctorConsultDepartment3"
+                        android:layout_width="200dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="monospace"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView21"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultPhone3" />
+
+                    <View
+                        android:id="@+id/divider19"
+                        android:layout_width="200dp"
+                        android:layout_height="4dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView21"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultEmail3" />
+
+                    <View
+                        android:id="@+id/divider21"
+                        android:layout_width="200dp"
+                        android:layout_height="4dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.483"
+                        app:layout_constraintStart_toEndOf="@+id/imageView21"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultPhone3" />
+
+                    <View
+                        android:id="@+id/divider20"
+                        android:layout_width="200dp"
+                        android:layout_height="4dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView21"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultName3" />
+
+                    <TextView
+                        android:id="@+id/textView38"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/Doctor"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/imageView21"
+                        app:layout_constraintEnd_toStartOf="@+id/textViewDoctorConsultName3"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/buttonConsultDoctor"
+                android:layout_width="165dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/pop_up_appointments_background"
+                android:text="@string/consult"
+                android:textSize="19sp"
+                app:backgroundTint="#388E3C"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout9" />
+
+            <View
+                android:id="@+id/view22"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_wpwwave"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

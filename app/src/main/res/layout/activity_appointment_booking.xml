@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F2FD"
+    tools:context=".AppointmentBooking">
+
+    <Button
+        android:id="@+id/buttonBookAppointment"
+        android:layout_width="175dp"
+        android:layout_height="81dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/center_shape"
+        android:text="@string/newAppointment"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutfirstAppt"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_marginTop="8dp"
+            android:background="#E3F2FD"
+            android:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F3E5F5">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/patientappontment"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewAppointmentTime1"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentDescription1"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentDepartment1"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescription1" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentDate1"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDepartment1" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentTime1"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDate1" />
+
+                <Button
+                    android:id="@+id/buttonAppointmentBooked1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/whiterectangle"
+                    android:textAlignment="center"
+                    android:textColor="#4CAF50"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="200dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescription1" />
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="200dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDepartment1" />
+
+                <View
+                    android:id="@+id/divider7"
+                    android:layout_width="200dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDate1" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingActionButtonFirst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_cancel_24" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="serif-monospace"
+                    android:text="@string/doctorassigned"
+                    android:textColor="#1E88E5"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentTime1" />
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="serif-monospace"
+                    android:text="@string/name"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="serif-monospace"
+                    android:text="@string/email"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="serif-monospace"
+                    android:text="@string/phone_no"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+                <TextView
+                    android:id="@+id/textViewDoctorName1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="62dp"
+                    android:fontFamily="serif-monospace"
+                    android:hint="@string/pending"
+                    android:textColor="#000000"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView30"
+                    app:layout_constraintStart_toEndOf="@+id/textView30" />
+
+                <TextView
+                    android:id="@+id/textViewDoctorEmail1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="55dp"
+                    android:fontFamily="serif-monospace"
+                    android:hint="@string/pending"
+                    android:textColor="#000000"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView31"
+                    app:layout_constraintStart_toEndOf="@+id/textView31" />
+
+                <TextView
+                    android:id="@+id/textViewDoctorPhoneNumber1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:fontFamily="serif-monospace"
+                    android:hint="@string/pending"
+                    android:textColor="#000000"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView32"
+                    app:layout_constraintStart_toEndOf="@+id/textView32" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutSecondAppt"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F3E5F5">
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentDescription2"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentDepartment2"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescription2" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentDate2"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDepartment2" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentTime2"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDate2" />
+
+                <Button
+                    android:id="@+id/buttonAppointmentBooked2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/whiterectangle"
+                    android:textAlignment="center"
+                    android:textColor="#4CAF50"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+                <View
+                    android:id="@+id/divider8"
+                    android:layout_width="200dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescription2" />
+
+                <View
+                    android:id="@+id/divider9"
+                    android:layout_width="200dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDepartment2" />
+
+                <View
+                    android:id="@+id/divider10"
+                    android:layout_width="200dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDate2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutThirdAppt"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F3E5F5">
+
+                <Button
+                    android:id="@+id/buttonAppointmentBooked3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/whiterectangle"
+                    android:textAlignment="center"
+                    android:textColor="#4CAF50"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/coolappointment"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentDescription3"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView15"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentDepartment3"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView15"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescription3" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentDate3"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView15"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDepartment3" />
+
+                <TextView
+                    android:id="@+id/textViewAppointmentTime3"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif-monospace"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView15"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDate3" />
+
+                <View
+                    android:id="@+id/divider11"
+                    android:layout_width="200dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView15"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescription3" />
+
+                <View
+                    android:id="@+id/divider12"
+                    android:layout_width="200dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView15"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDepartment3" />
+
+                <View
+                    android:id="@+id/divider13"
+                    android:layout_width="200dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView15"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDate3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view33"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@drawable/ic_wpwwave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutCancelAppointments"
+        android:layout_width="340dp"
+        android:layout_height="280dp"
+        android:background="@drawable/pop_up_appointments_background"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="75dp"
+                android:text="@string/canelAppointment"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonYesCancelAppointments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/btnYES"
+                android:textSize="16sp"
+                app:backgroundTint="#B71C1C"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonNoCancelAppointments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/btnNO"
+                android:textSize="16sp"
+                app:backgroundTint="#1B5E20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnRefreshPage"
+        android:layout_width="150dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/center_shape"
+        android:text="@string/btnrefresh"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
