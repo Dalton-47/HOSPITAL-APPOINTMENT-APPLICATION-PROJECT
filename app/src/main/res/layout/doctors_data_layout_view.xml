@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageViewDoctorRecyclerView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/doctor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewRecyclerDoctorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="#1E1B1B"
+            app:layout_constraintStart_toEndOf="@+id/imageViewDoctorRecyclerView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewRecyclerDoctorEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="#1E1B1B"
+            app:layout_constraintStart_toEndOf="@+id/imageViewDoctorRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecyclerDoctorName" />
+
+        <TextView
+            android:id="@+id/textViewRecyclerDoctorPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="#1E1B1B"
+            app:layout_constraintStart_toEndOf="@+id/imageViewDoctorRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecyclerDoctorEmail" />
+
+        <TextView
+            android:id="@+id/textViewRecyclerDoctorProfession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="#1E1B1B"
+            app:layout_constraintStart_toEndOf="@+id/imageViewDoctorRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecyclerDoctorPhone" />
+
+        <View
+            android:id="@+id/divider26"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+

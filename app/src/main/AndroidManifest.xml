@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/mylaunchericon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppt">
-        <activity android:name=".Contacts"></activity>
+        <activity
+            android:name=".AvailableDoctors"
+            android:exported="false" />
+        <activity android:name=".Contacts" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ReportGeneration" />
         <activity android:name=".PatientMedicalReport" />

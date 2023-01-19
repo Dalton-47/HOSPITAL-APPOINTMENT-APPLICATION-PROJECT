@@ -85,7 +85,8 @@ public class MainPage extends AppCompatActivity {
         consultDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent=new Intent(MainPage.this,PatientViewDoctorConsult.class);
+               // Intent myIntent=new Intent(MainPage.this,PatientViewDoctorConsult.class);
+                Intent myIntent=new Intent(MainPage.this,AvailableDoctors.class);
                 myIntent.putExtra("usersEmail",myUsersEmail);
                 startActivity(myIntent);
             }
