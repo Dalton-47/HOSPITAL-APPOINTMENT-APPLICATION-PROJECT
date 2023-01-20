@@ -27,7 +27,7 @@ public class AvailableDoctors extends AppCompatActivity {
 
         RecyclerView myRecyclerView=(RecyclerView)  findViewById(R.id.recyclerViewDoctors);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        DataAdapter adapter=new DataAdapter(dataList);
+        DoctorDataAdapter adapter=new DoctorDataAdapter(dataList);
         myRecyclerView.setAdapter(adapter);
 
         //we now listen to changes to the data in the Firebase Realtime DataBase

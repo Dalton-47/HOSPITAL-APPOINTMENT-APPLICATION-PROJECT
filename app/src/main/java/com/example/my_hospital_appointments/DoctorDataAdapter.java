@@ -1,5 +1,6 @@
 package com.example.my_hospital_appointments;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,21 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 //declare a class called  recyclerViewer class that extends the RecyclerView.Adapter
-public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
+public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.DataViewHolder> {
 
-    private ArrayList<Doctors> dataList=new ArrayList<>() ;
+    private  ArrayList<Doctors> dataList=new ArrayList<>() ;
 
     public void setData(ArrayList<Doctors> dataList) {
         this.dataList=dataList;
         notifyDataSetChanged();
     }
 
-    public static class DataViewHolder extends RecyclerView.ViewHolder {
+    public  class DataViewHolder extends RecyclerView.ViewHolder {
         DatabaseReference doctorsData;
         ImageView doctorsProfile;
         TextView doctorsName;
@@ -42,10 +42,23 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
             doctorsPhone =(TextView)  itemView.findViewById(R.id.textViewRecyclerDoctorPhone) ;
             doctorsProfession =(TextView)  itemView.findViewById(R.id.textViewRecyclerDoctorProfession);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position=getAdapterPosition();
+                    Doctors doctors= dataList.get(position);
+
+                    Intent myIntent=new Intent(v.getContext(),Chattingpage.class);
+                    //myIntent.putExtra("doctors",doctors);
+                    v.getContext().startActivity(myIntent);
+
+                    
+                }
+            });
         }
     }
 
-    public DataAdapter(ArrayList<Doctors> dataList)
+    public DoctorDataAdapter(ArrayList<Doctors> dataList)
     {
          this.dataList=dataList;
     }
