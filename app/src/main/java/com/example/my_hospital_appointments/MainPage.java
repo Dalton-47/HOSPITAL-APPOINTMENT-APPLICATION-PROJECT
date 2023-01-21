@@ -86,8 +86,9 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                // Intent myIntent=new Intent(MainPage.this,PatientViewDoctorConsult.class);
+               // myIntent.putExtra("usersEmail",myUsersEmail);
                 Intent myIntent=new Intent(MainPage.this,AvailableDoctors.class);
-                myIntent.putExtra("usersEmail",myUsersEmail);
+                myIntent.putExtra("userEmailID",userID);
                 startActivity(myIntent);
             }
         });

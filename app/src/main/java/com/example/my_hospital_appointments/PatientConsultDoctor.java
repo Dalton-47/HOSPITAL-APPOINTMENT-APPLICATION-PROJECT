@@ -170,6 +170,7 @@ public class PatientConsultDoctor extends AppCompatActivity {
 
     private void sendPatientMessage(String patientEmail)
     {
+        //boilerplatecode
         String myText= editTextPatientMessage.getText().toString().trim();
         String emailKey="";
         int Counter=patientEmail.length();

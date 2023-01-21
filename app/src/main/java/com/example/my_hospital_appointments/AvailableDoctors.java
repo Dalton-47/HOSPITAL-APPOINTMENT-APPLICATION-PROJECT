@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -25,9 +26,12 @@ public class AvailableDoctors extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_available_doctors);
 
+        Intent intent =getIntent();
+        String emailKey=intent.getExtras().getString("userEmailID");
+
         RecyclerView myRecyclerView=(RecyclerView)  findViewById(R.id.recyclerViewDoctors);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        DoctorDataAdapter adapter=new DoctorDataAdapter(dataList);
+        DoctorDataAdapter adapter=new DoctorDataAdapter(dataList,emailKey);
         myRecyclerView.setAdapter(adapter);
 
         //we now listen to changes to the data in the Firebase Realtime DataBase
@@ -35,7 +39,7 @@ public class AvailableDoctors extends AppCompatActivity {
         myDoctors.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Doctors> dataList= new ArrayList<>();
+              //  ArrayList<Doctors> dataList= new ArrayList<>();
                 for(DataSnapshot childSnapshot: snapshot.getChildren())
                 {
                     //we then do deserialization which is the process of converting a JSON object into an object that

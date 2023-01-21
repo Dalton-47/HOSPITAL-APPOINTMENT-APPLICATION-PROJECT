@@ -1,6 +1,7 @@
 package com.example.my_hospital_appointments;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.DataViewHolder> {
 
     private  ArrayList<Doctors> dataList=new ArrayList<>() ;
+    private String emailKeyID;
 
     public void setData(ArrayList<Doctors> dataList) {
         this.dataList=dataList;
@@ -48,11 +50,15 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
                     int position=getAdapterPosition();
                     Doctors doctors= dataList.get(position);
 
+                    String doctorName= doctors.getUserName();
                     Intent myIntent=new Intent(v.getContext(),Chattingpage.class);
-                    //myIntent.putExtra("doctors",doctors);
+                    Bundle bundle=new Bundle();
+                    bundle.putString("emailKey",emailKeyID);
+                    bundle.putString("doctorsName",doctorName);
+                    myIntent.putExtras(bundle);
+
                     v.getContext().startActivity(myIntent);
 
-                    
                 }
             });
         }
@@ -61,6 +67,11 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
     public DoctorDataAdapter(ArrayList<Doctors> dataList)
     {
          this.dataList=dataList;
+    }
+
+    public DoctorDataAdapter(ArrayList<Doctors> dataList, String emailKeyID) { //constructor to pass emailkey
+        this.dataList = dataList;
+        this.emailKeyID = emailKeyID;
     }
 
     @NonNull
