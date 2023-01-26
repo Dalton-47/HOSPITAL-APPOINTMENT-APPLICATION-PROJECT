@@ -77,7 +77,7 @@
     <string name="cancelAppointment">CANCEL APPOINTMENT</string>
     <string name="appointmentattended">APPOINTMENT ATTENDED</string>
     <string name="detailsAppointment">APPOINTMENT DETAILS CAPTURED SUCCESSFULLY</string>
-    <string name="ClickHereToTypeAMessage">Click Here To Type A Message</string>
+    <string name="ClickHereToTypeAMessage">Type A Message</string>
     <string name="refresh">REFRESH</string>
     <string name="chat">CHAT</string>
     <string name="consult">CONSULT</string>

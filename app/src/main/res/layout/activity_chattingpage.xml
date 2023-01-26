@@ -2,14 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".Chattingpage">
 
     <View
         android:id="@+id/view35"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
+        android:elevation="10dp"
         android:background="@drawable/shape_bottom_left"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,24 +19,26 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewChat"
         android:layout_width="350dp"
-        android:layout_height="510dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="480dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTypeMessageChat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view35" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextTypeMessageChat"
-        android:layout_width="210dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/whiterectangle"
         android:ems="10"
         android:hint="@string/ClickHereToTypeAMessage"
+        android:includeFontPadding="true"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:padding="5dp"
+        android:paddingStart="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -57,6 +60,7 @@
         android:id="@+id/imageView12"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:elevation="11dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/blackfemaledoctor"
         app:layout_constraintEnd_toEndOf="@+id/view35"
@@ -69,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="@string/Doctor"
+        android:elevation="10dp"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
