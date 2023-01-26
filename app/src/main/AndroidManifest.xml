@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppt">
         <activity
+            android:name=".Messages_From_Patients"
+            android:exported="false" />
+        <activity
             android:name=".Chattingpage"
             android:exported="false" />
         <activity

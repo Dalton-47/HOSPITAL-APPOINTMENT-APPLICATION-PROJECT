@@ -20,6 +20,7 @@ public class MainPageDoctor extends AppCompatActivity {
     String emailKey="";
     DatabaseReference myDoctorData;
     TextView helloUser,greetingUser;
+    String doctorName;
     Button doctorAppointments,btnDoctorConsult,btnMedicalReports;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +51,9 @@ public class MainPageDoctor extends AppCompatActivity {
         btnDoctorConsult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent=new Intent(MainPageDoctor.this,DoctorConsultation.class);
-                myIntent.putExtra("usersEmail",myUsersEmail);
+              //  Intent myIntent=new Intent(MainPageDoctor.this,DoctorConsultation.class);
+                Intent myIntent=new Intent(MainPageDoctor.this,Messages_From_Patients.class);
+                myIntent.putExtra("doctorName",doctorName);
                 startActivity(myIntent);
             }
         });
@@ -95,7 +97,7 @@ public class MainPageDoctor extends AppCompatActivity {
                     if(task.getResult().exists())
                     {
                         DataSnapshot thisDataSnapshot=task.getResult();
-                        String doctorName=String.valueOf(thisDataSnapshot.child("userName").getValue());
+                         doctorName=String.valueOf(thisDataSnapshot.child("userName").getValue());
                         if(!doctorName.isEmpty()) {
                             String Hello = "Hello Dr. "+doctorName;
                             String day="How Are You Doing Today?";

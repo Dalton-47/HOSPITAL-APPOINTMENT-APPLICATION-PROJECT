@@ -6,16 +6,38 @@ public class Patients {
     String SecondName;
     String PhoneNumber;
     String EmailAddress;
+    String Age;
+    String County;
+
+    public String getAge() {
+        return Age;
+    }
+
+    public void setAge(String age) {
+        Age = age;
+    }
+
+    public String getCounty() {
+        return County;
+    }
+
+    public void setCounty(String county) {
+        County = county;
+    }
 
     public Patients() {
     }
 
-    public Patients(String firstName, String secondName, String phoneNumber, String emailAddress) {
+    public Patients(String firstName, String secondName, String phoneNumber, String emailAddress, String age, String county) {
         FirstName = firstName;
         SecondName = secondName;
         PhoneNumber = phoneNumber;
         EmailAddress = emailAddress;
+        Age = age;
+        County = county;
     }
+
+
 
     public String getFirstName() {
         return FirstName;

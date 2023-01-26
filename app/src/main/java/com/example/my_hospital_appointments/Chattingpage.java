@@ -161,7 +161,7 @@ public class Chattingpage extends AppCompatActivity {
                     {
 
                         messages_from_user.add("Doc : "+messages.getMessage());
-                        counter++;
+
                     }
 
 

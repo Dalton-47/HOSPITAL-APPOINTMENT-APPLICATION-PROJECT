@@ -79,10 +79,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.doctors_data_layout_view,parent, false) ;
-
-       // doctorsData = FirebaseDatabase.getInstance().getReference().child("Doctors");
-
-               return new DataViewHolder (view);
+       return new DataViewHolder (view);
 
     }
 

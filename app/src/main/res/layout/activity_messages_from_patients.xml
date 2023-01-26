@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Messages_From_Patients">
+
+    <View
+        android:id="@+id/view36"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="#FFFFFF"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/divider25"
+        android:layout_width="200dp"
+        android:layout_height="15dp"
+        android:background="@drawable/center_shape"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view36"
+        app:layout_constraintEnd_toEndOf="@id/view36"
+        app:layout_constraintStart_toStartOf="@+id/view36"
+        app:layout_constraintTop_toTopOf="@+id/view36" />
+
+    <View
+        android:id="@+id/view37"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:background="@drawable/top_ight_curved_edges"
+        android:rotationX="-180"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView68"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/patientmessages"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view37"
+        app:layout_constraintEnd_toEndOf="@+id/view37"
+        app:layout_constraintStart_toStartOf="@+id/view37"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPatientsMessages"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view37" />
+</androidx.constraintlayout.widget.ConstraintLayout>

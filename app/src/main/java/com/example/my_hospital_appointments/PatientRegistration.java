@@ -20,8 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class PatientRegistration extends AppCompatActivity {
     private FirebaseAuth  patientAuth;
-    private EditText patientFirstName, patientSecondName,patientPhoneNumber,patientEmailAddress,patientPassword;
-    public String firstName,secondName,phoneNumber,emailAddress,password;
+    private EditText patientAge,patientCounty,patientFirstName, patientSecondName,patientPhoneNumber,patientEmailAddress,patientPassword;
+    public String firstName,secondName,phoneNumber,emailAddress,password,age,county;
     private Button registerPatient;
     DatabaseReference patientDatabase;
     private String patientKey="";
@@ -34,6 +34,8 @@ public class PatientRegistration extends AppCompatActivity {
 
         patientAuth = FirebaseAuth.getInstance();
 
+        patientAge =(EditText)  findViewById(R.id.editTextTextPatientAge);
+        patientCounty =(EditText)  findViewById(R.id.editTextTextPatientCounty);
         patientFirstName =(EditText)  findViewById(R.id.editTextPatientFName);
         patientSecondName =(EditText) findViewById(R.id.editTextTextPatientSName);
         patientPhoneNumber =(EditText) findViewById(R.id.editTextPatientPhoneNumber);
@@ -57,6 +59,8 @@ public class PatientRegistration extends AppCompatActivity {
         phoneNumber=patientPhoneNumber.getText().toString().trim();
         emailAddress=patientEmailAddress.getText().toString().trim();
         password=patientPassword.getText().toString().trim();
+        age=patientAge.getText().toString().trim();
+        county=patientCounty.getText().toString().trim();
 
 
 
@@ -69,6 +73,16 @@ public class PatientRegistration extends AppCompatActivity {
         {
             patientSecondName.setError("Cannot be Blank");
             patientSecondName.requestFocus();
+        }
+        else if(age.isEmpty())
+        {
+            patientAge.setError("Cannot Be Blank");
+            patientAge.requestFocus();
+        }
+        else if(county.isEmpty())
+        {
+            patientCounty.setError("Cannot Be Blank");
+            patientCounty.requestFocus();
         }
         else if(phoneNumber.isEmpty())
         {
@@ -115,7 +129,7 @@ public class PatientRegistration extends AppCompatActivity {
                             }
                         }
                         patientKey=patientKey.trim();
-                        Patients myPatients=new Patients(firstName,secondName,phoneNumber,emailAddress);
+                        Patients myPatients=new Patients(firstName,secondName,phoneNumber,emailAddress,age,county);
                         patientDatabase.child(patientKey).setValue(myPatients);
 
                         Toast.makeText(PatientRegistration.this,"REGISTRATION WAS SUCCESSFUL",Toast.LENGTH_SHORT).show();
