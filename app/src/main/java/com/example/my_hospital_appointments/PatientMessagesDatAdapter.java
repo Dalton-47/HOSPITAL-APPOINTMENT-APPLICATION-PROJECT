@@ -72,7 +72,9 @@ public class PatientMessagesDatAdapter extends RecyclerView.Adapter<PatientMessa
                         }
                     }
 
-                    Intent myIntent=new Intent(v.getContext(),Chattingpage.class);
+                   // Intent myIntent=new Intent(v.getContext(),Patient_Chatting_Activity.class);
+
+                    Intent myIntent=new Intent(v.getContext(),Doctor_Chatting_Activity.class);
                     Bundle bundle=new Bundle();
                     bundle.putString("emailKey",emailKey); //emailKey belongs to the patient
                     bundle.putString("doctorsName",doctorName );

@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 //declare a class called  recyclerViewer class that extends the RecyclerView.Adapter
-public class chattingAdapter extends RecyclerView.Adapter<chattingAdapter.myViewHolder> {
+public class Doc_Chatting_Adapter extends RecyclerView.Adapter<Doc_Chatting_Adapter.myViewHolder> {
 
-private ArrayList<String> message=new ArrayList<>();
-private ArrayList<String> newMessage=new ArrayList<>();
-private ArrayList<String> userMessage=new ArrayList<>();
-private ArrayList <Patient_Messages> myMessageList=new ArrayList<>();
-private String myText;
-private static int myCounter=0;
+    private ArrayList<String> message=new ArrayList<>();
+    private ArrayList<String> newMessage=new ArrayList<>();
+    private ArrayList<String> userMessage=new ArrayList<>();
+    private ArrayList <Patient_Messages> myMessageList=new ArrayList<>();
+    private String myText;
+    private static int myCounter=0;
 
     private static final int SENT_MESSAGE_TYPE = 0;
     private static final int RECEIVED_MESSAGE_TYPE = 1;
@@ -27,14 +27,14 @@ private static int myCounter=0;
     public void setData(ArrayList<String> myList) {
         this.message=myList;
 
-      notifyDataSetChanged();
+       notifyDataSetChanged();
 
     }
 
     public static class myViewHolder extends RecyclerView.ViewHolder {
-    //public EditText myEditText;
-    public TextView sentMessageTextView;
-    public TextView receivedMessageTextView;
+        //public EditText myEditText;
+        public TextView sentMessageTextView;
+        public TextView receivedMessageTextView;
 
         public Button myButton;
         //a constructor
@@ -52,9 +52,9 @@ private static int myCounter=0;
         }
     }
 
-    public chattingAdapter(ArrayList<String> myMessages)
+    public Doc_Chatting_Adapter(ArrayList<String> myMessages)
     {
-       this.message =myMessages;
+        this.message =myMessages;
 
     }
 
@@ -78,7 +78,7 @@ private static int myCounter=0;
 
 
 
-                myViewHolder mv = new myViewHolder(myView,viewType);
+        myViewHolder mv = new myViewHolder(myView,viewType);
 
         return mv;
     }
@@ -88,9 +88,13 @@ private static int myCounter=0;
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
 
         if (getItemViewType(position) == SENT_MESSAGE_TYPE) {
-            holder.sentMessageTextView.setText(message.get(position));
+            String original=message.get(position);
+            String desired = original.substring(original.indexOf(":")+1);
+            holder.sentMessageTextView.setText(desired);
         } else {
-            holder.receivedMessageTextView.setText(message.get(position));
+            String original=message.get(position);
+            String desired = original.substring(original.indexOf(":")+1);
+            holder.receivedMessageTextView.setText(desired);
         }
 
 
@@ -107,9 +111,9 @@ private static int myCounter=0;
 
 
 
-
-        if(message.get(position).contains("Doc : ")) //IF in the arraylist the text has the words "Sent_" we know its from
-                                                    //the sender thus we return the sent_Message_type
+// i should change here to reflect patient's messages
+        if(message.get(position).contains("Patient : ")) //IF in the arraylist the text has the words "Sent_" we know its from
+        //the sender thus we return the sent_Message_type
         {                                     //the message will determine type of view to be used
 
             return RECEIVED_MESSAGE_TYPE;

@@ -51,7 +51,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
                     Doctors doctors= dataList.get(position);
 
                     String doctorName= doctors.getUserName();
-                    Intent myIntent=new Intent(v.getContext(),Chattingpage.class);
+                    Intent myIntent=new Intent(v.getContext(), Patient_Chatting_Activity.class);
                     Bundle bundle=new Bundle();
                     bundle.putString("emailKey",emailKeyID);
                     bundle.putString("doctorsName",doctorName);

@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppt">
         <activity
+            android:name=".Doctor_Chatting_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Messages_From_Patients"
             android:exported="false" />
         <activity
-            android:name=".Chattingpage"
+            android:name=".Patient_Chatting_Activity"
             android:exported="false" />
         <activity
             android:name=".AvailableDoctors"

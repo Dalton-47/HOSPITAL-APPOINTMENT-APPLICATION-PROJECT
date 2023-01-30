@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,9 +25,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Chattingpage extends AppCompatActivity {
+public class Patient_Chatting_Activity extends AppCompatActivity {
 
-    public ArrayList<String> messages_from_user=new ArrayList<>();
+    private ArrayList<String> messages_from_user=new ArrayList<>();
     ArrayList <Patient_Messages> myList=new ArrayList();
     ArrayList<String> data=new ArrayList<>();
     Button myButton;
@@ -38,7 +37,7 @@ public class Chattingpage extends AppCompatActivity {
     long timestamp;
     String senderID;
     String doctorName;
-    chattingAdapter  myAdapter;
+    patient_messages_Chatting_Adapter myAdapter;
     int counter=0;
     String userEmailKey;
     LinearLayoutManager layoutManager;
@@ -47,14 +46,14 @@ public class Chattingpage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chattingpage);
+        setContentView(R.layout.patient_chatting_activity);
 
 
         //getting the data passed from previous activity
          userEmailKey=getIntent().getStringExtra("emailKey");
          doctorName=getIntent().getStringExtra("doctorsName");
 
-        Toast.makeText(Chattingpage.this,"user's key = "+userEmailKey+" Doc name = "+doctorName,Toast.LENGTH_SHORT).show();
+        Toast.makeText(Patient_Chatting_Activity.this,"user's key = "+userEmailKey+" Doc name = "+doctorName,Toast.LENGTH_SHORT).show();
         FirebaseAuth myAuth=FirebaseAuth.getInstance();
         FirebaseUser currentUser=myAuth.getCurrentUser();
         String userId= currentUser.getUid();
@@ -69,7 +68,7 @@ public class Chattingpage extends AppCompatActivity {
          myRecycleViewer = findViewById(R.id.recyclerViewChat);
 
         readPatientMessages();
-        myAdapter=new chattingAdapter(messages_from_user);
+        myAdapter=new patient_messages_Chatting_Adapter(messages_from_user) ;
         myRecycleViewer.setAdapter(myAdapter);
       //  myRecycleViewer.smoothScrollToPosition(myAdapter.getItemCount()-1); //to set the recyclerView items to the last position
 
@@ -127,8 +126,8 @@ public class Chattingpage extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(Chattingpage.this,"MESSAGE SAVED",Toast.LENGTH_SHORT).show();
-                   // Chattingpage.this.notify();
+                    Toast.makeText(Patient_Chatting_Activity.this,"MESSAGE SAVED",Toast.LENGTH_SHORT).show();
+                   // Patient_Chatting_Activity.this.notify();
                   readPatientMessages();
                     layoutManager.setStackFromEnd(true);
                     myRecycleViewer.scrollToPosition(myAdapter.getItemCount()-1);
@@ -174,7 +173,7 @@ public class Chattingpage extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Chattingpage.this,"ERROR RETRIEVING MESSAGES, CHECK NETWORK!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Patient_Chatting_Activity.this,"ERROR RETRIEVING MESSAGES, CHECK NETWORK!",Toast.LENGTH_SHORT).show();
 
             }
         });
