@@ -104,4 +104,8 @@
     <string name="patientmessages">PATIENT\'S MESSAGES</string>
     <string name="age">AGE</string>
     <string name="county">COUNTY</string>
+    <string name="title_activity_patient_main_page">Patient_Main_Page_Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

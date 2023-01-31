@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppt">
         <activity
+            android:name=".Patient_Main_Page_Activity"
+            android:exported="false"
+            android:label="@string/title_activity_patient_main_page" />
+        <activity
             android:name=".Doctor_Chatting_Activity"
             android:exported="false" />
         <activity

@@ -12,19 +12,31 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/my_circle.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/white_background_circle.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout-v21/activity_chattingpage.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout-v23/activity_main_page.xml" value="0.21" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout-v23/recycle_viewer_item_received_message.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout-v23/recycle_viewer_item_sent_message.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_admin_main_page.xml" value="0.2" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_available_doctors.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_chattingpage.xml" value="0.22" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doctor_chatting.xml" value="0.22" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doctor_main_page_navigation.xml" value="0.33" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_final_appointment_page.xml" value="0.2" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_get_appointment_details.xml" value="0.1" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_main_page.xml" value="0.25" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_main_page_doctor.xml" value="0.15" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_messages_from_patients.xml" value="0.21" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_patient_consult_doctor.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_patient_main_page.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_patient_registration.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_patient_view_doctor_consult.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/doctors_data_layout_view.xml" value="0.46600741656365885" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/fragment_dashboard.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/fragment_home.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/fragment_notifications.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/patients_new_messages_layout_view.xml" value="0.33" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/menu/menu_navigation.xml" value="0.2" />
         <entry key="..\:/Windows.old/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_admin_doctor_approval.xml" value="0.22" />
         <entry key="..\:/Windows.old/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_admin_main_page.xml" value="0.17074275362318841" />
         <entry key="..\:/Windows.old/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_final_appointment_page.xml" value="0.17074275362318841" />
