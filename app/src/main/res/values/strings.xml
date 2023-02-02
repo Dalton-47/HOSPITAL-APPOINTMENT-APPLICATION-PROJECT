@@ -108,4 +108,12 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="empty">,</string>
+    <string name="appointment">APPOINTMENTS</string>
+    <string name="upcoming_appointment">Upcoming Appointments</string>
+    <string name="hello">HELLO, DALTON!</string>
+    <string name="consultation">CONSULTATION</string>
+    <string name="date">05, February 2023</string>
+    <string name="reports_word">REPORTS</string>
+    <string name="history">HISTORY</string>
 </resources>
