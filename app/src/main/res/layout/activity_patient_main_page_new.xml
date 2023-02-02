@@ -18,7 +18,7 @@
 
     <View
         android:id="@+id/divider28"
-        android:layout_width="150dp"
+        android:layout_width="151dp"
         android:layout_height="5dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/rounded_square_new"
