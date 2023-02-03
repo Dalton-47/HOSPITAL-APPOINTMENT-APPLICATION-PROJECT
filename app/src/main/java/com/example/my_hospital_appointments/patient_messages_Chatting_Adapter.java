@@ -97,7 +97,6 @@ private static int myCounter=0;
             holder.receivedMessageTextView.setText(desired);
         }
 
-
     }
 
 

@@ -22,9 +22,11 @@ public class Appointments {
 
     }
 
-    public Appointments(String status) {
+   public Appointments(String status) {
         this.Status = status;
     }
+
+
 
     public String getDescription() {
         return Description;
@@ -65,4 +67,6 @@ public class Appointments {
     public void setStatus(String status) {
         Status = status;
     }
+
+
 }

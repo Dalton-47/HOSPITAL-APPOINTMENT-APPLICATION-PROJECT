@@ -14,6 +14,7 @@
         android:background="@drawable/white_background_curved_tops"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
@@ -42,7 +43,7 @@
         app:layout_constraintTop_toTopOf="@+id/view39" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/button_Book_Appointments_New"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginStart="24dp"
@@ -51,21 +52,10 @@
         android:contentDescription="@string/empty"
         android:textSize="2sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="330dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="50dp"
-        android:background="#FFFFFF"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view39" />
+        app:layout_constraintTop_toBottomOf="@+id/view40" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonPatientConsultDocNew"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="16dp"
@@ -74,7 +64,7 @@
         android:text="@string/empty"
         android:textSize="2sp"
         app:layout_constraintEnd_toEndOf="@+id/view39"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/view40" />
 
     <Button
         android:id="@+id/button8"
@@ -86,7 +76,7 @@
         android:text="@string/empty"
         android:textSize="2sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/button_Book_Appointments_New" />
 
     <Button
         android:id="@+id/button10"
@@ -98,7 +88,7 @@
         android:text="@string/empty"
         android:textSize="2sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonPatientConsultDocNew" />
 
     <ImageView
         android:id="@+id/imageView33"
@@ -107,9 +97,9 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_baseline_book_online_24"
         android:elevation="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="@+id/button6" />
+        app:layout_constraintEnd_toEndOf="@+id/button_Book_Appointments_New"
+        app:layout_constraintStart_toStartOf="@+id/button_Book_Appointments_New"
+        app:layout_constraintTop_toTopOf="@+id/button_Book_Appointments_New" />
 
     <TextView
         android:id="@+id/textView73"
@@ -120,8 +110,8 @@
         android:text="@string/appointment"
         android:textColor="#1A446B"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="@+id/button6"
+        app:layout_constraintEnd_toEndOf="@+id/button_Book_Appointments_New"
+        app:layout_constraintStart_toStartOf="@+id/button_Book_Appointments_New"
         app:layout_constraintTop_toBottomOf="@+id/imageView33" />
 
     <TextView
@@ -129,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:text="@string/hello"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -155,7 +145,7 @@
         android:layout_marginTop="2dp"
         android:text="@string/how_are_you"
         android:textAlignment="viewStart"
-        android:textColor="#CABEBE"
+        android:textColor="#808080"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewPatientProfileNew"
         app:layout_constraintTop_toBottomOf="@+id/textView74" />
@@ -167,10 +157,10 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_baseline_message_24"
         android:elevation="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPatientConsultDocNew"
         app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        app:layout_constraintStart_toStartOf="@+id/buttonPatientConsultDocNew"
+        app:layout_constraintTop_toTopOf="@+id/buttonPatientConsultDocNew" />
 
     <TextView
         android:id="@+id/textView76"
@@ -181,8 +171,8 @@
         android:textColor="#1A446B"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView73"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonPatientConsultDocNew"
+        app:layout_constraintStart_toStartOf="@+id/buttonPatientConsultDocNew" />
 
     <TextView
         android:id="@+id/textView77"
@@ -247,12 +237,87 @@
 
     <ImageView
         android:id="@+id/imageView38"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_settings_24" />
+
+    <View
+        android:id="@+id/view40"
+        android:layout_width="330dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
+        android:elevation="5dp"
+        android:background="@drawable/button_white_and_blue_border_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view39" />
+
+    <ImageView
+        android:id="@+id/imageView32"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/patient_new"
+        android:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view40"
+        app:layout_constraintStart_toStartOf="@+id/view40"
+        app:layout_constraintTop_toBottomOf="@+id/textView71" />
+
+    <TextView
+        android:id="@+id/textView80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:elevation="6dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView32"
+        app:layout_constraintTop_toBottomOf="@+id/textView71" />
+
+    <TextView
+        android:id="@+id/textView81"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView32"
+        app:layout_constraintTop_toBottomOf="@+id/textView80" />
+
+    <TextView
+        android:id="@+id/textView82"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView32"
+        app:layout_constraintTop_toBottomOf="@+id/textView81" />
+
+    <TextView
+        android:id="@+id/textView83"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView32"
+        app:layout_constraintTop_toBottomOf="@+id/textView82" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

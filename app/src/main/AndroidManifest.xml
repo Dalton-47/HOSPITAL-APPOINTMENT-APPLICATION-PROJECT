@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppt">
         <activity
+            android:name=".Patient_Appointment_Booking_New"
+            android:exported="false" />
+        <activity
             android:name=".Patient_Main_Page_NEW"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
             android:name=".Patient_Chatting_Activity"
             android:exported="false" />
         <activity
-            android:name=".AvailableDoctors"
+            android:name=".Patient_Check_Doctors_to_Consult_New"
             android:exported="false" />
         <activity android:name=".Contacts" />
         <activity android:name=".MainActivity" />

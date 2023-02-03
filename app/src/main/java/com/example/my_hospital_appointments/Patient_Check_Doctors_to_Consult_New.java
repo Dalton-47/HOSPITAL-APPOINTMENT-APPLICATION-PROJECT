@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AvailableDoctors extends AppCompatActivity {
+public class Patient_Check_Doctors_to_Consult_New extends AppCompatActivity {
 
     ArrayList<Doctors> dataList=new ArrayList<>();
     DatabaseReference myDoctors= FirebaseDatabase.getInstance().getReference().child("Doctors");
@@ -27,12 +29,13 @@ public class AvailableDoctors extends AppCompatActivity {
         setContentView(R.layout.activity_available_doctors);
 
         Intent intent =getIntent();
-        String emailKey=intent.getExtras().getString("userEmailID");
+        String emailKey=intent.getExtras().getString("userID");
 
         RecyclerView myRecyclerView=(RecyclerView)  findViewById(R.id.recyclerViewDoctors);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         DoctorDataAdapter adapter=new DoctorDataAdapter(dataList,emailKey);
         myRecyclerView.setAdapter(adapter);
+
 
         //we now listen to changes to the data in the Firebase Realtime DataBase
 
@@ -56,7 +59,7 @@ public class AvailableDoctors extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(AvailableDoctors.this,"There was an error in loading Database " ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(Patient_Check_Doctors_to_Consult_New.this,"There was an error in loading Database " ,Toast.LENGTH_SHORT).show();
             }
         });
     }

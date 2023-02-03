@@ -7,10 +7,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -87,7 +85,7 @@ public class MainPage extends AppCompatActivity {
             public void onClick(View view) {
                // Intent myIntent=new Intent(MainPage.this,PatientViewDoctorConsult.class);
                // myIntent.putExtra("usersEmail",myUsersEmail);
-                Intent myIntent=new Intent(MainPage.this,AvailableDoctors.class);
+                Intent myIntent=new Intent(MainPage.this, Patient_Check_Doctors_to_Consult_New.class);
                 myIntent.putExtra("userEmailID",userID);
                 startActivity(myIntent);
             }

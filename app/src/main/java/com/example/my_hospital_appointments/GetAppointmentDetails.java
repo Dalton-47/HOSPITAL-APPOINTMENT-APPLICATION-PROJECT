@@ -96,7 +96,7 @@ public class GetAppointmentDetails extends AppCompatActivity {
 
         Intent intent =getIntent();
         Bundle extras = intent.getExtras();
-        myUsersEmail=extras.getString("usersEmail");
+        myUsersEmail=extras.getString("userID");
 
         int Counter=myUsersEmail.length();
 

@@ -116,4 +116,5 @@
     <string name="date">05, February 2023</string>
     <string name="reports_word">REPORTS</string>
     <string name="history">HISTORY</string>
+    <string name="not_yet_assigned">"Not yet assigned"</string>
 </resources>
