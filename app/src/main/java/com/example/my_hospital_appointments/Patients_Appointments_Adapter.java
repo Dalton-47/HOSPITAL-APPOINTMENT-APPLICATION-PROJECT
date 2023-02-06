@@ -12,15 +12,15 @@ import java.util.ArrayList;
 
 public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients_Appointments_Adapter.DataViewHolder>{
 
-    ArrayList<appointmentsNew> appointmentsList=new ArrayList<>();
+    ArrayList<PatientAppointmentData> appointmentsList=new ArrayList<>();
 
-   public Patients_Appointments_Adapter (ArrayList<appointmentsNew> appointmentsList)
+   public Patients_Appointments_Adapter (ArrayList<PatientAppointmentData> appointmentsList)
     {
         this.appointmentsList=appointmentsList;
     }
 
 
-    public void setData(ArrayList<appointmentsNew> appointmentsList) {
+    public void setData(ArrayList<PatientAppointmentData> appointmentsList) {
        this.appointmentsList=appointmentsList;
        notifyDataSetChanged();
     }
@@ -50,9 +50,10 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
 
-        appointmentsNew  appoints=appointmentsList.get(position);
+        PatientAppointmentData  appoints=appointmentsList.get(position);
+
         holder.appointmentDescription.setText(appoints.getDescription());
-        holder.appointmentDepartment.setText(appoints.getDepartment());
+        holder.appointmentDepartment.setText(appoints.getAge()+" Years");
         holder.appointmentDate.setText(appoints.getDate());
         holder.appointmentTime.setText(appoints.getTime());
 

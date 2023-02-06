@@ -4,18 +4,18 @@ public class PatientAppointmentData {
     String Name;
     String Email;
     String Description;
-    String Department;
+    String age;
     String Date;
     String Time;
 
     public PatientAppointmentData() {
     }
 
-    public PatientAppointmentData(String name, String email, String description, String department, String date, String time) {
+    public PatientAppointmentData(String name, String email, String description, String age, String date, String time) {
         Name = name;
         Email = email;
         Description = description;
-        Department = department;
+        this.age = age;
         Date = date;
         Time = time;
     }
@@ -44,12 +44,12 @@ public class PatientAppointmentData {
         Description = description;
     }
 
-    public String getDepartment() {
-        return Department;
+    public String getAge() {
+        return age;
     }
 
-    public void setDepartment(String department) {
-        Department = department;
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getDate() {

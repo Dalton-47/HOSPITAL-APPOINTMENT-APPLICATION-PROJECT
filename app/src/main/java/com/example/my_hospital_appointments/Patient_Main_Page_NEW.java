@@ -1,5 +1,6 @@
 package com.example.my_hospital_appointments;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,14 +8,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 public class Patient_Main_Page_NEW extends AppCompatActivity {
    ImageView userProfile;
     String userID="";
+    DatabaseReference myReference,patientRefAppointment;
+    String firstname;
+    TextView welcomeUser,descriptionTextView,dateTextView,timeTextView,ageTextView;
+    String description,date,time,age;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +35,9 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
         Intent intent =getIntent();
         String myUsersEmail=intent.getExtras().getString("usersEmail");
          Toast.makeText(this,"Your Email is "+myUsersEmail ,Toast.LENGTH_SHORT).show();
+
+         welcomeUser =(TextView)  this.findViewById(R.id.textViewPatientMainPageWelcome);
+
 
         int Counter=myUsersEmail.length();
 
@@ -39,6 +54,9 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
             }
         }
 
+        myReference =FirebaseDatabase.getInstance().getReference("Patients").child(userID);
+        patientRefAppointment =FirebaseDatabase.getInstance().getReference("PatientAppointments").child(userID);
+
         userProfile =(ImageView)  findViewById(R.id.imageViewPatientProfileNew);
 
         Picasso.get()
@@ -46,13 +64,26 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                 .transform(new RoundedTransformation() )
                 .into(userProfile);
 
+        descriptionTextView=(TextView) this.findViewById(R.id.textViewPatientDescriptionMainset);
+        dateTextView =(TextView)  this.findViewById(R.id.textViewPatientDateset);
+        timeTextView =(TextView)  this.findViewById(R.id.textViewPatientTimeset);
+        ageTextView =(TextView)  this.findViewById(R.id.textViewPatientAgeset);
+
+
+
+        readUserName(); //set userName to the main page for personalization
+        readAppointment();//set upcoming appointment to users screen
+
        Button bookAppointments=(Button) this.findViewById(R.id.button_Book_Appointments_New);
 
         bookAppointments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent=new Intent(Patient_Main_Page_NEW.this,Patient_Appointment_Booking_New.class);
-                myIntent.putExtra("userID",userID);
+               Bundle bundle = new Bundle();
+               bundle.putString("firstname",firstname);
+               bundle.putString("userID",userID);
+                myIntent.putExtras(bundle);
                 startActivity(myIntent);
             }
         });
@@ -68,5 +99,49 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
         });
 
 
+    }
+
+    void readUserName()
+    {
+        myReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful())
+                {
+                    DataSnapshot thisDataSnapshot=task.getResult();
+                     firstname=String.valueOf(thisDataSnapshot.child("firstName").getValue());
+                   // Toast.makeText(Patient_Main_Page_NEW.this," FIRSTNAME "+firstname ,Toast.LENGTH_SHORT).show();
+                    welcomeUser.setText("Hello "+firstname+"!");
+                }
+                else
+                {
+                    welcomeUser.setText("Hello User Check Network!");
+                }
+
+            }
+        });
+    }
+
+    void readAppointment()
+    {
+        patientRefAppointment.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful())
+                {
+
+                    DataSnapshot thisDataSnapshot=task.getResult();
+                     description=String.valueOf(thisDataSnapshot.child("description").getValue());
+                     date=String.valueOf(thisDataSnapshot.child("age").getValue());
+                     time=String.valueOf(thisDataSnapshot.child("time").getValue());
+                     age=String.valueOf(thisDataSnapshot.child("age").getValue());
+
+                     descriptionTextView.setText(description);
+                     dateTextView.setText("Date : "+date);
+                     timeTextView.setText("Time : "+time);
+                     ageTextView.setText("Age  : "+age);
+                }
+            }
+        });
     }
 }

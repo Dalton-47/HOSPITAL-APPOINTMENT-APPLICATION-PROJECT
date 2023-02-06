@@ -9,24 +9,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
+import java.util.Objects;
 
 
 public class Patient_Appointment_Booking_New extends AppCompatActivity {
    RecyclerView myRecyclerView;
    DatabaseReference userRef,assignedDoc;
     String myUserID;
-   private ArrayList<appointmentsNew> appointmentsList=new ArrayList<>();
+   private ArrayList<PatientAppointmentData> appointmentsList=new ArrayList<>();
     Patients_Appointments_Adapter myAdapter;
+    String firstname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +37,17 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
         setContentView(R.layout.activity_patient_appointment_booking_new);
 
         Intent intent =getIntent();
-         myUserID=intent.getExtras().getString("userID");
+         myUserID=getIntent().getStringExtra("userID");
+          firstname=getIntent().getStringExtra("firstname");
+
         Toast.makeText(this,"Your ID is "+myUserID ,Toast.LENGTH_SHORT).show();
 
 
-        userRef= FirebaseDatabase.getInstance().getReference("Appointments").child(myUserID);
+        userRef= FirebaseDatabase.getInstance().getReference("PatientAppointments");
         assignedDoc=FirebaseDatabase.getInstance().getReference("AssignedDoctor").child(myUserID);
+
+        TextView textViewUserName_new=(TextView)  this.findViewById(R.id.textViewUserName_new);
+        textViewUserName_new.setText(firstname+" Appointments");
 
 
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
@@ -60,7 +68,7 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
         });
 
 
-        // getAppointmentDetails();
+         getAppointmentDetails();
 
 
 
@@ -68,13 +76,22 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
 
     void getAppointmentDetails()
     {
-        userRef.addValueEventListener(new ValueEventListener() {
+
+        Query query = userRef.orderByChild("email");
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot childSnapShot: snapshot.getChildren())
+
+                for(DataSnapshot childSnapShot:snapshot.getChildren())
                 {
-                    appointmentsNew app= childSnapShot.getValue(appointmentsNew.class);
-                    appointmentsList.add(app);
+                    PatientAppointmentData app= childSnapShot.getValue(PatientAppointmentData.class);
+                    assert app != null;
+                    if(Objects.equals(app.getEmail(), myUserID))
+                    {
+                        appointmentsList.add(app);
+                        break;
+                    }
+
                 }
 
                 myAdapter.setData(appointmentsList);
@@ -83,8 +100,12 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(Patient_Appointment_Booking_New.this, "Error Loading Data", Toast.LENGTH_SHORT).show();
+
             }
         });
+
+
+
     }
 
 }

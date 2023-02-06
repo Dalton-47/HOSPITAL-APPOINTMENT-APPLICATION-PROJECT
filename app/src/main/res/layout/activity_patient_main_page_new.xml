@@ -115,12 +115,11 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView33" />
 
     <TextView
-        android:id="@+id/textView74"
+        android:id="@+id/textViewPatientMainPageWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
-        android:text="@string/hello"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -148,7 +147,7 @@
         android:textColor="#808080"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewPatientProfileNew"
-        app:layout_constraintTop_toBottomOf="@+id/textView74" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPatientMainPageWelcome" />
 
     <ImageView
         android:id="@+id/imageView35"
@@ -268,13 +267,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView71" />
 
     <TextView
-        android:id="@+id/textView80"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewPatientDescriptionMainset"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="10dp"
         android:elevation="6dp"
-        android:text="TextView"
+        android:hint="@string/description"
         android:textColor="#1A446B"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -282,42 +281,42 @@
         app:layout_constraintTop_toBottomOf="@+id/textView71" />
 
     <TextView
-        android:id="@+id/textView81"
+        android:id="@+id/textViewPatientDateset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:elevation="6dp"
-        android:text="TextView"
+        android:hint="@string/date_available"
         android:textColor="#1A446B"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView80" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPatientDescriptionMainset" />
 
     <TextView
-        android:id="@+id/textView82"
+        android:id="@+id/textViewPatientTimeset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:elevation="6dp"
-        android:text="TextView"
+        android:hint="@string/time_availability"
         android:textColor="#1A446B"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView81" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPatientDateset" />
 
     <TextView
-        android:id="@+id/textView83"
+        android:id="@+id/textViewPatientAgeset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:elevation="6dp"
-        android:text="TextView"
+        android:hint="@string/age"
         android:textColor="#1A446B"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView82" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPatientTimeset" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,4 +52,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view41" />
+
+    <TextView
+        android:id="@+id/textViewUserName_new"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:paddingTop="7dp"
+        android:textAlignment="center"
+        android:textColor="#1A446B"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view41" />
 </androidx.constraintlayout.widget.ConstraintLayout>

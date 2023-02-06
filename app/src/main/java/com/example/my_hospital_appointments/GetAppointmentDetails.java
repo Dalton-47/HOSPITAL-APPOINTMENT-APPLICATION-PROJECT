@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +12,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,28 +26,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 public class GetAppointmentDetails extends AppCompatActivity {
 
-    public String[] specialty={
-            "Select One",
-            "Cardiology",
-            "Radiology",
-            "Neurology",
-            "Ophthalmology",
-            "Haematology",
-            "Anesthesiology",
-            "Psychiatry",
-            "Oncology",
-            "Dermatology",
-            "Emergency Medicine",
-            "Pathology",
-            "Pharmacy",
-            "Orthopedics",
-            "Rheumatology",
-            "Surgery",
-            "Physiotherapy",
-            "Microbiology"
-    };
 
     public String[] myTime={
             "Select One",
@@ -57,20 +42,15 @@ public class GetAppointmentDetails extends AppCompatActivity {
             "5-7 PM"
     };
 
-    public String firstSpinnerText="";
+    //public String firstSpinnerText="";
     public String secondSpinnerText="";
 
-    public Spinner spinDepartment;
+   // public Spinner spinDepartment;
     public  Spinner spinTime;
 
-    private Button setDate,doneAppointments,saveCalendar;
+    private Button doneAppointments;
 
-
-    private CalendarView myCal;
-    private String myYear,myMonth,myDayOfMonth;
     private String descriptionText;
-
-    private RelativeLayout myCalendarLayout;
 
     private EditText myDescription;
 
@@ -87,6 +67,10 @@ public class GetAppointmentDetails extends AppCompatActivity {
     public String emailSecondAppt="secondappointment";
     public String emailThirdAppt="thirdappointment";
     public String userID="";
+    TextView textViewCalendar_new;
+
+    private DatePickerDialog picker;
+    EditText editTextPatientAge;
 
 
     @Override
@@ -112,6 +96,7 @@ public class GetAppointmentDetails extends AppCompatActivity {
                 userID=userID+myUsersEmail.charAt(a);
             }
         }
+        Toast.makeText(this, "USER ID :"+userID, Toast.LENGTH_SHORT).show();
 
         for(int a=0; a<Counter; a++)
         {
@@ -153,35 +138,9 @@ public class GetAppointmentDetails extends AppCompatActivity {
         myDescription=(EditText)  findViewById(R.id.editTextTextMyDescription);
         //myDescription.requestFocus();
 
-        spinDepartment=(Spinner) findViewById(R.id.spinnerDepartmentBooking);
+
         spinTime=(Spinner) findViewById(R.id.spinnerTimeBooking);
 
-        ArrayAdapter adapter1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item,specialty);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinDepartment.setAdapter(adapter1);
-        spinDepartment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                String myText=spinDepartment.getSelectedItem().toString().trim();
-                if (myText=="Select One".trim())
-                {
-                    //Nothing
-                }
-                else
-                {
-                    Toast.makeText(GetAppointmentDetails.this,"You have Selected "+myText,Toast.LENGTH_SHORT).show();
-                    firstSpinnerText=myText;
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
         ArrayAdapter adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item,myTime);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -210,95 +169,78 @@ public class GetAppointmentDetails extends AppCompatActivity {
             }
         });
 
-         setDate=(Button) findViewById(R.id.buttonSetDate);
-         doneAppointments=(Button) findViewById(R.id.buttonDoneSaveAppointment2);
-         myCal=(CalendarView)  findViewById(R.id.calendarViewappointments);
-         myCalendarLayout=(RelativeLayout)  findViewById(R.id.relativeLayoutCalendarAppointments);
-        setDate.setOnClickListener(new View.OnClickListener() {
+
+
+        editTextPatientAge=(EditText) this.findViewById(R.id.editTextPatientAge_new);
+
+
+       textViewCalendar_new=(TextView)  this.findViewById(R.id.textViewAppointmentDate_New);
+        textViewCalendar_new.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setDate.setVisibility(View.GONE);
-                doneAppointments.setVisibility(View.GONE);
-                myCalendarLayout.setVisibility(View.VISIBLE);
+                final Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
 
+                // Date picker dialog
+                picker = new DatePickerDialog(GetAppointmentDetails.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                        textViewCalendar_new.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                    }
+                },year, month, day);
+                picker.show();
             }
         });
 
-        myCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
-                myYear=String.valueOf(year);
-                myMonth=String.valueOf(month+1);
-                myDayOfMonth=String.valueOf(dayOfMonth);
-            }
-        });
-
-
-        saveCalendar=(Button) findViewById(R.id.buttonDoneCalendar);
-        saveCalendar.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
+        doneAppointments =(Button)  this.findViewById(R.id.buttonDoneSaveAppointment2);
+        doneAppointments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myCalendarLayout.setVisibility(View.GONE);
-                setDate.setText("DATE : "+myDayOfMonth+"/"+myMonth+"/"+myYear);
-                setDate.setVisibility(View.VISIBLE );
-                doneAppointments.setVisibility(View.VISIBLE );
+                addAppointment();
+                // doneAppointments.setVisibility(View.INVISIBLE);
+
 
             }
         });
-
-
-
-       doneAppointments.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               addAppointment();
-              // doneAppointments.setVisibility(View.INVISIBLE);
-
-
-           }
-       });
-
-       Button backAppointments=(Button) findViewById(R.id.btnBackAppointmentsSet);
-       backAppointments.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent myIntent = new Intent(GetAppointmentDetails.this,AppointmentBooking.class);
-               startActivity(myIntent);
-           }
-       });
 
     }
 
     private void addAppointment()
     {
+
+        String newDate= textViewCalendar_new.getText().toString().trim();
+        String patientAge=editTextPatientAge.getText().toString().trim();
         descriptionText=myDescription.getText().toString().trim();
         if(descriptionText.isEmpty())
         {
            myDescription.setError("Cannot Be Blank");
            myDescription.requestFocus();
         }
-        else if(firstSpinnerText.isEmpty())
+        else if(patientAge.isEmpty())
         {
-            Toast.makeText(GetAppointmentDetails.this,"PLEASE SELECT YOUR SPECIALTY ABOVE",Toast.LENGTH_SHORT).show();
-             spinDepartment.requestFocus();
+            Toast.makeText(GetAppointmentDetails.this,"PLEASE ENTER PATIENT'S AGE",Toast.LENGTH_SHORT).show();
+             editTextPatientAge.requestFocus();
         }
+
         else if(secondSpinnerText.isEmpty())
         {
             Toast.makeText(GetAppointmentDetails .this,"PLEASE INPUT TIME THAT YOU WILL BE AVAILABLE",Toast.LENGTH_SHORT).show();
             spinTime.requestFocus();
         }
-        else if(myYear.isEmpty())
+        else if(newDate.isEmpty())
         {
+            textViewCalendar_new.setError("Cannot be blank");
             Toast.makeText(GetAppointmentDetails .this,"PLEASE SELECT A DATE",Toast.LENGTH_LONG).show();
 
         }
         else
         {
-           if(textDescription1.isEmpty())
-           {
 
-               String myTime="DATE : "+myDayOfMonth+"/"+myMonth+"/"+myYear;
+
+               //String myTime="DATE : "+myDayOfMonth+"/"+myMonth+"/"+myYear;
                //String id=databaseAppointments.push().getKey(); //unique path that identifies the location of the data
                //String description, String department, String date, String time
 
@@ -307,15 +249,16 @@ public class GetAppointmentDetails extends AppCompatActivity {
                    public void onComplete(@NonNull Task<DataSnapshot> task) {
                        if(task.isSuccessful())
                        {
+                           //change firstSpinnerText to age
 
                                DataSnapshot thisDataSnapshot=task.getResult();
                                String Name=String.valueOf(thisDataSnapshot.child("secondName").getValue());
 
-                               PatientAppointmentData myPatientsData=new PatientAppointmentData(Name,myUsersEmail,descriptionText,firstSpinnerText,myTime,secondSpinnerText);
+                               PatientAppointmentData myPatientsData=new PatientAppointmentData(Name,myUsersEmail,descriptionText,patientAge,newDate,secondSpinnerText);
                                patientAppointments.child(userID).setValue(myPatientsData);
 
                                String data="PENDING...";
-                               Appointments myAppointments=new Appointments(descriptionText,firstSpinnerText,myTime,secondSpinnerText);
+                               Appointments myAppointments=new Appointments(descriptionText,patientAge,newDate,secondSpinnerText);
 
                                emailFirstAppt =emailFirstAppt.trim();
                                databaseAppointments.child(emailFirstAppt).setValue(myAppointments);
@@ -337,7 +280,7 @@ public class GetAppointmentDetails extends AppCompatActivity {
 
 
 
-           }
+
            /*
            else if(textDescription2.isEmpty())
            {
