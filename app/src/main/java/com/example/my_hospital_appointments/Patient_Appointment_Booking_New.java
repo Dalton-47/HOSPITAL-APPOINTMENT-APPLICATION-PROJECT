@@ -77,8 +77,7 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
     void getAppointmentDetails()
     {
 
-        Query query = userRef.orderByChild("email");
-        query.addValueEventListener(new ValueEventListener() {
+       userRef.orderByChild("email").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

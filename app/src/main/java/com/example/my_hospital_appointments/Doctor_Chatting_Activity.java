@@ -140,8 +140,7 @@ public class Doctor_Chatting_Activity extends AppCompatActivity {
     {
         //create a query to get the messages from database
         messages_from_user.clear();
-        Query query= doctorMessagesRef.orderByChild("timestamp");
-        query.addValueEventListener(new ValueEventListener() {
+       doctorMessagesRef.orderByChild("timestamp").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

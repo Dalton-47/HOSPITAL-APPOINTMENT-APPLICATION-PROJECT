@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -42,12 +45,20 @@ public class Patient_Chatting_Activity extends AppCompatActivity {
     String userEmailKey;
     LinearLayoutManager layoutManager;
     RecyclerView myRecycleViewer;
+    TextView doctorNameTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.patient_chatting_activity);
 
+        ImageView myUserProfile=(ImageView)  this.findViewById(R.id.imageViewPatientChattingPage_icon);
+        Picasso.get()
+                .load(R.drawable.blackfemaledoctor)
+                .transform(new RoundedTransformation() )
+                .into(myUserProfile);
+        doctorNameTextView =(TextView)  this.findViewById(R.id.textViewDoctorNamePatientChatting_new);
 
         //getting the data passed from previous activity
          userEmailKey=getIntent().getStringExtra("emailKey");
@@ -58,12 +69,11 @@ public class Patient_Chatting_Activity extends AppCompatActivity {
         FirebaseUser currentUser=myAuth.getCurrentUser();
         String userId= currentUser.getUid();
 
+        doctorNameTextView.setText("Dr."+doctorName);
+
         DatabaseReference myDoctors= FirebaseDatabase.getInstance().getReference(userId);
          userMessages=FirebaseDatabase.getInstance().getReference("PATIENTMESSAGES").child(userEmailKey).child(doctorName);
         //now we generate unique ID's to store messages from the sender
-
-
-        //
 
          myRecycleViewer = findViewById(R.id.recyclerViewChat);
 

@@ -89,11 +89,11 @@ private static int myCounter=0;
 
         if (getItemViewType(position) == SENT_MESSAGE_TYPE) {
             String original=message.get(position);
-            String desired = original.substring(original.indexOf(":")+2);
+            String desired = original.substring(original.indexOf(":")+1);
             holder.sentMessageTextView.setText(desired);
         } else {
             String original=message.get(position);
-            String desired = original.substring(original.indexOf(":")+2);
+            String desired = original.substring(original.indexOf(":")+1);
             holder.receivedMessageTextView.setText(desired);
         }
 

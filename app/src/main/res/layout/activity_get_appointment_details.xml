@@ -10,23 +10,34 @@
     <View
         android:id="@+id/view43"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="520dp"
+        android:layout_marginTop="60dp"
         android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view44"
+        android:layout_width="340dp"
+        android:layout_height="287dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_white_and_blue_border_background"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDoneSaveAppointment2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:fontFamily="serif-monospace"
+        android:layout_marginTop="56dp"
         android:text="@string/descriptiontext"
         android:textAlignment="center"
-        android:textColor="#1A446B"
+        android:textColor="#BC000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,20 +45,19 @@
 
     <EditText
         android:id="@+id/editTextTextMyDescription"
-        android:layout_width="0dp"
+        android:layout_width="220dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="2dp"
         android:background="#ffffff"
         android:ellipsize="end"
         android:hint="@string/symptomshint"
         android:inputType="textPersonName"
         android:maxLines="3"
         android:textColor="#1A446B"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        app:layout_constraintStart_toEndOf="@+id/textView15" />
 
     <TextView
         android:id="@+id/textView25"
@@ -55,9 +65,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
-        android:fontFamily="serif-monospace"
         android:text="@string/timeavailableCAPS"
-        android:textColor="#1A446B"
+        android:textColor="#BC000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,16 +74,16 @@
 
     <TextView
         android:id="@+id/textView26"
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/button_white_and_blue_border_background"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/whiterectangle"
         android:fontFamily="serif-monospace"
         android:paddingTop="4dp"
         android:text="@string/details"
         android:textAlignment="center"
         android:textColor="#1A446B"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +94,7 @@
         android:layout_width="210dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="70dp"
         android:contentDescription="@string/time_availability"
         android:popupBackground="@drawable/spinnerbackground"
         android:textAlignment="center"
@@ -96,7 +105,7 @@
         android:id="@+id/buttonDoneSaveAppointment2"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/navy"
         android:fontFamily="monospace"
         android:text="@string/textokay"
@@ -105,7 +114,6 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPatientAge_new" />
 
@@ -115,9 +123,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
-        android:fontFamily="serif-monospace"
         android:text="@string/date_available"
-        android:textColor="#1A446B"
+        android:textColor="#BC000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +135,7 @@
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="80dp"
         android:drawableEnd="@drawable/ic_baseline_date_range_24"
         android:drawablePadding="7dp"
         android:elevation="5dp"
@@ -149,9 +156,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
-        android:fontFamily="serif-monospace"
         android:text="@string/patients_age"
-        android:textColor="#1A446B"
+        android:textColor="#BC000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -162,13 +168,31 @@
         android:layout_width="180dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="22dp"
         android:background="#ffffff"
         android:ems="10"
         android:hint="@string/enter_age"
         android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView87"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView87"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDate_New" />
+        app:layout_constraintStart_toEndOf="@+id/textView87" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        android:background="#1E1D1D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <View
+        android:id="@+id/view45"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

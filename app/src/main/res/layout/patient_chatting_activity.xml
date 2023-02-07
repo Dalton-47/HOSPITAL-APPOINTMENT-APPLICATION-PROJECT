@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D7E3F2FD"
     tools:context=".Patient_Chatting_Activity">
 
     <View
         android:id="@+id/view35"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
-        android:background="@drawable/top_ight_curved_edges"
+        android:background="@drawable/navy_blue_curved_top"
         android:elevation="10dp"
         android:rotationX="-180"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,26 +59,29 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/imageViewPatientChattingPage_icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:elevation="11dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/blackfemaledoctor"
+        android:elevation="11dp"
         app:layout_constraintEnd_toEndOf="@+id/view35"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view35" />
+        app:layout_constraintTop_toTopOf="@+id/view35"
+        app:srcCompat="@android:drawable/stat_notify_error" />
 
     <TextView
-        android:id="@+id/textView67"
+        android:id="@+id/textViewDoctorNamePatientChatting_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/Doctor"
         android:elevation="10dp"
+        android:hint="@string/network_issue"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
+        android:textColorHint="#B1AFAF"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPatientChattingPage_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>

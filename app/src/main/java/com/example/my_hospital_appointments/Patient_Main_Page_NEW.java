@@ -132,7 +132,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
 
                     DataSnapshot thisDataSnapshot=task.getResult();
                      description=String.valueOf(thisDataSnapshot.child("description").getValue());
-                     date=String.valueOf(thisDataSnapshot.child("age").getValue());
+                     date=String.valueOf(thisDataSnapshot.child("date").getValue());
                      time=String.valueOf(thisDataSnapshot.child("time").getValue());
                      age=String.valueOf(thisDataSnapshot.child("age").getValue());
 

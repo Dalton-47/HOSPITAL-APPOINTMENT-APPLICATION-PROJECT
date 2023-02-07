@@ -15,7 +15,7 @@
                     android:bottom="1px"
                     android:left="1px"
                     android:right="1px" />
-                <solid android:color="#01000000" />
+                <solid android:color="#ffffff" />
             </shape>
         </rotate>
     </item>
@@ -26,7 +26,7 @@
                 android:bottom="1px"
                 android:left="1px"
                 android:right="1px" />
-            <solid android:color="#01000000" />
+            <solid android:color="#ffffff" />
         </shape>
     </item>
 
@@ -41,7 +41,7 @@
             <shape android:shape="rectangle">
                 <corners android:radius="4dp" />
                 <padding android:bottom="1px" />
-                <solid android:color="#09000000" />
+                <solid android:color="#ffffff" />
             </shape>
         </rotate>
     </item>
@@ -49,7 +49,7 @@
         <shape android:shape="rectangle">
             <corners android:radius="4dp" />
             <padding android:bottom="1px" />
-            <solid android:color="#09000000" />
+            <solid android:color="#ffffff" />
         </shape>
     </item>
 
@@ -67,7 +67,7 @@
                     android:bottom="1px"
                     android:left="1px"
                     android:right="1px" />
-                <solid android:color="#10000000" />
+                <solid android:color="#ffffff" />
             </shape>
         </rotate>
     </item>
@@ -78,7 +78,7 @@
                 android:bottom="1px"
                 android:left="1px"
                 android:right="1px" />
-            <solid android:color="#10000000" />
+            <solid android:color="#ffffff" />
         </shape>
     </item>
 
@@ -95,19 +95,19 @@
             android:toDegrees="0">
             <shape android:shape="rectangle">
                 <solid android:color="#CBEBFC" />
-                <gradient android:startColor="#FFF06292"
+                <gradient android:startColor="#245F96"
                     android:angle="180"
-                    android:endColor="@color/purple_200"/>
+                    android:endColor="#245F96"/>
             </shape>
         </rotate>
     </item>
     <item android:right="10dp">
         <shape android:shape="rectangle">
-            <solid android:color="#CBEBFC" />
+            <solid android:color="#245F96" />
             <corners android:radius="4dp" />
-            <gradient android:startColor="#FFF06292"
+            <gradient android:startColor="#245F96"
                 android:angle="180"
-                android:endColor="@color/purple_200"/>
+                android:endColor="#245F96"/>
         </shape>
     </item>
 

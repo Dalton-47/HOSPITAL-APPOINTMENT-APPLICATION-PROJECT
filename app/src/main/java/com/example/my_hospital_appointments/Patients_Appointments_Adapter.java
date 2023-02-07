@@ -53,7 +53,7 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
         PatientAppointmentData  appoints=appointmentsList.get(position);
 
         holder.appointmentDescription.setText(appoints.getDescription());
-        holder.appointmentDepartment.setText(appoints.getAge()+" Years");
+        holder.appointmentDepartment.setText(appoints.getAge()+" Years"); //where age should be
         holder.appointmentDate.setText(appoints.getDate());
         holder.appointmentTime.setText(appoints.getTime());
 

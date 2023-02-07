@@ -40,10 +40,10 @@
     <string name="appointments_history">APPOINTMENTS HISTORY</string>
     <string name="contact_us">CONTACT US</string>
     <string name="view_lab_reports">VIEW LAB REPORTS</string>
-    <string name="descriptiontext">DESCRIPTION</string>
+    <string name="descriptiontext">Description</string>
     <string name="departmentCAPS">DEPARTMENT</string>
     <string name="dateCAPS">DATE</string>
-    <string name="timeavailableCAPS">TIME AVAILABLE</string>
+    <string name="timeavailableCAPS">Time Available</string>
     <string name="details">FILL IN YOUR DETAILS</string>
     <string name="symptomshint">Describe your symptoms</string>
     <string name="newAppointment">NEW APPOINTMENT</string>
@@ -58,7 +58,7 @@
     <string name="managepatients">MANAGE PATIENTS</string>
     <string name="doctorassigned">DOCTOR ASSIGNED</string>
     <string name="name">NAME</string>
-    <string name="pending">PENDING...</string>
+    <string name="pending">Pending......</string>
     <string name="selectanappointment">SELECT AN APPOINTMENT TO  VIEW DETAILS</string>
     <string name="view">VIEW</string>
     <string name="assign">ASSIGN DOCTOR</string>
@@ -118,9 +118,10 @@
     <string name="history">HISTORY</string>
     <string name="not_yet_assigned">"Not yet assigned"</string>
     <string name="time">TIME</string>
-    <string name="date_available">DATE AVAILABLE</string>
-    <string name="patients_age">PATIENT\'S AGE</string>
+    <string name="date_available">Date Available</string>
+    <string name="patients_age">Patient\'s Age</string>
     <string name="enter_age">Enter age here</string>
     <string name="select_date_new">Select Date</string>
     <string name="description">Appointment description</string>
+    <string name="network_issue">CHECK YOUR NETWORK CONNECTION!</string>
 </resources>

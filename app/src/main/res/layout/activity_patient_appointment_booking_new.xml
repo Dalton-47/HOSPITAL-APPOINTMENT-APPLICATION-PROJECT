@@ -18,7 +18,7 @@
 
     <Button
         android:id="@+id/button_Add_New_Appointment_New"
-        android:layout_width="330dp"
+        android:layout_width="340dp"
         android:layout_height="70dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/navy"

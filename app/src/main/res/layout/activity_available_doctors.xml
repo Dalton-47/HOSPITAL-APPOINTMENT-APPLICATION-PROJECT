@@ -9,8 +9,8 @@
     <View
         android:id="@+id/view32"
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:background="@drawable/top_ight_curved_edges"
+        android:layout_height="60dp"
+        android:background="#1A446B"
         android:rotationX="-180"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +18,9 @@
 
     <View
         android:id="@+id/view34"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:background="@drawable/ic_wpwwave"
-        android:rotationX="180"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/navy_blue_curved_top"
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,11 +39,11 @@
         android:id="@+id/textView66"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="@string/consult_a_doctor"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/view32"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
