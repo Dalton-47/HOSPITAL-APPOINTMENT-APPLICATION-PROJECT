@@ -67,7 +67,6 @@
                 android:layout_width="200dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="16dp"
-                android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView21"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -77,7 +76,6 @@
                 android:layout_width="200dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="4dp"
-                android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.482"
                 app:layout_constraintStart_toEndOf="@+id/imageView21"
@@ -88,7 +86,6 @@
                 android:layout_width="200dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="4dp"
-                android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.482"
                 app:layout_constraintStart_toEndOf="@+id/imageView21"
@@ -99,7 +96,6 @@
                 android:layout_width="200dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="4dp"
-                android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView21"
                 app:layout_constraintTop_toBottomOf="@+id/textViewDoctorConsultPhone3" />
