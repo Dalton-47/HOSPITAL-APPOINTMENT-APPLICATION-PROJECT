@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +30,7 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
    DatabaseReference userRef,assignedDoc;
     String myUserID;
    private ArrayList<PatientAppointmentData> appointmentsList=new ArrayList<>();
+   private ArrayList<myDoctor> assignedDoctorList=new ArrayList<>();
     Patients_Appointments_Adapter myAdapter;
     String firstname;
 
@@ -69,7 +72,7 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
 
 
          getAppointmentDetails();
-
+         getAssignedDoctor();
 
 
     }
@@ -105,6 +108,29 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
 
 
 
+    }
+
+    void getAssignedDoctor()
+    {
+        assignedDoc.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+              @Override
+              public void onComplete(@NonNull Task<DataSnapshot> task) {
+                  if(task.isSuccessful())
+                  {
+                    DataSnapshot childSnapshot=task.getResult();
+                    myDoctor doc=childSnapshot.getValue(myDoctor.class);
+                      assert doc != null;
+                      assignedDoctorList.add(doc);
+                    //  myAdapter.setDoc(doc.getName(),doc.getEmail(),doc.getPhoneNumber());
+                  }
+                  else
+                  {
+                      assignedDoctorList=null;
+                  }
+
+                  myAdapter.setDoc(assignedDoctorList);
+              }
+          });
     }
 
 }

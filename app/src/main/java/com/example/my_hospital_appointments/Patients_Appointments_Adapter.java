@@ -13,6 +13,8 @@ import java.util.ArrayList;
 public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients_Appointments_Adapter.DataViewHolder>{
 
     ArrayList<PatientAppointmentData> appointmentsList=new ArrayList<>();
+    private ArrayList<myDoctor> assignedDoctorList=new ArrayList<>();
+    String name,email,phoneNumber;
 
    public Patients_Appointments_Adapter (ArrayList<PatientAppointmentData> appointmentsList)
     {
@@ -25,15 +27,24 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
        notifyDataSetChanged();
     }
 
+    public void setDoc(ArrayList <myDoctor> addDoc) {
+       this.assignedDoctorList =addDoc;
+       notifyDataSetChanged();
+    }
+
 
     public static class DataViewHolder extends RecyclerView.ViewHolder {
-         TextView appointmentDescription,appointmentDepartment,appointmentTime,appointmentDate;
+         TextView appointmentDescription,appointmentDepartment,appointmentTime,appointmentDate,docName,docPhone,docEmail;
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
             appointmentDescription = (TextView)  itemView.findViewById(R.id.textViewAppointmentDescriptionNew);
             appointmentDepartment = (TextView)  itemView.findViewById(R.id.textViewAppointmentDepartmentNew);
             appointmentDate = (TextView)  itemView.findViewById(R.id.textViewAppointmentDateNew);
             appointmentTime = (TextView)  itemView.findViewById(R.id.textViewAppointmentTimeNew);
+
+            docName  = (TextView)  itemView.findViewById(R.id.textViewDocName_APP);
+            docPhone = (TextView)  itemView.findViewById(R.id.textViewDocPhone_APP);
+            docEmail = (TextView)  itemView.findViewById(R.id.textViewDocEmail_APP);
 
         }
     }
@@ -56,6 +67,11 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
         holder.appointmentDepartment.setText(appoints.getAge()+" Years"); //where age should be
         holder.appointmentDate.setText(appoints.getDate());
         holder.appointmentTime.setText(appoints.getTime());
+
+     myDoctor newDoctor= assignedDoctorList.get(position);
+        holder.docName.setText(newDoctor.getName());
+        holder.docPhone.setText(newDoctor.PhoneNumber);
+        holder.docEmail.setText(newDoctor.getEmail());
 
     }
 
