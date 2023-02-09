@@ -14,6 +14,7 @@
             android:id="@+id/view42"
             android:layout_width="match_parent"
             android:layout_height="450dp"
+            android:background="@drawable/pop_up_appointments_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -146,7 +147,7 @@
             android:paddingTop="12dp"
             android:textAlignment="textStart"
             android:textColor="#BC000000"
-            android:textSize="17sp"
+            android:textSize="19sp"
             app:layout_constraintStart_toStartOf="@+id/view42"
             app:layout_constraintTop_toBottomOf="@+id/textView88" />
 
@@ -161,7 +162,7 @@
             android:paddingTop="12dp"
             android:textAlignment="textStart"
             android:textColor="#BC000000"
-            android:textSize="17sp"
+            android:textSize="19sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewDocName_APP" />
 
@@ -176,7 +177,7 @@
             android:paddingTop="12dp"
             android:textAlignment="textStart"
             android:textColor="#BC000000"
-            android:textSize="17sp"
+            android:textSize="19sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewDocPhone_APP" />
 
@@ -206,5 +207,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view42" />
+
+        <View
+            android:id="@+id/divider35"
+            android:layout_width="200dp"
+            android:layout_height="4dp"
+            android:layout_marginStart="104dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDocEmail_APP" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

@@ -249,8 +249,9 @@
         android:layout_width="330dp"
         android:layout_height="150dp"
         android:layout_marginTop="50dp"
-        android:elevation="5dp"
         android:background="@drawable/button_white_and_blue_border_background"
+        android:elevation="5dp"
+        android:foreground="#E3F2FD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view39" />

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients_Appointments_Adapter.DataViewHolder>{
 
     ArrayList<PatientAppointmentData> appointmentsList=new ArrayList<>();
-    private ArrayList<myDoctor> assignedDoctorList=new ArrayList<>();
+     ArrayList<myDoctor> assignedDoctorList=new ArrayList<>();
     String name,email,phoneNumber;
 
    public Patients_Appointments_Adapter (ArrayList<PatientAppointmentData> appointmentsList)
@@ -29,6 +29,13 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
 
     public void setDoc(ArrayList <myDoctor> addDoc) {
        this.assignedDoctorList =addDoc;
+       notifyDataSetChanged();
+    }
+
+    public void setDoc(String name, String email, String phoneNumber) {
+       this.name =name;
+       this.email=email;
+       this.phoneNumber =phoneNumber;
        notifyDataSetChanged();
     }
 
@@ -68,10 +75,10 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
         holder.appointmentDate.setText(appoints.getDate());
         holder.appointmentTime.setText(appoints.getTime());
 
-     myDoctor newDoctor= assignedDoctorList.get(position);
-        holder.docName.setText(newDoctor.getName());
-        holder.docPhone.setText(newDoctor.PhoneNumber);
-        holder.docEmail.setText(newDoctor.getEmail());
+    // myDoctor newDoctor= assignedDoctorList.get(position);
+        holder.docName.setText("Dr. "+name);
+        holder.docPhone.setText(phoneNumber);
+        holder.docEmail.setText(email);
 
     }
 

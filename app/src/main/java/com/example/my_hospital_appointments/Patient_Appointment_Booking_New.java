@@ -120,15 +120,15 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
                     DataSnapshot childSnapshot=task.getResult();
                     myDoctor doc=childSnapshot.getValue(myDoctor.class);
                       assert doc != null;
-                      assignedDoctorList.add(doc);
-                    //  myAdapter.setDoc(doc.getName(),doc.getEmail(),doc.getPhoneNumber());
+                     // assignedDoctorList.add(doc);
+                      myAdapter.setDoc(doc.getName(),doc.getEmail(),doc.getPhoneNumber());
                   }
                   else
                   {
                       assignedDoctorList=null;
                   }
 
-                  myAdapter.setDoc(assignedDoctorList);
+                 // myAdapter.setDoc(assignedDoctorList);
               }
           });
     }
