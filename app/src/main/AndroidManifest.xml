@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppt">
         <activity
+            android:name=".Doctor_View_Appointments_NEW"
+            android:exported="false" />
+        <activity
             android:name=".Patient_Appointment_Booking_New"
             android:exported="false" />
         <activity

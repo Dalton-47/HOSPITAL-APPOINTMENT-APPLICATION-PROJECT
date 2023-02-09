@@ -17,6 +17,7 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/navy_blue.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/pop_up_appointments_background.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/rounded_square_new.xml" value="0.1" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/textview_background.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/top_ight_curved_edges.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/transparent_white_borders.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/white_background_circle.xml" value="0.1" />
@@ -39,6 +40,7 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doctor_consultation.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doctor_main_page_navigation.xml" value="0.33" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doctor_registration.xml" value="0.19429347826086957" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doctor_view_appointments_new.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doctor_waiting_page.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_final_appointment_page.xml" value="0.2" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_get_appointment_details.xml" value="0.25" />
@@ -56,6 +58,7 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_patient_registration.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_patient_view_doctor_consult.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_second_login_page.xml" value="0.19429347826086957" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/doctor_appointments_reyclerview_layout_new.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/doctors_data_layout_view.xml" value="0.46600741656365885" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/fragment_dashboard.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/fragment_home.xml" value="0.17074275362318841" />

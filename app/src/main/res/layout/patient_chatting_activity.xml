@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D7E3F2FD"
+    android:background="#ADE1F5FE"
     tools:context=".Patient_Chatting_Activity">
 
     <View

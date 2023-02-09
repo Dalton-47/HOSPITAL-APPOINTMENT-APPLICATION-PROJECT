@@ -124,4 +124,5 @@
     <string name="select_date_new">Select Date</string>
     <string name="description">Appointment description</string>
     <string name="network_issue">CHECK YOUR NETWORK CONNECTION!</string>
+    <string name="patient_name">Patient\'s Name</string>
 </resources>

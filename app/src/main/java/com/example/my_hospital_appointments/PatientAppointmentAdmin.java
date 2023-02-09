@@ -367,9 +367,6 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
         emailKey=emailKey.trim();
 
 
-
-
-
         int myCounter=myDoctorParameterEmail.length();
         for(int a=0; a<myCounter; a++)
         {
@@ -385,12 +382,13 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
         doctorKey=doctorKey.trim();
 
 
-
         String myPatientName=textViewName.getText().toString().trim();
         String myPatientEmail=textViewEmail.getText().toString().trim();
         String myPatientDescription=textViewDescription.getText().toString().trim();
         String myPatientDate=textViewDate.getText().toString().trim();
         String myPatientTime=textViewTime.getText().toString().trim();
+
+
 
         myPatient myAssignedPatient=new myPatient(myPatientName,myPatientEmail,myPatientDescription,myPatientDate,myPatientTime);
         myAssignedPatientData.child(doctorKey).setValue(myAssignedPatient).addOnCompleteListener(new OnCompleteListener<Void>() {
