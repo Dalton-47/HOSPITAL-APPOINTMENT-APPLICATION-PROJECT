@@ -32,7 +32,7 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
     public String  patientEmail,doctorEmail;
     public String emailKey="";
     public String doctorKey="";
-    private TextView textViewName,textViewEmail,textViewDepartment,textViewDate,textViewTime,textViewDescription;
+    private TextView textViewName,textViewEmail, textViewAge,textViewDate,textViewTime,textViewDescription;
     private Button viewAppointment,assignAppointment,viewDoctorDetails;
     private  ArrayList <String>myArrayList=new ArrayList<String>();
     private ArrayList <String> doctorArrayList =new ArrayList<String>();
@@ -61,7 +61,7 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
 
         textViewName=(TextView)  findViewById(R.id.textViewPatientAdaminName);
         textViewEmail=(TextView)  findViewById(R.id.textViewPatientAdminEmail);
-        textViewDepartment=(TextView)  findViewById(R.id.textViewPatientAdminDepartment );
+        textViewAge =(TextView)  findViewById(R.id.textViewPatientAdminAge);
         textViewDate=(TextView)  findViewById(R.id.textViewPatientAdminDate);
         textViewTime=(TextView)  findViewById(R.id.textViewPatientAdminTime);
         textViewDescription=(TextView)  findViewById(R.id.textViewPatientAdminDescription);
@@ -250,14 +250,14 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
                             String patientName=String.valueOf(myDataSnapshot.child("name").getValue());
                             String patientEmail=String.valueOf(myDataSnapshot.child("email").getValue());
                             String patientDescription=String.valueOf(myDataSnapshot.child("description").getValue());
-                            String patientDepartment=String.valueOf(myDataSnapshot.child("department").getValue());
+                            String patientAge=String.valueOf(myDataSnapshot.child("age").getValue());
                             String patientDate=String.valueOf(myDataSnapshot.child("date").getValue());
                             String patientTime=String.valueOf(myDataSnapshot.child("time").getValue());
 
 
                             textViewName.setText(patientName);
                             textViewEmail.setText(patientEmail);
-                            textViewDepartment.setText(patientDepartment);
+                            textViewAge.setText(patientAge+" Years");
                             textViewDate.setText(patientDate);
                             textViewTime.setText(patientTime);
                             textViewDescription.setText(patientDescription);
@@ -387,11 +387,12 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
         String myPatientDescription=textViewDescription.getText().toString().trim();
         String myPatientDate=textViewDate.getText().toString().trim();
         String myPatientTime=textViewTime.getText().toString().trim();
+        String myPatientAge= textViewAge.getText().toString().trim();
 
+String Key= myAssignedPatientData.getKey();
 
-
-        myPatient myAssignedPatient=new myPatient(myPatientName,myPatientEmail,myPatientDescription,myPatientDate,myPatientTime);
-        myAssignedPatientData.child(doctorKey).setValue(myAssignedPatient).addOnCompleteListener(new OnCompleteListener<Void>() {
+        myPatient myAssignedPatient=new myPatient(myPatientName,myPatientEmail,myPatientDescription,myPatientDate,myPatientTime,myPatientAge);
+        myAssignedPatientData.child(doctorKey).child(Key).setValue(myAssignedPatient).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())

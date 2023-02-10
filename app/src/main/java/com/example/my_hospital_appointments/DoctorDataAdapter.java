@@ -26,7 +26,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
         notifyDataSetChanged();
     }
 
-    public  class DataViewHolder extends RecyclerView.ViewHolder {
+    protected class DataViewHolder extends RecyclerView.ViewHolder {
         DatabaseReference doctorsData;
         ImageView doctorsProfile;
         TextView doctorsName;
@@ -100,6 +100,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
     public int getItemCount() {
         return dataList.size();
     }
+
 
 
 }

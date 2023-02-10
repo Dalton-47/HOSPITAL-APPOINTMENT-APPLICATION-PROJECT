@@ -6,17 +6,29 @@ public class myPatient {
     String Description;
     String Date;
     String Time;
+    String age;
 
-    public myPatient() {
-    }
-
-    public myPatient(String name, String email, String description, String date, String time) {
+    public myPatient(String name, String email, String description, String date, String time, String age) {
         Name = name;
         Email = email;
         Description = description;
         Date = date;
         Time = time;
+        this.age = age;
     }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public myPatient() {
+    }
+
+
 
     public String getName() {
         return Name;

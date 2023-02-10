@@ -125,7 +125,7 @@
                                 app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdaminName" />
 
                             <TextView
-                                android:id="@+id/textViewPatientAdminDepartment"
+                                android:id="@+id/textViewPatientAdminAge"
                                 android:layout_width="200dp"
                                 android:layout_height="45dp"
                                 android:layout_marginTop="4dp"
@@ -147,7 +147,7 @@
                                 android:textStyle="normal"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/imageView16"
-                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminDepartment" />
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminAge" />
 
                             <TextView
                                 android:id="@+id/textViewPatientAdminTime"
@@ -202,7 +202,7 @@
                                 android:background="?android:attr/listDivider"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/imageView16"
-                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminDepartment" />
+                                app:layout_constraintTop_toBottomOf="@+id/textViewPatientAdminAge" />
 
                             <View
                                 android:id="@+id/divider17"

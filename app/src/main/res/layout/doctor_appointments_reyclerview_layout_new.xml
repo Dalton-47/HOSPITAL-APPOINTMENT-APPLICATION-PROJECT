@@ -13,7 +13,8 @@
         <View
             android:id="@+id/view46"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="480dp"
+            android:background="#E1F5FE"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
         <TextView
-            android:id="@+id/textView67"
+            android:id="@+id/textViewPatientName_SET"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -64,12 +65,12 @@
             android:layout_marginTop="8dp"
             android:background="#E4FFFFFF"
             android:elevation="1dp"
-            android:text="@string/descriptiontext"
+            android:text="@string/patients_age"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView67" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewPatientName_SET" />
 
         <TextView
-            android:id="@+id/textView80"
+            android:id="@+id/textViewPatientAge_SET"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -91,10 +92,10 @@
             android:elevation="1dp"
             android:text="@string/date_available"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView80" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewPatientAge_SET" />
 
         <TextView
-            android:id="@+id/textView82"
+            android:id="@+id/textViewPatientDate_SET"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -114,12 +115,13 @@
             android:layout_marginTop="8dp"
             android:background="#E4FFFFFF"
             android:elevation="1dp"
-            android:text="TextView"
+            android:inputType="none"
+            android:text="@string/time_availability"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView82" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewPatientDate_SET" />
 
         <TextView
-            android:id="@+id/textView84"
+            android:id="@+id/textViewPatientTime_SET"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -130,5 +132,31 @@
             android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView83" />
+
+        <TextView
+            android:id="@+id/textView86"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="#E4FFFFFF"
+            android:elevation="1dp"
+            android:text="@string/descriptiontext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPatientTime_SET" />
+
+        <TextView
+            android:id="@+id/textViewPatientDescription_SET"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="-4dp"
+            android:background="@drawable/textview_background"
+            android:padding="8dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView86" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
