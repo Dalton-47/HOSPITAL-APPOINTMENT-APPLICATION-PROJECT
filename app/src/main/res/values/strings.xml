@@ -125,4 +125,6 @@
     <string name="description">Appointment description</string>
     <string name="network_issue">CHECK YOUR NETWORK CONNECTION!</string>
     <string name="patient_name">Patient\'s Name</string>
+    <string name="mark_attended">Mark Attended</string>
+    <string name="cancel_Appointment">Cancel Appointment</string>
 </resources>

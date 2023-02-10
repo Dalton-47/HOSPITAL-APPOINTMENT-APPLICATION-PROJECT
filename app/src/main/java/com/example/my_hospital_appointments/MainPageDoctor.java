@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +33,10 @@ public class MainPageDoctor extends AppCompatActivity {
 
         Intent intent =getIntent();
         String myUsersEmail=intent.getExtras().getString("usersEmail");
+        Toast.makeText(this, "DOC ID : "+myUsersEmail, Toast.LENGTH_SHORT).show();
+
+        String [] parts= myUsersEmail.split("@");
+        String emailID=parts[0];
 
         myDoctorData= FirebaseDatabase.getInstance().getReference("Doctors");
 
@@ -41,8 +46,9 @@ public class MainPageDoctor extends AppCompatActivity {
         doctorAppointments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent=new Intent(MainPageDoctor.this,DoctorAppointments.class);
-                myIntent.putExtra("usersEmail",myUsersEmail);
+               // Intent myIntent=new Intent(MainPageDoctor.this,DoctorAppointments.class);
+                Intent myIntent=new Intent(MainPageDoctor.this,Doctor_View_Appointments_NEW.class);
+                myIntent.putExtra("docEmailId",emailID);
                 startActivity(myIntent);
             }
         });
@@ -87,7 +93,7 @@ public class MainPageDoctor extends AppCompatActivity {
             }
         }
 
-        emailKey=emailKey.trim();
+       // emailKey=emailKey.trim();
 
         myDoctorData.child(emailKey).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override

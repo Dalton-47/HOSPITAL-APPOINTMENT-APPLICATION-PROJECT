@@ -13,9 +13,17 @@
         <View
             android:id="@+id/view46"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
-            android:background="#E1F5FE"
+            android:layout_height="510dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view48"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:background="#E1F5FE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,11 +32,10 @@
             android:id="@+id/imageView12"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/adoctor"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/view46" />
+            app:layout_constraintTop_toTopOf="@+id/view48" />
 
         <TextView
             android:id="@+id/textView23"
@@ -36,8 +43,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:background="#E4FFFFFF"
-            android:elevation="1dp"
+            android:background="#FFFFFF"
+            android:elevation="0.1dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:text="@string/patient_name"
             android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,15 +54,15 @@
 
         <TextView
             android:id="@+id/textViewPatientName_SET"
-            android:layout_width="210dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="-4dp"
+            android:layout_marginTop="-6dp"
             android:background="@drawable/textview_background"
             android:padding="8dp"
             android:text="TextView"
-            android:textAlignment="center"
             android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
@@ -63,22 +72,25 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:background="#E4FFFFFF"
-            android:elevation="1dp"
+            android:background="#FFFFFF"
+            android:elevation="0.1dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:text="@string/patients_age"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPatientName_SET" />
 
         <TextView
             android:id="@+id/textViewPatientAge_SET"
-            android:layout_width="210dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="-4dp"
+            android:layout_marginTop="-6dp"
             android:background="@drawable/textview_background"
             android:padding="8dp"
             android:text="TextView"
             android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView74" />
 
@@ -88,22 +100,25 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:background="#E4FFFFFF"
-            android:elevation="1dp"
+            android:background="#FFFFFF"
+            android:elevation="0.1dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:text="@string/date_available"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPatientAge_SET" />
 
         <TextView
             android:id="@+id/textViewPatientDate_SET"
-            android:layout_width="210dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="-4dp"
+            android:layout_marginTop="-6dp"
             android:background="@drawable/textview_background"
             android:padding="8dp"
             android:text="TextView"
             android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView81" />
 
@@ -113,23 +128,26 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:background="#E4FFFFFF"
-            android:elevation="1dp"
+            android:background="#FFFFFF"
+            android:elevation="0.1dp"
             android:inputType="none"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:text="@string/time_availability"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPatientDate_SET" />
 
         <TextView
             android:id="@+id/textViewPatientTime_SET"
-            android:layout_width="210dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="-4dp"
+            android:layout_marginTop="-6dp"
             android:background="@drawable/textview_background"
             android:padding="8dp"
             android:text="TextView"
             android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView83" />
 
@@ -139,24 +157,61 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:background="#E4FFFFFF"
-            android:elevation="1dp"
+            android:background="#FFFFFF"
+            android:elevation="0.1dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:text="@string/descriptiontext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPatientTime_SET" />
 
         <TextView
             android:id="@+id/textViewPatientDescription_SET"
-            android:layout_width="210dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="-4dp"
+            android:layout_marginTop="-6dp"
             android:background="@drawable/textview_background"
             android:padding="8dp"
             android:text="TextView"
             android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="normal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView86" />
+
+        <View
+            android:id="@+id/divider36"
+            android:layout_width="409dp"
+            android:layout_height="20dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="@+id/view46"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/textview_background"
+            android:text="@string/mark_attended"
+            android:textColor="#05C108"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPatientDescription_SET" />
+
+        <Button
+            android:id="@+id/button16"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/textview_background"
+            android:text="@string/cancel_Appointment"
+            android:textColor="#BA0202"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPatientDescription_SET" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

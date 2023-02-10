@@ -389,7 +389,7 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
         String myPatientTime=textViewTime.getText().toString().trim();
         String myPatientAge= textViewAge.getText().toString().trim();
 
-String Key= myAssignedPatientData.getKey();
+String Key= myAssignedPatientData.push().getKey();
 
         myPatient myAssignedPatient=new myPatient(myPatientName,myPatientEmail,myPatientDescription,myPatientDate,myPatientTime,myPatientAge);
         myAssignedPatientData.child(doctorKey).child(Key).setValue(myAssignedPatient).addOnCompleteListener(new OnCompleteListener<Void>() {
