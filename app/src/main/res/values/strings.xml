@@ -134,4 +134,6 @@
     <string name="cancelled">Cancelled</string>
     <string name="check_details">More Details</string>
     <string name="zero">0</string>
+    <string name="rating_stars">+8</string>
+    <string name="rescheduled">Re-Scheduled</string>
 </resources>

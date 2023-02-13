@@ -81,10 +81,30 @@
         app:layout_constraintTop_toTopOf="@+id/view49" />
 
     <ImageView
+        android:id="@+id/imageView45"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rating"
+        app:layout_constraintBottom_toBottomOf="@+id/view51"
+        app:layout_constraintStart_toEndOf="@+id/imageView44" />
+
+    <ImageView
+        android:id="@+id/imageView44"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/star"
+        app:layout_constraintBottom_toBottomOf="@+id/view51"
+        app:layout_constraintStart_toEndOf="@+id/imageView43" />
+
+    <ImageView
         android:id="@+id/imageView41"
         android:layout_width="200dp"
         android:layout_height="150dp"
-        android:layout_marginStart="-24dp"
+        android:layout_marginStart="-16dp"
         android:background="@drawable/doc_snipe"
         app:layout_constraintStart_toStartOf="@+id/view51"
         app:layout_constraintTop_toTopOf="@+id/view51" />
@@ -93,6 +113,7 @@
         android:id="@+id/textView93"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
         android:text="@string/scoreboard"
         android:textColor="#1A446B"
         android:textSize="20sp"
@@ -105,8 +126,11 @@
         android:id="@+id/textView94"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="2dp"
         android:text="@string/appointment"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/view51"
         app:layout_constraintStart_toEndOf="@+id/imageView41"
         app:layout_constraintTop_toTopOf="@+id/view51" />
@@ -116,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:text="@string/attended"
         android:textColor="#1F7102"
         android:textSize="17sp"
@@ -128,27 +152,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:text="@string/cancelled"
         android:textColor="#830101"
         android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/imageView41"
         app:layout_constraintTop_toBottomOf="@+id/textView95" />
-
-    <TextView
-        android:id="@+id/textView97"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
-        android:drawablePadding="5dp"
-        android:text="@string/check_details"
-        android:textColor="#1A446B"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/view51"
-        app:layout_constraintEnd_toEndOf="@+id/view51"
-        app:layout_constraintTop_toBottomOf="@+id/textView96" />
 
     <TextView
         android:id="@+id/textView98"
@@ -217,4 +226,86 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <View
+        android:id="@+id/divider31"
+        android:layout_width="165dp"
+        android:layout_height="5dp"
+        android:background="#1A446B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view51" />
+
+    <View
+        android:id="@+id/divider32"
+        android:layout_width="240dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="8dp"
+        android:background="#1A446B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button17" />
+
+    <ImageView
+        android:id="@+id/imageView42"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/star"
+        app:layout_constraintBottom_toBottomOf="@+id/view51"
+        app:layout_constraintStart_toEndOf="@+id/imageView41" />
+
+    <ImageView
+        android:id="@+id/imageView47"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/star"
+        app:layout_constraintBottom_toBottomOf="@+id/view51"
+        app:layout_constraintStart_toEndOf="@+id/imageView41" />
+
+    <ImageView
+        android:id="@+id/imageView43"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/star"
+        app:layout_constraintBottom_toBottomOf="@+id/view51"
+        app:layout_constraintStart_toEndOf="@+id/imageView42" />
+
+    <TextView
+        android:id="@+id/textView100"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/rating_stars"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view51"
+        app:layout_constraintStart_toEndOf="@+id/imageView45" />
+
+    <TextView
+        android:id="@+id/textView101"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/rescheduled"
+        android:textColor="#1C1C1C"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView41"
+        app:layout_constraintTop_toBottomOf="@+id/textView96" />
+
+    <TextView
+        android:id="@+id/textView102"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/zero"
+        android:textSize="17sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView101"
+        app:layout_constraintEnd_toEndOf="@+id/view51" />
 </androidx.constraintlayout.widget.ConstraintLayout>
