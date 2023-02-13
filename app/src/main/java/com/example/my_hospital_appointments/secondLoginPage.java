@@ -47,7 +47,8 @@ public class secondLoginPage extends AppCompatActivity {
         btnDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent=new Intent(secondLoginPage.this,DoctorWaitingPage.class);
+              //  Intent myIntent=new Intent(secondLoginPage.this,DoctorWaitingPage.class);
+                Intent myIntent=new Intent(secondLoginPage.this,Doctor_Main_Page_NEW.class);
                 myIntent.putExtra("usersEmail",myUsersEmail);
                 startActivity(myIntent);
             }

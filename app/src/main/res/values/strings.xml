@@ -128,4 +128,10 @@
     <string name="mark_attended">Mark Attended</string>
     <string name="cancel_Appointment">Cancel Appointment</string>
     <string name="age_Small">Age</string>
+    <string name="welcome">Welcome Back.</string>
+    <string name="scoreboard">My ScoreBoard</string>
+    <string name="attended">Attended</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="check_details">More Details</string>
+    <string name="zero">0</string>
 </resources>

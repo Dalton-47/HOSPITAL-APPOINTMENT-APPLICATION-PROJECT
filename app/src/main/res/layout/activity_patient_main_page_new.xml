@@ -245,34 +245,33 @@
 
     <View
         android:id="@+id/view40"
-        android:layout_width="330dp"
+        android:layout_width="345dp"
         android:layout_height="150dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/button_white_and_blue_border_background"
-        android:elevation="5dp"
-        android:foreground="#E3F2FD"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view39" />
 
     <ImageView
         android:id="@+id/imageView32"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/patient_new"
-        android:elevation="6dp"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/doc_snipe"
+
         app:layout_constraintBottom_toBottomOf="@+id/view40"
         app:layout_constraintStart_toStartOf="@+id/view40"
-        app:layout_constraintTop_toBottomOf="@+id/textView71" />
+        app:layout_constraintTop_toTopOf="@+id/view40" />
 
     <TextView
         android:id="@+id/textViewPatientDescriptionMainset"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-        android:elevation="6dp"
+
         android:hint="@string/description"
         android:textColor="#1A446B"
         android:textSize="14sp"
@@ -284,9 +283,9 @@
         android:id="@+id/textViewPatientDateset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:elevation="6dp"
+
         android:hint="@string/date_available"
         android:textColor="#1A446B"
         android:textStyle="bold"
@@ -297,9 +296,9 @@
         android:id="@+id/textViewPatientTimeset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:elevation="6dp"
+
         android:hint="@string/time_availability"
         android:textColor="#1A446B"
         android:textStyle="bold"
@@ -310,9 +309,9 @@
         android:id="@+id/textViewPatientAgeset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:elevation="6dp"
+
         android:hint="@string/age"
         android:textColor="#1A446B"
         android:textStyle="bold"
