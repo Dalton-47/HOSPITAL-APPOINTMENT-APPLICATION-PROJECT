@@ -4,6 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1A446B"
     tools:context=".Doctor_Main_Page_NEW">
 
+    <View
+        android:id="@+id/view49"
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:background="@drawable/white_background_curved_tops"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
