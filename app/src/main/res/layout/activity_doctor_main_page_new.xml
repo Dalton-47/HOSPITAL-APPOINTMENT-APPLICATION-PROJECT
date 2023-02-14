@@ -73,10 +73,11 @@
 
     <View
         android:id="@+id/view51"
-        android:layout_width="345dp"
-        android:layout_height="150dp"
+        android:layout_width="320dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/textview_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view49" />
 
@@ -103,8 +104,9 @@
     <ImageView
         android:id="@+id/imageView41"
         android:layout_width="200dp"
-        android:layout_height="150dp"
+        android:layout_height="152dp"
         android:layout_marginStart="-16dp"
+        android:layout_marginTop="-1dp"
         android:background="@drawable/doc_snipe"
         app:layout_constraintStart_toStartOf="@+id/view51"
         app:layout_constraintTop_toTopOf="@+id/view51" />
@@ -113,7 +115,10 @@
         android:id="@+id/textView93"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/textview_background"
+        android:elevation="5dp"
+        android:padding="8dp"
         android:text="@string/scoreboard"
         android:textColor="#1A446B"
         android:textSize="20sp"
@@ -123,29 +128,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView94"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:elevation="2dp"
-        android:text="@string/appointment"
-        android:textColor="#1A446B"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/view51"
-        app:layout_constraintStart_toEndOf="@+id/imageView41"
-        app:layout_constraintTop_toTopOf="@+id/view51" />
-
-    <TextView
         android:id="@+id/textView95"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="32dp"
         android:text="@string/attended"
         android:textColor="#1F7102"
         android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/imageView41"
-        app:layout_constraintTop_toBottomOf="@+id/textView94" />
+        app:layout_constraintTop_toTopOf="@+id/view51" />
 
     <TextView
         android:id="@+id/textView96"
@@ -163,7 +155,7 @@
         android:id="@+id/textView98"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="4dp"
         android:text="@string/zero"
         android:textSize="17sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView95"
@@ -173,7 +165,7 @@
         android:id="@+id/textView99"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="4dp"
         android:text="@string/zero"
         android:textSize="17sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView96"
@@ -186,8 +178,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/navy"
-        android:text="Button"
+        android:text="@string/empty"
         android:textColor="#FFFFFF"
+        android:textSize="2sp"
         app:layout_constraintStart_toStartOf="@+id/view49"
         app:layout_constraintTop_toBottomOf="@+id/view51" />
 
@@ -198,8 +191,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/navy"
-        android:text="Button"
+        android:text="@string/empty"
         android:textColor="#FFFFFF"
+        android:textSize="2sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view51" />
 
@@ -210,8 +204,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/navy"
-        android:text="Button"
+        android:text="@string/empty"
         android:textColor="#FFFFFF"
+        android:textSize="2sp"
         app:layout_constraintStart_toStartOf="@+id/view49"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
@@ -222,19 +217,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/navy"
-        android:text="Button"
+        android:text="@string/empty"
         android:textColor="#FFFFFF"
+        android:textSize="2sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
-
-    <View
-        android:id="@+id/divider31"
-        android:layout_width="165dp"
-        android:layout_height="5dp"
-        android:background="#1A446B"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view51" />
 
     <View
         android:id="@+id/divider32"
@@ -250,17 +237,17 @@
         android:id="@+id/imageView42"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="4dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/star"
         app:layout_constraintBottom_toBottomOf="@+id/view51"
-        app:layout_constraintStart_toEndOf="@+id/imageView41" />
+        app:layout_constraintStart_toEndOf="@+id/imageView47" />
 
     <ImageView
         android:id="@+id/imageView47"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/star"
         app:layout_constraintBottom_toBottomOf="@+id/view51"
@@ -275,17 +262,6 @@
         android:background="@drawable/star"
         app:layout_constraintBottom_toBottomOf="@+id/view51"
         app:layout_constraintStart_toEndOf="@+id/imageView42" />
-
-    <TextView
-        android:id="@+id/textView100"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/rating_stars"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view51"
-        app:layout_constraintStart_toEndOf="@+id/imageView45" />
 
     <TextView
         android:id="@+id/textView101"
@@ -303,9 +279,105 @@
         android:id="@+id/textView102"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="4dp"
         android:text="@string/zero"
         android:textSize="17sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView101"
         app:layout_constraintEnd_toEndOf="@+id/view51" />
+
+    <ImageView
+        android:id="@+id/imageView46"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_baseline_appointments_doc"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/button6"
+        app:layout_constraintStart_toStartOf="@+id/button6"
+        app:layout_constraintTop_toTopOf="@+id/button6" />
+
+    <TextView
+        android:id="@+id/textView94"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:elevation="2dp"
+        android:text="@string/appointment"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/button6"
+        app:layout_constraintStart_toStartOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView46" />
+
+    <ImageView
+        android:id="@+id/imageView48"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_baseline_message_doc_white_24"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/button7"
+        app:layout_constraintStart_toStartOf="@+id/button7"
+        app:layout_constraintTop_toTopOf="@+id/button7" />
+
+    <TextView
+        android:id="@+id/textView97"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:elevation="2dp"
+        android:text="@string/consultation"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/button7"
+        app:layout_constraintStart_toStartOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView48" />
+
+    <ImageView
+        android:id="@+id/imageView49"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:elevation="2dp"
+        android:background="@drawable/ic_baseline_report_doc_white_24"
+        app:layout_constraintEnd_toEndOf="@+id/button17"
+        app:layout_constraintStart_toStartOf="@+id/button17"
+        app:layout_constraintTop_toTopOf="@+id/button17" />
+
+    <TextView
+        android:id="@+id/textView100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:elevation="2dp"
+        android:text="@string/reports"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/button17"
+        app:layout_constraintStart_toStartOf="@+id/button17"
+        app:layout_constraintTop_toBottomOf="@+id/imageView49" />
+
+    <ImageView
+        android:id="@+id/imageView50"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_baseline_history_white_doc_24"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/button18"
+        app:layout_constraintStart_toStartOf="@+id/button18"
+        app:layout_constraintTop_toTopOf="@+id/button18" />
+
+    <TextView
+        android:id="@+id/textView103"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/history"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/button18"
+        app:layout_constraintStart_toStartOf="@+id/button18"
+        app:layout_constraintTop_toBottomOf="@+id/imageView50" />
 </androidx.constraintlayout.widget.ConstraintLayout>
