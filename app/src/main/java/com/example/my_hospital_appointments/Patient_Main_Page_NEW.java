@@ -2,12 +2,15 @@ package com.example.my_hospital_appointments;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +30,15 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
     TextView welcomeUser,descriptionTextView,dateTextView,timeTextView,ageTextView;
     String description,date,time,age;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_main_page_new);
 
+
+
+       // progressBar.setVisibility(View.INVISIBLE);
         Intent intent =getIntent();
         String myUsersEmail=intent.getExtras().getString("usersEmail");
          Toast.makeText(this,"Your Email is "+myUsersEmail ,Toast.LENGTH_SHORT).show();
@@ -112,6 +119,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                      firstname=String.valueOf(thisDataSnapshot.child("firstName").getValue());
                    // Toast.makeText(Patient_Main_Page_NEW.this," FIRSTNAME "+firstname ,Toast.LENGTH_SHORT).show();
                     welcomeUser.setText("Hello "+firstname+"!");
+
                 }
                 else
                 {
@@ -140,6 +148,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                      dateTextView.setText("Date : "+date);
                      timeTextView.setText("Time : "+time);
                      ageTextView.setText("Age  : "+age);
+
                 }
             }
         });

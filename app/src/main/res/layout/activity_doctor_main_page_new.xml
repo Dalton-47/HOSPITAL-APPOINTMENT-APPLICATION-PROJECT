@@ -379,4 +379,5 @@
         app:layout_constraintEnd_toEndOf="@+id/buttonDocHistory_MAN"
         app:layout_constraintStart_toStartOf="@+id/buttonDocHistory_MAN"
         app:layout_constraintTop_toBottomOf="@+id/imageView50" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

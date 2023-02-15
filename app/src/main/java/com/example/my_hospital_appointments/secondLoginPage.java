@@ -64,7 +64,6 @@ public class secondLoginPage extends AppCompatActivity {
         btnDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 docRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -82,7 +81,6 @@ public class secondLoginPage extends AppCompatActivity {
                             startActivity(myIntent);
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         Toast.makeText(secondLoginPage.this, "USER NOT FOUND, CHECK NETWORK CONNECTION!", Toast.LENGTH_SHORT).show();
