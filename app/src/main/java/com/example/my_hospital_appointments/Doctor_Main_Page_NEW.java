@@ -20,11 +20,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Doctor_Main_Page_NEW extends AppCompatActivity {
    Button btnDocAppointments, btnDocConsult, btnDocHistory, btnDocReports;
    DatabaseReference docRef;
     String emailID,userName;
-    TextView textViewDocName;
+    TextView textViewDocName,textViewDate;
     ImageView docImage;
 
     @Override
@@ -50,6 +53,15 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
 
         docRef = FirebaseDatabase.getInstance().getReference("Doctors").child(emailID);
         getUserName();
+
+        textViewDate = (TextView)  this.findViewById(R.id.textViewDocDate_NEW);
+
+        Date currentDate= new Date();
+        SimpleDateFormat dateFormat= new SimpleDateFormat("dd, MMMM, yyyy");
+        String formattedDate= dateFormat.format(currentDate);
+        
+        textViewDate.setText(formattedDate);
+
 
         btnDocAppointments = (Button)  this.findViewById(R.id.buttonDocAppointments_MAN);
         btnDocConsult = (Button)  this.findViewById(R.id.buttonDocConsultation_MAN);
