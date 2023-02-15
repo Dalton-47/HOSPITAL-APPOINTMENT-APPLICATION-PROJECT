@@ -59,7 +59,7 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
         Date currentDate= new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("dd, MMMM, yyyy");
         String formattedDate= dateFormat.format(currentDate);
-        
+
         textViewDate.setText(formattedDate);
 
 
@@ -75,6 +75,16 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
                 // Intent myIntent=new Intent(MainPageDoctor.this,DoctorAppointments.class);
                 Intent myIntent=new Intent(Doctor_Main_Page_NEW.this,Doctor_View_Appointments_NEW.class);
                 myIntent.putExtra("docEmailId",emailID);
+                startActivity(myIntent);
+            }
+        });
+
+        btnDocConsult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //  Intent myIntent=new Intent(MainPageDoctor.this,DoctorConsultation.class);
+                Intent myIntent=new Intent(Doctor_Main_Page_NEW.this,Messages_From_Patients.class);
+                myIntent.putExtra("doctorName",userName);
                 startActivity(myIntent);
             }
         });
