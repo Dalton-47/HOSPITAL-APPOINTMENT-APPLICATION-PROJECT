@@ -17,9 +17,9 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView39"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:id="@+id/imageViewDocProfile_MAIN"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/personwhite"
@@ -27,16 +27,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView90"
+        android:id="@+id/textViewDocUserName_NEW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
+        android:layout_marginTop="28dp"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView39"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDocProfile_MAIN"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -45,10 +44,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="2dp"
-        android:text="@string/welcome"
+        android:text="@string/how_are_you"
         android:textColor="#808080"
-        app:layout_constraintStart_toEndOf="@+id/imageView39"
-        app:layout_constraintTop_toBottomOf="@+id/textView90" />
+        app:layout_constraintStart_toEndOf="@+id/imageViewDocProfile_MAIN"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDocUserName_NEW" />
 
     <ImageView
         android:id="@+id/imageView40"
@@ -172,7 +171,7 @@
         app:layout_constraintEnd_toEndOf="@+id/view51" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/buttonDocAppointments_MAN"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginStart="24dp"
@@ -185,7 +184,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view51" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonDocConsultation_MAN"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="16dp"
@@ -198,7 +197,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view51" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/buttonDocReports_MAN"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginStart="24dp"
@@ -208,10 +207,10 @@
         android:textColor="#FFFFFF"
         android:textSize="2sp"
         app:layout_constraintStart_toStartOf="@+id/view49"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonDocAppointments_MAN" />
 
     <Button
-        android:id="@+id/button18"
+        android:id="@+id/buttonDocHistory_MAN"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="16dp"
@@ -221,17 +220,17 @@
         android:textColor="#FFFFFF"
         android:textSize="2sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonDocConsultation_MAN" />
 
     <View
         android:id="@+id/divider32"
         android:layout_width="240dp"
         android:layout_height="5dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="#1A446B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button17" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonDocReports_MAN" />
 
     <ImageView
         android:id="@+id/imageView42"
@@ -292,9 +291,9 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_baseline_appointments_doc"
         android:elevation="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="@+id/button6" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonDocAppointments_MAN"
+        app:layout_constraintStart_toStartOf="@+id/buttonDocAppointments_MAN"
+        app:layout_constraintTop_toTopOf="@+id/buttonDocAppointments_MAN" />
 
     <TextView
         android:id="@+id/textView94"
@@ -305,8 +304,8 @@
         android:text="@string/appointment"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="@+id/button6"
+        app:layout_constraintEnd_toEndOf="@+id/buttonDocAppointments_MAN"
+        app:layout_constraintStart_toStartOf="@+id/buttonDocAppointments_MAN"
         app:layout_constraintTop_toBottomOf="@+id/imageView46" />
 
     <ImageView
@@ -316,9 +315,9 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_baseline_message_doc_white_24"
         android:elevation="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonDocConsultation_MAN"
+        app:layout_constraintStart_toStartOf="@+id/buttonDocConsultation_MAN"
+        app:layout_constraintTop_toTopOf="@+id/buttonDocConsultation_MAN" />
 
     <TextView
         android:id="@+id/textView97"
@@ -329,8 +328,8 @@
         android:text="@string/consultation"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7"
+        app:layout_constraintEnd_toEndOf="@+id/buttonDocConsultation_MAN"
+        app:layout_constraintStart_toStartOf="@+id/buttonDocConsultation_MAN"
         app:layout_constraintTop_toBottomOf="@+id/imageView48" />
 
     <ImageView
@@ -340,9 +339,9 @@
         android:layout_marginTop="16dp"
         android:elevation="2dp"
         android:background="@drawable/ic_baseline_report_doc_white_24"
-        app:layout_constraintEnd_toEndOf="@+id/button17"
-        app:layout_constraintStart_toStartOf="@+id/button17"
-        app:layout_constraintTop_toTopOf="@+id/button17" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonDocReports_MAN"
+        app:layout_constraintStart_toStartOf="@+id/buttonDocReports_MAN"
+        app:layout_constraintTop_toTopOf="@+id/buttonDocReports_MAN" />
 
     <TextView
         android:id="@+id/textView100"
@@ -353,8 +352,8 @@
         android:text="@string/reports"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button17"
-        app:layout_constraintStart_toStartOf="@+id/button17"
+        app:layout_constraintEnd_toEndOf="@+id/buttonDocReports_MAN"
+        app:layout_constraintStart_toStartOf="@+id/buttonDocReports_MAN"
         app:layout_constraintTop_toBottomOf="@+id/imageView49" />
 
     <ImageView
@@ -364,9 +363,9 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_baseline_history_white_doc_24"
         android:elevation="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/button18"
-        app:layout_constraintStart_toStartOf="@+id/button18"
-        app:layout_constraintTop_toTopOf="@+id/button18" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonDocHistory_MAN"
+        app:layout_constraintStart_toStartOf="@+id/buttonDocHistory_MAN"
+        app:layout_constraintTop_toTopOf="@+id/buttonDocHistory_MAN" />
 
     <TextView
         android:id="@+id/textView103"
@@ -377,7 +376,7 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:elevation="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/button18"
-        app:layout_constraintStart_toStartOf="@+id/button18"
+        app:layout_constraintEnd_toEndOf="@+id/buttonDocHistory_MAN"
+        app:layout_constraintStart_toStartOf="@+id/buttonDocHistory_MAN"
         app:layout_constraintTop_toBottomOf="@+id/imageView50" />
 </androidx.constraintlayout.widget.ConstraintLayout>
