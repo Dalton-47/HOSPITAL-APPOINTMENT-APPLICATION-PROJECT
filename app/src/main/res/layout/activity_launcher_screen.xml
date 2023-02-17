@@ -23,18 +23,18 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:scaleType="centerCrop"
-            android:src="@drawable/male_doc_snipe" />
+            android:src="@drawable/pinkdocnew" />
     </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/button6"
         android:layout_width="280dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/navy"
         android:text="@string/sign_in"
         android:textColor="#FFFFFF"
-        android:textSize="28sp"
+        android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLauncher" />
@@ -42,15 +42,15 @@
     <TextView
         android:id="@+id/textViewLauncher"
         android:layout_width="330dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="-50dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="-40dp"
         android:background="@drawable/whiterectangle"
         android:elevation="20dp"
-        android:paddingTop="24dp"
+        android:paddingTop="20dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="#1A446B"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,12 +59,12 @@
     <Button
         android:id="@+id/button7"
         android:layout_width="280dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/navy"
         android:text="@string/register_with_us"
         android:textColor="#FFFFFF"
-        android:textSize="28sp"
+        android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
