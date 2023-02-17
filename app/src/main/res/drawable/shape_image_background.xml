@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+            <corners android:topLeftRadius="0dp"
+                android:topRightRadius="0dp"
+                android:bottomRightRadius="20dp"
+                android:bottomLeftRadius="20dp"/>
+            <gradient android:angle="225"
+                android:startColor="#1A446B"
+                android:endColor="#1A446B"
+                android:centerColor="#1A446B"/>
+
+        </shape>
+    </item>
+    <item android:drawable="@drawable/happydoctor" />
+</layer-list>
