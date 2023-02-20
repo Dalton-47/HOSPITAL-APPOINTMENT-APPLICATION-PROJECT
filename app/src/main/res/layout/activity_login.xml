@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="@+id/view53" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextTextLoginEmail"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -52,15 +52,16 @@
         android:drawablePadding="8dp"
         android:ems="10"
         android:hint="@string/enter_email_hint"
-        android:inputType="textPersonName"
+        android:inputType="textEmailSubject"
         android:minHeight="48dp"
         android:paddingLeft="8dp"
+        android:textColor="#1A446B"
         app:layout_constraintEnd_toEndOf="@+id/view53"
         app:layout_constraintStart_toStartOf="@+id/view53"
         app:layout_constraintTop_toBottomOf="@+id/imageView39" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editTextTextLoginPassword"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -72,13 +73,14 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:paddingLeft="8dp"
+        android:textColor="#1A446B"
         app:layout_constraintEnd_toEndOf="@+id/view53"
         app:layout_constraintStart_toEndOf="@+id/view53"
         app:layout_constraintStart_toStartOf="@+id/view53"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextLoginEmail" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/buttonLoginMain"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:background="@drawable/navy"
@@ -88,5 +90,29 @@
         app:layout_constraintBottom_toBottomOf="@+id/view53"
         app:layout_constraintEnd_toEndOf="@+id/view53"
         app:layout_constraintStart_toStartOf="@+id/view53"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextLoginPassword" />
+
+    <TextView
+        android:id="@+id/textViewForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#029C7D"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view53" />
+
+    <ProgressBar
+        android:id="@+id/progressBarLogin_MAIN"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateDrawable="@drawable/progress_icon"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/view53"
+        app:layout_constraintStart_toStartOf="@+id/view53"
+        app:layout_constraintTop_toBottomOf="@+id/imageView39" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     <string name="password">Password</string>
     <string name="sign_in">SIGN IN</string>
     <string name="my_appointments">MY APPOINTMENTS</string>
-    <string name="forgot_password">forgot password?</string>
+    <string name="forgot_password">Forgot Password?</string>
     <string name="Occupation">SELECT A SUITABLE OPTION BELOW</string>
     <string name="Doctor">DOCTOR</string>
     <string name="PATIENT">PATIENT</string>
@@ -139,4 +139,5 @@
     <string name="welcome_user">WELCOME</string>
     <string name="enter_email_hint">Enter Your Email</string>
     <string name="enter_password_hint">Enter Your Password</string>
+    <string name="enter_email_registered">Please enter your registered email to receive password reset link</string>
 </resources>

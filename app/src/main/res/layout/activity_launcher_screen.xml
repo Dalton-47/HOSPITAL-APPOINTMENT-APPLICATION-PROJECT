@@ -45,7 +45,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="-40dp"
         android:background="@drawable/whiterectangle"
-        android:elevation="20dp"
+        android:elevation="10dp"
         android:paddingTop="20dp"
         android:text="TextView"
         android:textAlignment="center"
