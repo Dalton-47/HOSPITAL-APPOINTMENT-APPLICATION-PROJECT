@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="420dp"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,14 +23,14 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:scaleType="centerCrop"
-            android:src="@drawable/pinkdocnew" />
+            android:src="@drawable/doc_coat" />
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/buttonLaunchSign"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/navy"
         android:text="@string/sign_in"
         android:textColor="#FFFFFF"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonLaunchRegister"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -67,6 +67,6 @@
         android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonLaunchSign" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
