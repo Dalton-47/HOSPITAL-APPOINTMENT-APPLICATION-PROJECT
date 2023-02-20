@@ -12,7 +12,9 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/centergradient.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/green_background.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/grey_background.xml" value="0.1" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1735" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.1" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.1735" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/my_circle.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/navy.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/navy_blue.xml" value="0.1" />
@@ -50,6 +52,7 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_final_appointment_page.xml" value="0.2" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_get_appointment_details.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_launcher_screen.xml" value="0.25" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_login.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_main_page.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_main_page_doctor.xml" value="0.15" />

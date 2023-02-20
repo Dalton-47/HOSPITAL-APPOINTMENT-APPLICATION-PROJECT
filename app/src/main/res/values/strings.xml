@@ -136,4 +136,7 @@
     <string name="zero">0</string>
     <string name="rating_stars">+8</string>
     <string name="rescheduled">Re-Scheduled</string>
+    <string name="welcome_user">WELCOME</string>
+    <string name="enter_email_hint">Enter Your Email</string>
+    <string name="enter_password_hint">Enter Your Password</string>
 </resources>

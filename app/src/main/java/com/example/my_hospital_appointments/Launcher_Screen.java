@@ -2,15 +2,20 @@ package com.example.my_hospital_appointments;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.TextAppearanceSpan;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Launcher_Screen extends AppCompatActivity {
  TextView textView;
+ Button btnLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,14 @@ public class Launcher_Screen extends AppCompatActivity {
                 }
             }, duration * i);
         }
+
+        btnLogin = (Button)  findViewById(R.id.buttonLaunchSign);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Launcher_Screen.this,Login_Activity.class));
+            }
+        });
 
     }
 }
