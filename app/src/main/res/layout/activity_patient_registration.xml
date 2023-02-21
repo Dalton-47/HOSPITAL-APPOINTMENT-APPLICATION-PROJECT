@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/centergradient"
+    android:background="@drawable/pop_up_appointments_background"
     tools:context=".PatientRegistration"
     tools:layout_editor_absoluteX="-4dp"
     tools:layout_editor_absoluteY="-84dp">
 
     <ImageView
         android:id="@+id/imageView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/user"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/file_patient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,6 +59,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#1A446B"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView44"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -69,6 +70,7 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#1A446B"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView45"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -79,6 +81,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="phone"
+        android:textColor="#1A446B"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView46"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -89,6 +92,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:textColor="#1A446B"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView47"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -110,6 +114,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:textColor="#1A446B"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView48"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -126,16 +131,15 @@
 
     <Button
         android:id="@+id/btnRegisterPatient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/button_white_and_blue_border_background"
+        android:background="@drawable/navy"
         android:includeFontPadding="true"
         android:padding="10dp"
         android:text="@string/register"
-        android:textColor="#0099ff"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:backgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPatientPassword" />
@@ -143,8 +147,8 @@
     <View
         android:id="@+id/view14"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="#0099ff"
+        android:layout_height="40dp"
+        android:background="#1A446B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -156,6 +160,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="number"
+        android:textColor="#1A446B"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView69"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -176,6 +181,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#1A446B"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView72"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -188,4 +194,74 @@
         android:text="@string/county"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView69" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutPatient_NEW"
+        android:layout_width="350dp"
+        android:layout_height="600dp"
+        android:background="#CB3E89C1"
+        android:elevation="4dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageViewPatientRegistration_NEW"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="72dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewPatientPatientRegistration_NEW"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/textview_background"
+                android:padding="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/textverificationinprogress"
+                android:textColor="#1A446B"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewPatientRegistration_NEW" />
+
+            <Button
+                android:id="@+id/buttonPatientRegistration_NEW"
+                android:layout_width="205dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/navy"
+                android:text="@string/textokay"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPatientPatientRegistration_NEW" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBarPatientReg_NEW"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:indeterminateDrawable="@drawable/progress_icon"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView20" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,24 +17,39 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class PatientRegistration extends AppCompatActivity {
     private FirebaseAuth  patientAuth;
     private EditText patientAge,patientCounty,patientFirstName, patientSecondName,patientPhoneNumber,patientEmailAddress,patientPassword;
     public String firstName,secondName,phoneNumber,emailAddress,password,age,county;
-    private Button registerPatient;
-    DatabaseReference patientDatabase;
+    private Button btnRegPatients;
+    DatabaseReference patientsRef;
     private String patientKey="";
+     ImageView patientImageSet;
+     TextView txtViewSetMessage;
+     Button btnProceed;
+     ProgressBar progressBar;
+
 ;    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_registration);
 
-        patientDatabase= FirebaseDatabase.getInstance().getReference("Patients");
+        patientsRef = FirebaseDatabase.getInstance().getReference("Patients");
 
         patientAuth = FirebaseAuth.getInstance();
+
+        patientImageSet=(ImageView)  this.findViewById(R.id.imageViewPatientRegistration_NEW);
+        txtViewSetMessage = (TextView)  this.findViewById(R.id.textViewPatientPatientRegistration_NEW);
+        btnProceed = (Button)  this.findViewById(R.id.buttonPatientRegistration_NEW);
+        progressBar =(ProgressBar)  this.findViewById(R.id.progressBarPatientReg_NEW);
+
 
         patientAge =(EditText)  findViewById(R.id.editTextTextPatientAge);
         patientCounty =(EditText)  findViewById(R.id.editTextTextPatientCounty);
@@ -41,8 +58,10 @@ public class PatientRegistration extends AppCompatActivity {
         patientPhoneNumber =(EditText) findViewById(R.id.editTextPatientPhoneNumber);
         patientEmailAddress=(EditText) findViewById(R.id.editTextTextPatientEmailAddress);
         patientPassword=(EditText) findViewById(R.id.editTextTextPatientPassword);
-        registerPatient=(Button) findViewById(R.id.btnRegisterPatient);
-        registerPatient.setOnClickListener(new View.OnClickListener() {
+
+
+        btnRegPatients =(Button) findViewById(R.id.btnRegisterPatient);
+        btnRegPatients.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 registerPatient();
@@ -111,9 +130,36 @@ public class PatientRegistration extends AppCompatActivity {
         }
         else
         {
+            progressBar.setVisibility(View.VISIBLE);
+
             patientAuth.createUserWithEmailAndPassword(emailAddress,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+                    Query query = patientsRef.orderByChild("email").equalTo(emailAddress);
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                // Email already exists in database
+
+                                btnRegPatients.setVisibility(View.GONE);
+
+
+                            } else {
+                                // Email does not exist in database, proceed with registration
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            // Handle errors here
+                            Toast.makeText(PatientRegistration.this, "Error Checking Email, CHECK NETWORK!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+
+
                     if(task.isSuccessful())
                     {//  public String firstName,secondName,phoneNumber,emailAddress,password;
                         int Counter=emailAddress.length();
@@ -130,7 +176,7 @@ public class PatientRegistration extends AppCompatActivity {
                         }
                         patientKey=patientKey.trim();
                         Patients myPatients=new Patients(firstName,secondName,phoneNumber,emailAddress,age,county);
-                        patientDatabase.child(patientKey).setValue(myPatients);
+                        patientsRef.child(patientKey).setValue(myPatients);
 
                         Toast.makeText(PatientRegistration.this,"REGISTRATION WAS SUCCESSFUL",Toast.LENGTH_SHORT).show();
                     }
