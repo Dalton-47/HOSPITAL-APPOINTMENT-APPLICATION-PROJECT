@@ -22,12 +22,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Patient_Main_Page_NEW extends AppCompatActivity {
    ImageView userProfile;
     String userID="";
     DatabaseReference myReference,patientRefAppointment;
     String firstname;
-    TextView welcomeUser,descriptionTextView,dateTextView,timeTextView,ageTextView;
+    TextView welcomeUser,descriptionTextView,dateTextView,timeTextView,ageTextView,textViewDate;
     String description,date,time,age;
 
 
@@ -36,6 +39,13 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_main_page_new);
 
+        textViewDate = (TextView)  this.findViewById(R.id.textViewPatientMainDate_NEW);
+
+        Date currentDate= new Date();
+        SimpleDateFormat dateFormat= new SimpleDateFormat("dd, MMMM, yyyy");
+        String formattedDate= dateFormat.format(currentDate);
+
+        textViewDate.setText(formattedDate);
 
 
        // progressBar.setVisibility(View.INVISIBLE);

@@ -3,6 +3,7 @@ package com.example.my_hospital_appointments;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ public class PatientRegistration extends AppCompatActivity {
      TextView txtViewSetMessage;
      Button btnProceed;
      ProgressBar progressBar;
+     RelativeLayout relativeLayout;
 
 ;    @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class PatientRegistration extends AppCompatActivity {
         txtViewSetMessage = (TextView)  this.findViewById(R.id.textViewPatientPatientRegistration_NEW);
         btnProceed = (Button)  this.findViewById(R.id.buttonPatientRegistration_NEW);
         progressBar =(ProgressBar)  this.findViewById(R.id.progressBarPatientReg_NEW);
+        relativeLayout =(RelativeLayout)  this.findViewById(R.id.relativeLayoutPatient_NEW);
 
 
         patientAge =(EditText)  findViewById(R.id.editTextTextPatientAge);
@@ -135,7 +139,7 @@ public class PatientRegistration extends AppCompatActivity {
             patientAuth.createUserWithEmailAndPassword(emailAddress,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    Query query = patientsRef.orderByChild("email").equalTo(emailAddress);
+                    Query query = patientsRef.orderByChild("emailAddress").equalTo(emailAddress);
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -143,10 +147,85 @@ public class PatientRegistration extends AppCompatActivity {
                                 // Email already exists in database
 
                                 btnRegPatients.setVisibility(View.GONE);
+                                progressBar.setVisibility(View.GONE);
+                                patientImageSet.setImageResource(R.drawable.computer);
+                                txtViewSetMessage.setText("Error 105:User Email Found in Database!");
+                                btnProceed.setText("RETRY");
+                                relativeLayout.setVisibility(View.VISIBLE);
+                                btnProceed.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        relativeLayout.setVisibility(View.GONE);
+                                        btnRegPatients.setVisibility(View.VISIBLE);
+                                        patientEmailAddress.setText("");
+                                        patientEmailAddress.requestFocus();
+
+                                    }
+                                });
+
 
 
                             } else {
                                 // Email does not exist in database, proceed with registration
+
+                                if(task.isSuccessful())
+                                {//  public String firstName,secondName,phoneNumber,emailAddress,password;
+                                    int Counter=emailAddress.length();
+                                    for(int a=0; a<Counter; a++)
+                                    {
+                                        if(emailAddress.charAt(a)=='@')
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            patientKey=patientKey+emailAddress.charAt(a);
+                                        }
+                                    }
+                                    patientKey=patientKey.trim();
+                                    Patients myPatients=new Patients(firstName,secondName,phoneNumber,emailAddress,age,county);
+                                    patientsRef.child(patientKey).setValue(myPatients);
+
+                                    btnRegPatients.setVisibility(View.GONE);
+                                    progressBar.setVisibility(View.GONE);
+                                    patientImageSet.setImageResource(R.drawable.check);
+                                    txtViewSetMessage.setText("DATA SAVED SUCCESSFULLY!");
+                                    btnProceed.setText("PROCEED");
+                                    relativeLayout.setVisibility(View.VISIBLE);
+                                    btnProceed.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent myIntent=new Intent(PatientRegistration.this,secondLoginPage.class);
+                                            myIntent.putExtra("usersEmail",emailAddress);
+                                            startActivity(myIntent);
+                                            finish();
+                                        }
+                                    });
+
+                                  //  Toast.makeText(PatientRegistration.this,"REGISTRATION WAS SUCCESSFUL",Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    btnRegPatients.setVisibility(View.GONE);
+                                    progressBar.setVisibility(View.GONE);
+                                    patientImageSet.setImageResource(R.drawable.computer);
+                                    txtViewSetMessage.setText("Error 107:Error Saving Data, Check NETWORK!!");
+                                    btnProceed.setText("RETRY");
+                                    relativeLayout.setVisibility(View.VISIBLE);
+                                    btnProceed.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            relativeLayout.setVisibility(View.GONE);
+                                            btnRegPatients.setVisibility(View.VISIBLE);
+
+                                        }
+                                    });
+
+                                    Toast.makeText(PatientRegistration.this,"!!!!!ERROR DURING REGISTRATION",Toast.LENGTH_SHORT).show();
+                                }
+
+
+
                             }
                         }
 
@@ -160,30 +239,8 @@ public class PatientRegistration extends AppCompatActivity {
 
 
 
-                    if(task.isSuccessful())
-                    {//  public String firstName,secondName,phoneNumber,emailAddress,password;
-                        int Counter=emailAddress.length();
-                        for(int a=0; a<Counter; a++)
-                        {
-                            if(emailAddress.charAt(a)=='@')
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                patientKey=patientKey+emailAddress.charAt(a);
-                            }
-                        }
-                        patientKey=patientKey.trim();
-                        Patients myPatients=new Patients(firstName,secondName,phoneNumber,emailAddress,age,county);
-                        patientsRef.child(patientKey).setValue(myPatients);
 
-                        Toast.makeText(PatientRegistration.this,"REGISTRATION WAS SUCCESSFUL",Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
-                        Toast.makeText(PatientRegistration.this,"!!!!!ERROR DURING REGISTRATION",Toast.LENGTH_SHORT).show();
-                    }
+
                 }
             });
         }

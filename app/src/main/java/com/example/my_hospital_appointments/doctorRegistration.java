@@ -79,7 +79,7 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
 
 
    public EditText myId,myPhoneNumber,myEmployeeNumber,myUserName,myEmail,myPassword;
-   public Button register;
+   public Button btnRegisterDoc;
    DatabaseReference doctorDatabase;
 
    public Spinner spin1;
@@ -170,10 +170,10 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
         myUserName=(EditText) findViewById(R.id.editTextTextUserName);
         myEmail=(EditText) findViewById(R.id.editTextTextMyEmailAddress);
         myPassword=(EditText) findViewById(R.id.editTextTextMyPassword);
-        register=(Button) findViewById(R.id.buttonRegister);
+        btnRegisterDoc =(Button) findViewById(R.id.buttonRegister);
 
         myId.requestFocus();
-        register.setOnClickListener(new View.OnClickListener() {
+        btnRegisterDoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -286,7 +286,7 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                        public void onDataChange(DataSnapshot dataSnapshot) {
                            if (dataSnapshot.exists()) {
                                //If email exists do this
-                               register.setVisibility(View.GONE);
+                               btnRegisterDoc.setVisibility(View.GONE);
                                progressBar.setVisibility(View.GONE);
                                myImageView.setImageResource(R.drawable.computer);
                                myImageView.setVisibility(View.VISIBLE);
@@ -299,7 +299,9 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                                    @Override
                                    public void onClick(View view) {
                                        myRelativeLayout.setVisibility(View.GONE);
-                                       register.setVisibility(View.VISIBLE);
+                                       btnRegisterDoc.setVisibility(View.VISIBLE);
+                                       myEmail.setText("");
+                                       myEmail.requestFocus();
 
                                    }
                                });
@@ -333,7 +335,7 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                                                        //Toast.makeText(doctorRegistration.this, "KINDLY AWAIT ADMIN APPROVAL WITHIN 24 HOURS", Toast.LENGTH_SHORT).show();
                                                        myImageView.setImageResource(R.drawable.check);
                                                        myImageView.setVisibility(View.VISIBLE);
-                                                       register.setVisibility(View.GONE);
+                                                       btnRegisterDoc.setVisibility(View.GONE);
                                                        //verificationText.setText("Details captured and saved successfully, A CODE WILL BE SENT TO YOUR EMAIL WITHIN THE NEXT 24 HOURS");
                                                        //progressBar.setVisibility(View.GONE);
 
@@ -344,7 +346,7 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                                                            @Override
                                                            public void onClick(View view) {
                                                                myRelativeLayout.setVisibility(View.GONE);
-                                                               register.setVisibility(View.GONE);
+                                                               btnRegisterDoc.setVisibility(View.GONE);
                                                                Intent myIntent=new Intent(doctorRegistration.this,secondLoginPage.class);
                                                                myIntent.putExtra("usersEmail",email);
                                                                startActivity(myIntent);
@@ -358,7 +360,7 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                                                    }
                                                    else
                                                    {
-                                                       register.setVisibility(View.GONE);
+                                                       btnRegisterDoc.setVisibility(View.GONE);
                                                        progressBar.setVisibility(View.GONE);
                                                        myImageView.setImageResource(R.drawable.computer);
                                                        myImageView.setVisibility(View.VISIBLE);
@@ -371,7 +373,7 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                                                            @Override
                                                            public void onClick(View view) {
                                                                myRelativeLayout.setVisibility(View.GONE);
-                                                               register.setVisibility(View.VISIBLE);
+                                                               btnRegisterDoc.setVisibility(View.VISIBLE);
 
                                                            }
                                                        });
@@ -385,7 +387,7 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                                //else ?
                                else
                                {
-                                   register.setVisibility(View.GONE);
+                                   btnRegisterDoc.setVisibility(View.GONE);
                                    progressBar.setVisibility(View.GONE);
                                    myImageView.setImageResource(R.drawable.computer);
                                    myImageView.setVisibility(View.VISIBLE);
@@ -398,7 +400,7 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                                        @Override
                                        public void onClick(View view) {
                                            myRelativeLayout.setVisibility(View.GONE);
-                                           register.setVisibility(View.VISIBLE);
+                                           btnRegisterDoc.setVisibility(View.VISIBLE);
                                        }
                                    });
 

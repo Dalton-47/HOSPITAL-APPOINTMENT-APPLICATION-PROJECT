@@ -19,7 +19,7 @@
     <View
         android:id="@+id/view34"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="20dp"
         android:background="@drawable/navy_blue_curved_top"
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,11 +29,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewDoctors"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="580dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/view34"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view32" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView66"
