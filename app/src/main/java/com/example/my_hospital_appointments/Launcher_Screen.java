@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class Launcher_Screen extends AppCompatActivity {
  TextView textView;
- Button btnLogin;
+ Button btnLogin, btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,14 @@ public class Launcher_Screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Launcher_Screen.this,Login_Activity.class));
+            }
+        });
+
+        btnRegister = (Button)  findViewById(R.id.buttonLaunchRegister);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Launcher_Screen.this,askuseroccupation.class));
             }
         });
 

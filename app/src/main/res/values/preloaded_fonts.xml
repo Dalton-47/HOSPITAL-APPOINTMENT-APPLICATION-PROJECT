@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/archivo_black</item>
+        <item>@font/big_shoulders_stencil_text_bold</item>
+        <item>@font/black_han_sans</item>
+        <item>@font/bungee_shade</item>
+        <item>@font/nosifer</item>
+        <item>@font/rammetto_one</item>
+    </array>
+</resources>

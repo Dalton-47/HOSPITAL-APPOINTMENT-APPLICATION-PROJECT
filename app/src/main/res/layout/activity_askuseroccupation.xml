@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1A446B"
     tools:context=".askuseroccupation">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/center_shape"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="290dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/pop_up_appointments_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,73 +22,86 @@
 
             <Button
                 android:id="@+id/buttonDoctor"
-                android:layout_width="210dp"
-                android:layout_height="75dp"
+                android:layout_width="207dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/whiterectangle"
                 android:fontFamily="monospace"
                 android:text="@string/Doctor"
-                android:textColor="#0099FF"
-                android:textSize="20sp"
+                android:textColor="#1A446B"
+                android:textSize="1sp"
                 android:textStyle="bold"
-                app:backgroundTint="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.413" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/buttonPatientAskUser"
-                android:layout_width="210dp"
-                android:layout_height="75dp"
+                android:layout_width="207dp"
+                android:layout_height="220dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
                 android:background="@drawable/whiterectangle"
                 android:fontFamily="monospace"
                 android:text="@string/PATIENT"
-                android:textColor="#0099FF"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:backgroundTint="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="#1A446B"
+                android:textSize="1sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonDoctor"
-                app:layout_constraintVertical_bias="0.814" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonDoctor" />
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:background="@drawable/icondoctor"
-                app:layout_constraintBottom_toTopOf="@+id/buttonDoctor"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_width="205dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/doc_snipe"
+                android:elevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/buttonDoctor"
+                app:layout_constraintStart_toStartOf="@+id/buttonDoctor"
+                app:layout_constraintTop_toTopOf="@+id/buttonDoctor" />
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:background="@drawable/iconpatient"
-                app:layout_constraintBottom_toTopOf="@+id/buttonPatientAskUser"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/patient_new_snipe"
+                android:elevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <View
-                android:id="@+id/view4"
-                android:layout_width="414dp"
-                android:layout_height="33dp"
-                android:background="#0099FF"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/buttonPatientAskUser" />
 
-            <View
-                android:id="@+id/view5"
-                android:layout_width="414dp"
-                android:layout_height="63dp"
-                android:layout_marginTop="680dp"
-                android:background="#0099FF"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView104"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                android:text="@string/sign_up_doctor"
+                android:textColor="#1A446B"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonDoctor"
+                app:layout_constraintEnd_toEndOf="@+id/buttonDoctor"
+                app:layout_constraintStart_toStartOf="@+id/buttonDoctor"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <TextView
+                android:id="@+id/textView105"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                android:text="@string/sign_up_patient"
+                android:textColor="#1A446B"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonPatientAskUser"
+                app:layout_constraintEnd_toEndOf="@+id/buttonPatientAskUser"
+                app:layout_constraintStart_toStartOf="@+id/buttonPatientAskUser"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>

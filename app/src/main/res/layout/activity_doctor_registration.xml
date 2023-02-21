@@ -4,19 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/whiterectangle"
     tools:context=".doctorRegistration">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/centergradient"
+        android:background="@drawable/pop_up_appointments_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -217,24 +214,15 @@
                 android:layout_width="205dp"
                 android:layout_height="58dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/whiterectangle"
+                android:background="@drawable/button_white_and_blue_border_background"
                 android:fontFamily="monospace"
                 android:text="@string/register"
-                android:textColor="#0099ff"
+                android:textColor="#1A446B"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:backgroundTint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextMyPassword" />
-
-            <View
-                android:id="@+id/view6"
-                android:layout_width="419dp"
-                android:layout_height="31dp"
-                android:background="#0099FF"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/editTextNumberID"

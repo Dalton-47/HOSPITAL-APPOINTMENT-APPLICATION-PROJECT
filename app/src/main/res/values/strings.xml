@@ -140,4 +140,6 @@
     <string name="enter_email_hint">Enter Your Email</string>
     <string name="enter_password_hint">Enter Your Password</string>
     <string name="enter_email_registered">Please enter your registered email to receive password reset link</string>
+    <string name="sign_up_doctor">Sign Up As Doctor?</string>
+    <string name="sign_up_patient">Sign Up As Patient?</string>
 </resources>
