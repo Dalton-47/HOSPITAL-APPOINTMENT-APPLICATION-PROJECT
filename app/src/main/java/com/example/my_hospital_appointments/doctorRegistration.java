@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -22,13 +23,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
 public class doctorRegistration extends AppCompatActivity implements View.OnClickListener{
 
+    ProgressBar progressBar;
     RelativeLayout myRelativeLayout;
     Button doneButton;
     TextView verificationText;
@@ -80,10 +86,17 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
    public  Spinner spin2;
    public String doctorID,doctorPhoneNumber,doctorEmployeeNumber,doctorUserName,doctorEmail,doctorTime,doctorDepartment;
    public  String doctorKey="";
+
+    DatabaseReference usersRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_registration);
+
+         usersRef = FirebaseDatabase.getInstance().getReference().child("users");
+
+
+        progressBar = (ProgressBar)  this.findViewById(R.id.progressBarRegsterDoctor_NEW);
 
         doctorDatabase=FirebaseDatabase.getInstance().getReference("PendingDoctors");
 
@@ -159,6 +172,7 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
         myPassword=(EditText) findViewById(R.id.editTextTextMyPassword);
         register=(Button) findViewById(R.id.buttonRegister);
 
+        myId.requestFocus();
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -255,62 +269,129 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
         }
         else
         {
-
+            progressBar.setVisibility(View.VISIBLE);
           myRelativeLayout=(RelativeLayout)  findViewById(R.id.LayoutUserWaitingPage);
-          myRelativeLayout.setVisibility(View.VISIBLE);
+
             verificationText =(TextView)  findViewById(R.id.textViewVerification);
             myImageView =(ImageView)  findViewById(R.id.imageViewokayOrError);
             doneButton=(Button)  findViewById(R.id.buttonDone);
-            register.setVisibility(View.GONE);//register button visibility set to Gone
+          //  register.setVisibility(View.GONE);//register button visibility set to Gone
            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                @SuppressLint("SetTextI18n")
                @Override
                public void onComplete(@NonNull Task<AuthResult> task) {
+                   Query query = usersRef.orderByChild("email").equalTo(email);
+                   query.addListenerForSingleValueEvent(new ValueEventListener() {
+                       @Override
+                       public void onDataChange(DataSnapshot dataSnapshot) {
+                           if (dataSnapshot.exists()) {
+                               //If email exists do this
+                               register.setVisibility(View.GONE);
+                               progressBar.setVisibility(View.GONE);
+                               myImageView.setImageResource(R.drawable.computer);
+                               myImageView.setVisibility(View.VISIBLE);
+                               verificationText.setText("Error 105:User Email Found in Database!");
 
-                   if (task.isSuccessful())
-                   {
-                       // public String ID,phoneNumber,employeeNumber,userName,email,password;
-                       user myUser=new user(ID,phoneNumber,employeeNumber,userName,email,firstSpinnerText,secondSpinnerText);
-                               FirebaseDatabase.getInstance().getReference("users")
-                               .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
-                               .setValue(myUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-                           @Override
-                           public void onComplete(@NonNull Task<Void> task) {
-                               if(task.isSuccessful())
+                               myRelativeLayout.setVisibility(View.VISIBLE);
+                               doneButton.setText("RETRY");
+                               doneButton.setVisibility(View.VISIBLE);
+                               doneButton.setOnClickListener(new View.OnClickListener() {
+                                   @Override
+                                   public void onClick(View view) {
+                                       myRelativeLayout.setVisibility(View.GONE);
+                                       register.setVisibility(View.VISIBLE);
+
+                                   }
+                               });
+
+
+                           } else {
+                               // Email does not exist in database, proceed with registration
+
+                               if (task.isSuccessful())
                                {
-                                   //we set an image to our ImageView
+                                   // public String ID,phoneNumber,employeeNumber,userName,email,password;
+                                   user myUser=new user(ID,phoneNumber,employeeNumber,userName,email,firstSpinnerText,secondSpinnerText);
+                                   FirebaseDatabase.getInstance().getReference("users")
+                                           .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
+                                           .setValue(myUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                               @Override
+                                               public void onComplete(@NonNull Task<Void> task) {
+                                                   if(task.isSuccessful())
+                                                   {
+                                                       //we set an image to our ImageView
 
-                                   PendingDoctors myDoctor=new PendingDoctors (ID,phoneNumber,employeeNumber,userName,email,firstSpinnerText,secondSpinnerText) ;
-                                   doctorDatabase.child(doctorKey).setValue(myDoctor);
+                                                       PendingDoctors myDoctor=new PendingDoctors (ID,phoneNumber,employeeNumber,userName,email,firstSpinnerText,secondSpinnerText) ;
+                                                       doctorDatabase.child(doctorKey).setValue(myDoctor);
+                                                       progressBar.setVisibility(View.GONE);
+                                                       myRelativeLayout.setVisibility(View.VISIBLE);
+                                                       DatabaseReference doctorApprovalData;
+                                                       doctorApprovalData= FirebaseDatabase.getInstance().getReference("DoctorApproval");
+                                                       String Status="HELLO Dr."+userName+" KINDLY AWAIT ADMIN APPROVAL WITHIN 24 HOURS";
+                                                       DoctorApproval myDoctorApproval=new DoctorApproval(Status);
+                                                       doctorApprovalData.child(doctorKey).setValue(myDoctorApproval);
+                                                       //Toast.makeText(doctorRegistration.this, "KINDLY AWAIT ADMIN APPROVAL WITHIN 24 HOURS", Toast.LENGTH_SHORT).show();
+                                                       myImageView.setImageResource(R.drawable.check);
+                                                       myImageView.setVisibility(View.VISIBLE);
+                                                       register.setVisibility(View.GONE);
+                                                       //verificationText.setText("Details captured and saved successfully, A CODE WILL BE SENT TO YOUR EMAIL WITHIN THE NEXT 24 HOURS");
+                                                       //progressBar.setVisibility(View.GONE);
 
-                                   DatabaseReference doctorApprovalData;
-                                   doctorApprovalData= FirebaseDatabase.getInstance().getReference("DoctorApproval");
-                                   String Status="HELLO Dr."+userName+" KINDLY AWAIT ADMIN APPROVAL WITHIN 24 HOURS";
-                                   DoctorApproval myDoctorApproval=new DoctorApproval(Status);
-                                   doctorApprovalData.child(doctorKey).setValue(myDoctorApproval);
+                                                       verificationText.setText("AWAIT ADMIN APPROVAL WITHIN 24 HOURS");
+                                                       doneButton.setVisibility(View.VISIBLE);
+                                                       doneButton.setText("PROCEED");
+                                                       doneButton.setOnClickListener(new View.OnClickListener() {
+                                                           @Override
+                                                           public void onClick(View view) {
+                                                               myRelativeLayout.setVisibility(View.GONE);
+                                                               register.setVisibility(View.GONE);
+                                                               Intent myIntent=new Intent(doctorRegistration.this,secondLoginPage.class);
+                                                               myIntent.putExtra("usersEmail",email);
+                                                               startActivity(myIntent);
+                                                               finish();
+                                                           }
+                                                       });
 
-                                   myImageView.setImageResource(R.drawable.check);
-                                   myImageView.setVisibility(View.VISIBLE);
-                                   verificationText.setText("Details captured and saved successfully, A CODE WILL BE SENT TO YOUR EMAIL WITHIN THE NEXT 24 HOURS");
-                                   doneButton.setVisibility(View.VISIBLE);
-                                   doneButton.setText("PROCEED");
-                                   doneButton.setOnClickListener(new View.OnClickListener() {
-                                       @Override
-                                       public void onClick(View view) {
-                                           myRelativeLayout.setVisibility(View.GONE);
-                                           register.setVisibility(View.GONE);
-                                           Intent myIntent=new Intent(doctorRegistration.this,secondLoginPage.class);
-                                           startActivity(myIntent);
-                                       }
-                                   });
 
-                               //  Toast.makeText(doctorRegistration.this,"Details captured and saved successfully please await Admin's Confirmation within 24 hrs",Toast.LENGTH_SHORT).show();
+
+                                                       //  Toast.makeText(doctorRegistration.this,"Details captured and saved successfully please await Admin's Confirmation within 24 hrs",Toast.LENGTH_SHORT).show();
+                                                   }
+                                                   else
+                                                   {
+                                                       register.setVisibility(View.GONE);
+                                                       progressBar.setVisibility(View.GONE);
+                                                       myImageView.setImageResource(R.drawable.computer);
+                                                       myImageView.setVisibility(View.VISIBLE);
+                                                       verificationText.setText("Error 103:Failed to save user's data, Try Again!");
+
+                                                       myRelativeLayout.setVisibility(View.VISIBLE);
+                                                       doneButton.setText("RETRY");
+                                                       doneButton.setVisibility(View.VISIBLE);
+                                                       doneButton.setOnClickListener(new View.OnClickListener() {
+                                                           @Override
+                                                           public void onClick(View view) {
+                                                               myRelativeLayout.setVisibility(View.GONE);
+                                                               register.setVisibility(View.VISIBLE);
+
+                                                           }
+                                                       });
+
+
+                                                       // Toast.makeText(doctorRegistration.this,"Error 103:Failed to save user's data, Try Again!",Toast.LENGTH_SHORT).show();
+                                                   }
+                                               }
+                                           });
                                }
+                               //else ?
                                else
                                {
+                                   register.setVisibility(View.GONE);
+                                   progressBar.setVisibility(View.GONE);
                                    myImageView.setImageResource(R.drawable.computer);
                                    myImageView.setVisibility(View.VISIBLE);
-                                   verificationText.setText("Error 103:Failed to save user's data, Try Again!");
+                                   verificationText.setText("Error 102:Failed to save user's data,CHECK YOUR INTERNET CONNECTION then  Try Again!");
+
+                                   myRelativeLayout.setVisibility(View.VISIBLE);
                                    doneButton.setText("RETRY");
                                    doneButton.setVisibility(View.VISIBLE);
                                    doneButton.setOnClickListener(new View.OnClickListener() {
@@ -318,30 +399,22 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                                        public void onClick(View view) {
                                            myRelativeLayout.setVisibility(View.GONE);
                                            register.setVisibility(View.VISIBLE);
-
                                        }
                                    });
-                                  // Toast.makeText(doctorRegistration.this,"Error 103:Failed to save user's data, Try Again!",Toast.LENGTH_SHORT).show();
+
+
+                                   // Toast.makeText(doctorRegistration.this,"Error 102:Failed to register User,Try Again",Toast.LENGTH_SHORT).show();
                                }
                            }
-                       });
-                   }
-                   else
-                   {
-                       myImageView.setImageResource(R.drawable.computer);
-                       myImageView.setVisibility(View.VISIBLE);
-                       verificationText.setText("Error 102:Failed to save user's data,CHECK YOUR INTERNET CONNECTION then  Try Again!");
-                       doneButton.setText("RETRY");
-                       doneButton.setVisibility(View.VISIBLE);
-                       doneButton.setOnClickListener(new View.OnClickListener() {
-                           @Override
-                           public void onClick(View view) {
-                               myRelativeLayout.setVisibility(View.GONE);
-                               register.setVisibility(View.VISIBLE);
-                           }
-                       });
-                      // Toast.makeText(doctorRegistration.this,"Error 102:Failed to register User,Try Again",Toast.LENGTH_SHORT).show();
-                   }
+                       }
+
+                       @Override
+                       public void onCancelled(DatabaseError databaseError) {
+                           // Handle errors here
+                       }
+                   });
+
+
                }
            });
         }

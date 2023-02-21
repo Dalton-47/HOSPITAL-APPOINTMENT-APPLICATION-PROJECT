@@ -63,10 +63,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
                 android:ems="10"
                 android:fontFamily="monospace"
                 android:inputType="phone"
+                android:textColor="#1A446B"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -92,6 +92,7 @@
                 android:ems="10"
                 android:fontFamily="monospace"
                 android:inputType="textPersonName"
+                android:textColor="#1A446B"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -176,10 +177,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
                 android:ems="10"
                 android:fontFamily="monospace"
                 android:inputType="textEmailAddress"
+                android:textColor="#1A446B"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -202,10 +203,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
                 android:ems="10"
                 android:fontFamily="monospace"
                 android:inputType="textPassword"
+                android:textColor="#1A446B"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -214,11 +215,11 @@
                 android:layout_width="205dp"
                 android:layout_height="58dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/button_white_and_blue_border_background"
+                android:background="@drawable/navy"
                 android:fontFamily="monospace"
                 android:text="@string/register"
-                android:textColor="#1A446B"
-                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -232,7 +233,8 @@
                 android:ems="10"
                 android:inputType="number"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="#1A446B" />
 
             <EditText
                 android:id="@+id/editTextTextUserName"
@@ -241,14 +243,16 @@
                 android:layout_marginEnd="32dp"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:textColor="#1A446B"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <RelativeLayout
                 android:id="@+id/LayoutUserWaitingPage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/transluscent_background"
+                android:layout_width="350dp"
+                android:layout_height="600dp"
+                android:background="#CB3E89C1"
+                android:elevation="2dp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -262,13 +266,17 @@
                     <TextView
                         android:id="@+id/textViewVerification"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="330dp"
-                        android:background="@drawable/whiterectangle"
+                        android:background="@drawable/textview_background"
                         android:fontFamily="monospace"
+                        android:padding="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="20dp"
+                        android:paddingRight="5dp"
                         android:text="@string/textverificationinprogress"
                         android:textAlignment="center"
-                        android:textColor="#0099ff"
+                        android:textColor="#1A446B"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -277,12 +285,11 @@
 
                     <ImageView
                         android:id="@+id/imageViewokayOrError"
-                        android:layout_width="220dp"
-                        android:layout_height="220dp"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
                         android:layout_marginTop="72dp"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.503"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:srcCompat="@tools:sample/avatars" />
@@ -292,20 +299,32 @@
                         android:layout_width="205dp"
                         android:layout_height="59dp"
                         android:layout_marginTop="50dp"
-                        android:background="@drawable/whiterectangle"
+                        android:background="@drawable/navy"
                         android:fontFamily="monospace"
                         android:text="@string/textokay"
-                        android:textColor="#0099ff"
-                        android:textSize="18sp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
                         android:textStyle="bold"
-                        android:visibility="gone"
-                        app:backgroundTint="@color/white"
+                        android:visibility="visible"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.558"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewVerification" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBarRegsterDoctor_NEW"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="60dp"
+                android:indeterminateDrawable="@drawable/progress_icon"
+                android:visibility="gone"
+                android:elevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

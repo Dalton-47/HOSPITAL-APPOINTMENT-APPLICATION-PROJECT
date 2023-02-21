@@ -26,6 +26,7 @@ public class askuseroccupation extends AppCompatActivity {
 
                 Intent myIntent=new Intent(askuseroccupation.this, doctorRegistration.class);
                 startActivity(myIntent);
+                finish();
             }
         });
 
@@ -35,6 +36,7 @@ public class askuseroccupation extends AppCompatActivity {
             public void onClick(View view) {
                 Intent myIntent=new Intent(askuseroccupation.this,PatientRegistration.class);
                 startActivity(myIntent);
+                finish();
             }
         });
     }
