@@ -57,7 +57,7 @@
     <string name="managedoctors">MANAGE DOCTORS</string>
     <string name="managepatients">MANAGE PATIENTS</string>
     <string name="doctorassigned">DOCTOR ASSIGNED</string>
-    <string name="name">NAME</string>
+    <string name="name">Name</string>
     <string name="pending">Pending......</string>
     <string name="selectanappointment">SELECT AN APPOINTMENT TO  VIEW DETAILS</string>
     <string name="view">VIEW</string>
@@ -143,5 +143,8 @@
     <string name="sign_up_doctor">Sign Up As Doctor?</string>
     <string name="sign_up_patient">Sign Up As Patient?</string>
     <string name="date_of_birth">Date Of Birth</string>
-    <string name="profile">PROFILE</string>
+    <string name="profile">MY PROFILE</string>
+    <string name="upload_profile">Upload Your Profile Picture</string>
+    <string name="choosePicture">Choose Picture</string>
+    <string name="upload">Upload</string>
 </resources>

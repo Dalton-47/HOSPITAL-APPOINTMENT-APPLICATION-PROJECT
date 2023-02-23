@@ -10,138 +10,127 @@
     <View
         android:id="@+id/view54"
         android:layout_width="310dp"
-        android:layout_height="500dp"
-        android:layout_marginTop="80dp"
+        android:layout_height="570dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/whiterectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView51"
+    <View
+        android:id="@+id/view56"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/blackfemaledoctor"
+        android:layout_marginTop="24dp"
+        android:background="#1A446B"
         app:layout_constraintEnd_toEndOf="@+id/view54"
         app:layout_constraintStart_toStartOf="@+id/view54"
         app:layout_constraintTop_toBottomOf="@+id/textView77" />
 
+    <View
+        android:id="@+id/view57"
+        android:layout_width="206dp"
+        android:layout_height="40dp"
+        android:background="#1A446B"
+        app:layout_constraintEnd_toEndOf="@+id/view54"
+        app:layout_constraintStart_toStartOf="@+id/view54"
+        app:layout_constraintTop_toTopOf="@+id/view54" />
+
+    <View
+        android:id="@+id/view55"
+        android:layout_width="290dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/pop_up_appointments_background"
+        app:layout_constraintEnd_toEndOf="@+id/view54"
+        app:layout_constraintStart_toStartOf="@+id/view54"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPatientViewProfile" />
+
+    <ImageView
+        android:id="@+id/imageViewPatientViewProfile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/blackfemaledoctor"
+        app:layout_constraintBottom_toBottomOf="@+id/view56"
+        app:layout_constraintEnd_toEndOf="@+id/view56"
+        app:layout_constraintStart_toStartOf="@+id/view56"
+        app:layout_constraintTop_toTopOf="@+id/view56" />
+
     <TextView
         android:id="@+id/textViewPatientEmail_PROFILE"
-        android:layout_width="200dp"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_email_new_24"
+        android:drawablePadding="8dp"
         android:padding="8dp"
         android:textColor="#1A446B"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/view54"
+        app:layout_constraintEnd_toEndOf="@+id/view55"
+        app:layout_constraintStart_toStartOf="@+id/view55"
         app:layout_constraintTop_toBottomOf="@+id/textViewPatientName_PROFILE" />
 
     <TextView
-        android:id="@+id/textView106"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="-10dp"
-        android:background="#FFFFFF"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:text="@string/email"
-        app:layout_constraintBottom_toTopOf="@+id/textViewPatientEmail_PROFILE"
-        app:layout_constraintStart_toStartOf="@+id/view54" />
-
-    <TextView
         android:id="@+id/textViewPatientName_PROFILE"
-        android:layout_width="wrap_content"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
         android:textColor="#1A446B"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/view54"
-        app:layout_constraintStart_toStartOf="@+id/view54"
-        app:layout_constraintTop_toBottomOf="@+id/imageView51" />
+        app:layout_constraintEnd_toEndOf="@+id/view55"
+        app:layout_constraintStart_toStartOf="@+id/view55"
+        app:layout_constraintTop_toTopOf="@+id/view55" />
 
     <TextView
         android:id="@+id/textViewPatientDOB_PROFILE"
-        android:layout_width="200dp"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_date_range_24"
+        android:drawablePadding="8dp"
         android:padding="8dp"
         android:textColor="#1A446B"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/view54"
+        app:layout_constraintEnd_toEndOf="@+id/view55"
+        app:layout_constraintStart_toStartOf="@+id/view55"
         app:layout_constraintTop_toBottomOf="@+id/textViewPatientEmail_PROFILE" />
 
     <TextView
-        android:id="@+id/textView109"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="-10dp"
-        android:background="#FFFFFF"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:text="@string/date_of_birth"
-        app:layout_constraintBottom_toTopOf="@+id/textViewPatientDOB_PROFILE"
-        app:layout_constraintStart_toStartOf="@+id/view54" />
-
-    <TextView
         android:id="@+id/textViewPatientCounty_PROFILE"
-        android:layout_width="200dp"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:drawablePadding="8dp"
         android:padding="8dp"
         android:textColor="#1A446B"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/view54"
+        app:layout_constraintEnd_toEndOf="@+id/view55"
+        app:layout_constraintStart_toStartOf="@+id/view55"
         app:layout_constraintTop_toBottomOf="@+id/textViewPatientDOB_PROFILE" />
 
     <TextView
-        android:id="@+id/textView111"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="-10dp"
-        android:background="#FFFFFF"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:text="@string/county"
-        app:layout_constraintBottom_toTopOf="@+id/textViewPatientCounty_PROFILE"
-        app:layout_constraintStart_toStartOf="@+id/view54" />
-
-    <TextView
         android:id="@+id/textViewPatientPhoneNo_PROFILE"
-        android:layout_width="200dp"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+        android:drawablePadding="8dp"
         android:padding="8dp"
         android:textColor="#1A446B"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/view54"
+        app:layout_constraintEnd_toEndOf="@+id/view55"
+        app:layout_constraintStart_toStartOf="@+id/view55"
         app:layout_constraintTop_toBottomOf="@+id/textViewPatientCounty_PROFILE" />
-
-    <TextView
-        android:id="@+id/textView113"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="-10dp"
-        android:background="#FFFFFF"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:text="@string/phone_no"
-        app:layout_constraintBottom_toTopOf="@+id/textViewPatientPhoneNo_PROFILE"
-        app:layout_constraintStart_toStartOf="@+id/view54" />
 
     <ProgressBar
         android:id="@+id/progressBarPatientProfile"
@@ -160,9 +149,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="@string/profile"
-        android:textColor="#1A446B"
+        android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="@+id/view54"
         app:layout_constraintStart_toStartOf="@+id/view54"
         app:layout_constraintTop_toTopOf="@+id/view54" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class Patient_User_Profile_Activity extends AppCompatActivity {
     ProgressBar progressBar;
     DatabaseReference userRef;
     TextView txtViewEmail,txtViewDateOfBirth,txtViewCounty,txtViewPhone,txtViewPatientName;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,17 @@ public class Patient_User_Profile_Activity extends AppCompatActivity {
         txtViewPhone = (TextView)  this.findViewById(R.id.textViewPatientPhoneNo_PROFILE);
         txtViewPatientName  =(TextView)  this.findViewById(R.id.textViewPatientName_PROFILE);
         progressBar = (ProgressBar)  this.findViewById(R.id.progressBarPatientProfile);
+        imageView = (ImageView)  this.findViewById(R.id.imageViewPatientViewProfile);
+
+
+        //send user to upload profile
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Patient_User_Profile_Activity.this,PatientUploadPicActivity.class));
+            }
+        });
+
 
         //get Current User
         authProfile = FirebaseAuth.getInstance();
