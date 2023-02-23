@@ -3,11 +3,13 @@ package com.example.my_hospital_appointments;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -26,18 +28,22 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class PatientRegistration extends AppCompatActivity {
     private FirebaseAuth  patientAuth;
-    private EditText patientAge,patientCounty,patientFirstName, patientSecondName,patientPhoneNumber,patientEmailAddress,patientPassword;
+    private EditText patientCounty,patientFirstName, patientSecondName,patientPhoneNumber,patientEmailAddress,patientPassword;
     public String firstName,secondName,phoneNumber,emailAddress,password,age,county;
     private Button btnRegPatients;
     DatabaseReference patientsRef;
     private String patientKey="";
      ImageView patientImageSet;
-     TextView txtViewSetMessage;
+     TextView txtViewSetMessage, txtViewPatientAge;
      Button btnProceed;
      ProgressBar progressBar;
      RelativeLayout relativeLayout;
+    private DatePickerDialog picker;
 
 ;    @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +61,8 @@ public class PatientRegistration extends AppCompatActivity {
         relativeLayout =(RelativeLayout)  this.findViewById(R.id.relativeLayoutPatient_NEW);
 
 
-        patientAge =(EditText)  findViewById(R.id.editTextTextPatientAge);
+
+        txtViewPatientAge =(TextView)  findViewById(R.id.textViewPatientAgeRegistration_NEW);
         patientCounty =(EditText)  findViewById(R.id.editTextTextPatientCounty);
         patientFirstName =(EditText)  findViewById(R.id.editTextPatientFName);
         patientSecondName =(EditText) findViewById(R.id.editTextTextPatientSName);
@@ -63,6 +70,28 @@ public class PatientRegistration extends AppCompatActivity {
         patientEmailAddress=(EditText) findViewById(R.id.editTextTextPatientEmailAddress);
         patientPassword=(EditText) findViewById(R.id.editTextTextPatientPassword);
 
+
+
+        txtViewPatientAge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+
+                // Date picker dialog
+                    picker = new DatePickerDialog(PatientRegistration.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+
+                        txtViewPatientAge.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                    }
+                },year, month, day);
+                picker.show();
+            }
+        });
 
         btnRegPatients =(Button) findViewById(R.id.btnRegisterPatient);
         btnRegPatients.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +111,7 @@ public class PatientRegistration extends AppCompatActivity {
         phoneNumber=patientPhoneNumber.getText().toString().trim();
         emailAddress=patientEmailAddress.getText().toString().trim();
         password=patientPassword.getText().toString().trim();
-        age=patientAge.getText().toString().trim();
+        age= txtViewPatientAge.getText().toString().trim();
         county=patientCounty.getText().toString().trim();
 
 
@@ -99,8 +128,8 @@ public class PatientRegistration extends AppCompatActivity {
         }
         else if(age.isEmpty())
         {
-            patientAge.setError("Cannot Be Blank");
-            patientAge.requestFocus();
+            txtViewPatientAge.setError("Cannot Be Blank");
+            txtViewPatientAge.requestFocus();
         }
         else if(county.isEmpty())
         {

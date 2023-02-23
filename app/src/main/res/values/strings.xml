@@ -10,7 +10,7 @@
     <string name="Doctor">DOCTOR</string>
     <string name="PATIENT">PATIENT</string>
     <string name="id_number">ID NUMBER</string>
-    <string name="phone_no">Phone NO:</string>
+    <string name="phone_no">Phone No</string>
     <string name="employee">Employee NO:</string>
     <string name="time_availability">Time Available</string>
     <string name="department">Department</string>
@@ -103,7 +103,7 @@
     <string name="send">SEND</string>
     <string name="patientmessages">PATIENT\'S MESSAGES</string>
     <string name="age">AGE</string>
-    <string name="county">COUNTY</string>
+    <string name="county">County</string>
     <string name="title_activity_patient_main_page">Patient_Main_Page_Activity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -142,4 +142,6 @@
     <string name="enter_email_registered">Please enter your registered email to receive password reset link</string>
     <string name="sign_up_doctor">Sign Up As Doctor?</string>
     <string name="sign_up_patient">Sign Up As Patient?</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="profile">PROFILE</string>
 </resources>

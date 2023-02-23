@@ -81,6 +81,13 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                 .transform(new RoundedTransformation() )
                 .into(userProfile);
 
+        userProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Patient_Main_Page_NEW.this,Patient_User_Profile_Activity.class) );
+            }
+        });
+
         descriptionTextView=(TextView) this.findViewById(R.id.textViewPatientDescriptionMainset);
         dateTextView =(TextView)  this.findViewById(R.id.textViewPatientDateset);
         timeTextView =(TextView)  this.findViewById(R.id.textViewPatientTimeset);
@@ -157,7 +164,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                      descriptionTextView.setText(description);
                      dateTextView.setText("Date : "+date);
                      timeTextView.setText("Time : "+time);
-                     ageTextView.setText("Age  : "+age);
+                     ageTextView.setText("D.O.B  : "+age);
 
                 }
             }

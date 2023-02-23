@@ -77,7 +77,7 @@ public class Login_Activity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
+
                userLogin();
 
             }
@@ -109,6 +109,7 @@ public class Login_Activity extends AppCompatActivity {
         }
         else
         {
+            progressBar.setVisibility(View.VISIBLE);
             authProfile.signInWithEmailAndPassword(email, password).addOnCompleteListener(Login_Activity.this,new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -131,12 +132,15 @@ public class Login_Activity extends AppCompatActivity {
                             Intent myIntent=new Intent(Login_Activity.this,secondLoginPage.class);
                             myIntent.putExtra("usersEmail",usersEmail);
                             startActivity(myIntent); //start next Activity
+                            progressBar.setVisibility(View.GONE);
                             finish(); // Close LoginActivity
 
                         }else {
+                            progressBar.setVisibility(View.GONE);
                             firebaseUser.sendEmailVerification();
                             authProfile.signOut(); // Sign out user.
                             showAlertDialogue();
+
                         }
 
                     } else {
@@ -150,6 +154,7 @@ public class Login_Activity extends AppCompatActivity {
                             editTextEmail.requestFocus();
                         } catch (Exception e) {
                             Log.e(TAG,e.getMessage());
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(Login_Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
 
