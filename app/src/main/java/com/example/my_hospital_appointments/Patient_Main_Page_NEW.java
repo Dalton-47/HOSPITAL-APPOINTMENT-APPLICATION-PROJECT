@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,9 +18,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -32,12 +36,18 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
     String firstname;
     TextView welcomeUser,descriptionTextView,dateTextView,timeTextView,ageTextView,textViewDate;
     String description,date,time,age;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
+    StorageReference storageReference;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_main_page_new);
+
+        firebaseAuth  = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
 
         textViewDate = (TextView)  this.findViewById(R.id.textViewPatientMainDate_NEW);
 
@@ -76,10 +86,6 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
 
         userProfile =(ImageView)  findViewById(R.id.imageViewPatientProfileNew);
 
-        Picasso.get()
-                .load(R.drawable.happydoctor)
-                .transform(new RoundedTransformation() )
-                .into(userProfile);
 
         userProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +99,24 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
         timeTextView =(TextView)  this.findViewById(R.id.textViewPatientTimeset);
         ageTextView =(TextView)  this.findViewById(R.id.textViewPatientAgeset);
 
+        if(firebaseUser!=null)
+        {
+            // Set User DP (After user has uploaded)
+            Uri uri = firebaseUser.getPhotoUrl();
+
+            // ImageViewer setImageURI() should not be used with regular URIs. So we are using Picasso
+            Picasso.get().load(uri)
+                    .transform(new RoundedTransformation())
+                    .into(userProfile);
+        }
+        else
+        {
+            Picasso.get()
+                    .load(R.drawable.user_error)
+                    .transform(new RoundedSquareTransformation())
+                    .into(userProfile);
+
+        }
 
 
         readUserName(); //set userName to the main page for personalization
