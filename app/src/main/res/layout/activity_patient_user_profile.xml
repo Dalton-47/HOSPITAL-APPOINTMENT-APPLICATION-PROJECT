@@ -50,7 +50,6 @@
         android:id="@+id/imageViewPatientViewProfile"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:background="@drawable/blackfemaledoctor"
         app:layout_constraintBottom_toBottomOf="@+id/view56"
         app:layout_constraintEnd_toEndOf="@+id/view56"
         app:layout_constraintStart_toStartOf="@+id/view56"

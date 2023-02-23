@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class Patient_User_Profile_Activity extends AppCompatActivity {
     FirebaseAuth authProfile;
@@ -63,13 +65,13 @@ public class Patient_User_Profile_Activity extends AppCompatActivity {
         } else {
             checkIfEmailVerified(firebaseUser);
             progressBar.setVisibility(View.VISIBLE);
-            showUserProfile();
+            showUserProfile(firebaseUser);
         }
 
 
     }
 
-    private void showUserProfile() {
+    private void showUserProfile(FirebaseUser firebaseUser) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
@@ -97,6 +99,14 @@ public class Patient_User_Profile_Activity extends AppCompatActivity {
                               String firstName=String.valueOf(thisDataSnapshot.child("firstName").getValue());
                               String secondName=String.valueOf(thisDataSnapshot.child("secondName").getValue());
                               txtViewPatientName.setText(firstName+" "+secondName);
+
+                            // Set User DP (After user has uploaded)
+                            Uri uri = firebaseUser.getPhotoUrl();
+
+                            // ImageViewer setImageURI() should not be used with regular URIs. So we are using Picasso
+                            Picasso.get().load(uri)
+                                            .transform(new SquareTransformation())
+                                    .into(imageView);
                         }
                         else
                         {
