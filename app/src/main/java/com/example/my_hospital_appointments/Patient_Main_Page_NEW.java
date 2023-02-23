@@ -28,6 +28,7 @@ import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class Patient_Main_Page_NEW extends AppCompatActivity {
    ImageView userProfile;
@@ -159,7 +160,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                     DataSnapshot thisDataSnapshot=task.getResult();
                      firstname=String.valueOf(thisDataSnapshot.child("firstName").getValue());
                    // Toast.makeText(Patient_Main_Page_NEW.this," FIRSTNAME "+firstname ,Toast.LENGTH_SHORT).show();
-                    welcomeUser.setText("Hello "+firstname+"!");
+                    welcomeUser.setText("Hello "+firstname+".");
 
                 }
                 else
@@ -185,10 +186,18 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                      time=String.valueOf(thisDataSnapshot.child("time").getValue());
                      age=String.valueOf(thisDataSnapshot.child("age").getValue());
 
-                     descriptionTextView.setText(description);
-                     dateTextView.setText("Date : "+date);
-                     timeTextView.setText("Time : "+time);
-                     ageTextView.setText("D.O.B  : "+age);
+                     if(Objects.equals(description, "null"))
+                     {
+
+                     }
+                     else
+                     {
+                         descriptionTextView.setText(description);
+                         dateTextView.setText("Date : "+date);
+                         timeTextView.setText("Time : "+time);
+                         ageTextView.setText("D.O.B  : "+age);
+                     }
+
 
                 }
             }

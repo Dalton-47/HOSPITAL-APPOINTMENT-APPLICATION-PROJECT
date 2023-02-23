@@ -147,4 +147,5 @@
     <string name="upload_profile">Upload Your Profile Picture</string>
     <string name="choosePicture">Choose Picture</string>
     <string name="upload">Upload</string>
+    <string name="patient_age">Patient\'s Age</string>
 </resources>
