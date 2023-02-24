@@ -72,7 +72,11 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
 
 
          getAppointmentDetails();
-         getAssignedDoctor();
+
+
+             getAssignedDoctor();
+
+
 
 
     }
@@ -117,11 +121,19 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
               public void onComplete(@NonNull Task<DataSnapshot> task) {
                   if(task.isSuccessful())
                   {
-                    DataSnapshot childSnapshot=task.getResult();
-                    myDoctor doc=childSnapshot.getValue(myDoctor.class);
-                      assert doc != null;
-                     // assignedDoctorList.add(doc);
-                      myAdapter.setDoc(doc.getName(),doc.getEmail(),doc.getPhoneNumber());
+                      if(task.getResult().exists())
+                      {
+                          DataSnapshot childSnapshot=task.getResult();
+                          myDoctor doc=childSnapshot.getValue(myDoctor.class);
+                          //assert doc != null;
+                          // assignedDoctorList.add(doc);
+                          myAdapter.setDoc(doc.getName(),doc.getEmail(),doc.getPhoneNumber());
+                      }
+                      else
+                      {
+                          myAdapter.setDoc("null","null","null");
+                      }
+
                   }
                   else
                   {

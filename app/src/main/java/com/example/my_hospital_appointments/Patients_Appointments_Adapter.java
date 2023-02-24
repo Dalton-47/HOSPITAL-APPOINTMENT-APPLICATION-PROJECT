@@ -1,5 +1,6 @@
 package com.example.my_hospital_appointments;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients_Appointments_Adapter.DataViewHolder>{
 
@@ -65,6 +67,7 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
         return new Patients_Appointments_Adapter.DataViewHolder(view) ;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
 
@@ -76,9 +79,20 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
         holder.appointmentTime.setText(appoints.getTime());
 
     // myDoctor newDoctor= assignedDoctorList.get(position);
-        holder.docName.setText("Dr. "+name);
-        holder.docPhone.setText(phoneNumber);
-        holder.docEmail.setText(email);
+        if(!Objects.equals(email, "null"))
+        {
+            holder.docName.setText("Dr. "+name);
+            holder.docPhone.setText(phoneNumber);
+            holder.docEmail.setText(email);
+        }
+        else
+        {
+            holder.docName.setText("");
+            holder.docPhone.setText("");
+            holder.docEmail.setText("");
+        }
+
+
 
     }
 

@@ -150,6 +150,32 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        firebaseAuth  = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        if(firebaseUser!=null)
+        {
+            // Set User DP (After user has uploaded)
+            Uri uri = firebaseUser.getPhotoUrl();
+
+            // ImageViewer setImageURI() should not be used with regular URIs. So we are using Picasso
+            Picasso.get().load(uri)
+                    .transform(new RoundedTransformation())
+                    .into(userProfile);
+        }
+        else
+        {
+            Picasso.get()
+                    .load(R.drawable.user_error)
+                    .transform(new RoundedSquareTransformation())
+                    .into(userProfile);
+
+        }
+
+    }
+
     void readUserName()
     {
         myReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {

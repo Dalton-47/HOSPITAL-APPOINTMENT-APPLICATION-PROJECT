@@ -71,6 +71,22 @@ public class Patient_User_Profile_Activity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        //get Current User
+        authProfile = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = authProfile.getCurrentUser();
+
+        super.onResume();
+        if (firebaseUser == null){
+            Toast.makeText(Patient_User_Profile_Activity.this, "Something went wrong! User's details are not available at the moment", Toast.LENGTH_LONG).show();
+        } else {
+            checkIfEmailVerified(firebaseUser);
+            progressBar.setVisibility(View.VISIBLE);
+            showUserProfile(firebaseUser);
+        }
+    }
+
     private void showUserProfile(FirebaseUser firebaseUser) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();

@@ -219,6 +219,11 @@ public class GetAppointmentDetails extends AppCompatActivity {
            myDescription.setError("Cannot Be Blank");
            myDescription.requestFocus();
         }
+        else if(descriptionText.length() > 69)
+        {
+            myDescription.setError("Description is too long");
+            myDescription.requestFocus();
+        }
         else if(patientAge.isEmpty())
         {
             Toast.makeText(GetAppointmentDetails.this,"PLEASE ENTER PATIENT'S AGE",Toast.LENGTH_SHORT).show();

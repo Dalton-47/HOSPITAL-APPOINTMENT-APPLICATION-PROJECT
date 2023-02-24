@@ -59,8 +59,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@+id/view59"
         app:layout_constraintStart_toStartOf="@+id/view59"
-        app:layout_constraintTop_toTopOf="@+id/view59"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="@+id/view59" />
 
     <Button
         android:id="@+id/buttonPatientUploadPic"
