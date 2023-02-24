@@ -1,6 +1,7 @@
 package com.example.my_hospital_appointments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.ListResult;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -20,6 +31,10 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
 
     private  ArrayList<Doctors> dataList=new ArrayList<>() ;
     private String emailKeyID;
+    FirebaseAuth authProfile = FirebaseAuth.getInstance();
+    FirebaseUser firebaseUser = authProfile.getCurrentUser();
+
+    StorageReference storageReference = FirebaseStorage.getInstance().getReference("PatientPictures");
 
     public void setData(ArrayList<Doctors> dataList) {
         this.dataList=dataList;
@@ -92,6 +107,45 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
         holder.doctorsEmail.setText(doctors.getEmail());
         holder.doctorsPhone.setText(doctors.getPhoneNumber());
         holder.doctorsProfession.setText(doctors.getDepartment());
+
+        Uri uriImage;
+        String[] parts = doctors.getEmail().split("@");
+        String emailID = parts[0];
+        emailID = "agathamesh";
+        String imagePathPrefix = emailID + ".";
+       // StorageReference imageRef = storageReference.child("");
+        storageReference.listAll().addOnSuccessListener(new OnSuccessListener<ListResult>() {
+            @Override
+            public void onSuccess(ListResult listResult) {
+
+                for (StorageReference item : listResult.getItems()) {
+                    String itemName = item.getName();
+                    if (itemName.startsWith(imagePathPrefix)) {
+                        // Found a file with the correct prefix, load the image using Picasso
+                        item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Picasso.get().load(uri).into(holder.doctorsProfile);
+
+                               
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Handle any errors
+                            }
+                        });
+                        break; // Break out of the loop since we've found the file we're looking for
+                    }
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // Handle any errors
+            }
+        });
+
 
 
     }

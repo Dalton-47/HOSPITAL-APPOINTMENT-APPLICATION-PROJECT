@@ -85,9 +85,16 @@ public class PatientUploadPicActivity extends AppCompatActivity {
     private void UploadPic() {
 
         if (uriImage != null){
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            String userId = currentUser.getUid();
+            String email = currentUser.getEmail();
+            String[] parts =email.split("@");
+            String emailID = parts[0];
+
 
             // Save the image with uid of the currently logged user
-            StorageReference fileReference = storageReference.child(authProfile.getCurrentUser().getUid() + '.' + getFileExtension(uriImage));
+            StorageReference fileReference = storageReference.child(emailID + '.' + getFileExtension(uriImage));
 
             // Upload image to storage
             fileReference.putFile(uriImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
