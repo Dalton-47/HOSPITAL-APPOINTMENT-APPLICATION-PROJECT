@@ -8,9 +8,19 @@
     tools:context=".Doctor_Main_Page_NEW">
 
     <View
+        android:id="@+id/view61"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/white_background_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
         android:id="@+id/view49"
         android:layout_width="match_parent"
-        android:layout_height="540dp"
+        android:layout_height="530dp"
         android:background="@drawable/white_background_curved_tops"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,11 +30,10 @@
         android:id="@+id/imageViewDocProfile_MAIN"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/personwhite"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/view61"
+        app:layout_constraintEnd_toEndOf="@+id/view61"
+        app:layout_constraintStart_toStartOf="@+id/view61"
+        app:layout_constraintTop_toTopOf="@+id/view61" />
 
     <TextView
         android:id="@+id/textViewDocUserName_NEW"
@@ -35,7 +44,7 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageViewDocProfile_MAIN"
+        app:layout_constraintStart_toEndOf="@+id/view61"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -46,16 +55,16 @@
         android:layout_marginTop="2dp"
         android:text="@string/how_are_you"
         android:textColor="#808080"
-        app:layout_constraintStart_toEndOf="@+id/imageViewDocProfile_MAIN"
+        app:layout_constraintStart_toEndOf="@+id/view61"
         app:layout_constraintTop_toBottomOf="@+id/textViewDocUserName_NEW" />
 
     <ImageView
         android:id="@+id/imageView40"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/ic_baseline_settings_24"
+        android:background="@drawable/ic_baseline_menu_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,11 +81,11 @@
 
     <View
         android:id="@+id/view51"
-        android:layout_width="320dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/textview_background"
+        android:layout_width="325dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_white_and_blue_border_background"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view49" />
 
@@ -102,29 +111,28 @@
 
     <ImageView
         android:id="@+id/imageView41"
-        android:layout_width="200dp"
-        android:layout_height="152dp"
-        android:layout_marginStart="-16dp"
-        android:layout_marginTop="-1dp"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="4dp"
         android:background="@drawable/doc_snipe"
+        app:layout_constraintBottom_toBottomOf="@+id/view51"
         app:layout_constraintStart_toStartOf="@+id/view51"
-        app:layout_constraintTop_toTopOf="@+id/view51" />
+        app:layout_constraintTop_toBottomOf="@+id/textView93" />
 
     <TextView
         android:id="@+id/textView93"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/textview_background"
+        android:layout_marginTop="5dp"
         android:elevation="5dp"
         android:padding="8dp"
         android:text="@string/scoreboard"
         android:textColor="#1A446B"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/view51"
         app:layout_constraintEnd_toEndOf="@+id/view49"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view49" />
 
     <TextView
         android:id="@+id/textView95"
@@ -154,7 +162,7 @@
         android:id="@+id/textView98"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/zero"
         android:textSize="17sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView95"
@@ -164,7 +172,7 @@
         android:id="@+id/textView99"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/zero"
         android:textSize="17sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView96"
@@ -172,10 +180,10 @@
 
     <Button
         android:id="@+id/buttonDocAppointments_MAN"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="157dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/navy"
         android:text="@string/empty"
         android:textColor="#FFFFFF"
@@ -185,10 +193,10 @@
 
     <Button
         android:id="@+id/buttonDocConsultation_MAN"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="157dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
         android:background="@drawable/navy"
         android:text="@string/empty"
         android:textColor="#FFFFFF"
@@ -198,10 +206,10 @@
 
     <Button
         android:id="@+id/buttonDocReports_MAN"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="157dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/navy"
         android:text="@string/empty"
         android:textColor="#FFFFFF"
@@ -211,10 +219,10 @@
 
     <Button
         android:id="@+id/buttonDocHistory_MAN"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="157dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
         android:background="@drawable/navy"
         android:text="@string/empty"
         android:textColor="#FFFFFF"
@@ -226,8 +234,9 @@
         android:id="@+id/divider32"
         android:layout_width="240dp"
         android:layout_height="5dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:background="#1A446B"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonDocReports_MAN" />
@@ -246,7 +255,7 @@
         android:id="@+id/imageView47"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="40dp"
         android:layout_marginBottom="4dp"
         android:background="@drawable/star"
         app:layout_constraintBottom_toBottomOf="@+id/view51"
@@ -278,7 +287,7 @@
         android:id="@+id/textView102"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/zero"
         android:textSize="17sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView101"
@@ -337,8 +346,8 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:elevation="2dp"
         android:background="@drawable/ic_baseline_report_doc_white_24"
+        android:elevation="2dp"
         app:layout_constraintEnd_toEndOf="@+id/buttonDocReports_MAN"
         app:layout_constraintStart_toStartOf="@+id/buttonDocReports_MAN"
         app:layout_constraintTop_toTopOf="@+id/buttonDocReports_MAN" />
@@ -372,12 +381,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:elevation="2dp"
         android:text="@string/history"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:elevation="2dp"
         app:layout_constraintEnd_toEndOf="@+id/buttonDocHistory_MAN"
         app:layout_constraintStart_toStartOf="@+id/buttonDocHistory_MAN"
         app:layout_constraintTop_toBottomOf="@+id/imageView50" />
+
+    <View
+        android:id="@+id/view62"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/navy_blue_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/view61"
+        app:layout_constraintEnd_toEndOf="@+id/view61" />
+
+    <ImageView
+        android:id="@+id/imageView51"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/ic_baseline_photo_camera_24"
+        app:layout_constraintBottom_toBottomOf="@+id/view62"
+        app:layout_constraintEnd_toEndOf="@+id/view62"
+        app:layout_constraintStart_toStartOf="@+id/view62"
+        app:layout_constraintTop_toTopOf="@+id/view62" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

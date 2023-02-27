@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_gradient"
+    android:background="#1A446B"
     tools:context=".Patient_Main_Page_NEW">
 
     <View
@@ -32,7 +32,6 @@
         android:layout_height="85dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/white_background_circle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,7 +52,7 @@
 
     <Button
         android:id="@+id/button_Book_Appointments_New"
-        android:layout_width="150dp"
+        android:layout_width="157dp"
         android:layout_height="150dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
@@ -65,7 +64,7 @@
 
     <Button
         android:id="@+id/buttonPatientConsultDocNew"
-        android:layout_width="150dp"
+        android:layout_width="157dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
@@ -77,7 +76,7 @@
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="150dp"
+        android:layout_width="156dp"
         android:layout_height="150dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
@@ -89,7 +88,7 @@
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="150dp"
+        android:layout_width="156dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
@@ -142,8 +141,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/view60"
         app:layout_constraintEnd_toEndOf="@+id/view60"
         app:layout_constraintStart_toStartOf="@+id/view60"
-        app:layout_constraintTop_toTopOf="@+id/view60"
-        app:srcCompat="@drawable/personwhite" />
+        app:layout_constraintTop_toTopOf="@+id/view60" />
 
     <TextView
         android:id="@+id/textView75"
@@ -326,5 +324,23 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView32"
         app:layout_constraintTop_toBottomOf="@+id/textViewPatientTimeset" />
+
+    <View
+        android:id="@+id/view63"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/navy_blue_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/view60"
+        app:layout_constraintEnd_toEndOf="@+id/view60" />
+
+    <ImageView
+        android:id="@+id/imageView52"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/ic_baseline_photo_camera_24"
+        app:layout_constraintBottom_toBottomOf="@+id/view63"
+        app:layout_constraintEnd_toEndOf="@+id/view63"
+        app:layout_constraintStart_toStartOf="@+id/view63"
+        app:layout_constraintTop_toTopOf="@+id/view63" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

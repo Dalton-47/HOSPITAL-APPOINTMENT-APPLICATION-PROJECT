@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,6 +26,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.ListResult;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -42,7 +48,7 @@ public class Patient_Chatting_Activity extends AppCompatActivity {
     String doctorName;
     patient_messages_Chatting_Adapter myAdapter;
     int counter=0;
-    String userEmailKey;
+    String userEmailKey,docEmail;
     LinearLayoutManager layoutManager;
     RecyclerView myRecycleViewer;
     TextView doctorNameTextView;
@@ -53,16 +59,18 @@ public class Patient_Chatting_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.patient_chatting_activity);
 
+        //change the reference
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference("PatientPictures");
+
         ImageView myUserProfile=(ImageView)  this.findViewById(R.id.imageViewPatientChattingPage_icon);
-        Picasso.get()
-                .load(R.drawable.blackfemaledoctor)
-                .transform(new RoundedTransformation() )
-                .into(myUserProfile);
+
         doctorNameTextView =(TextView)  this.findViewById(R.id.textViewDoctorNamePatientChatting_new);
 
         //getting the data passed from previous activity
          userEmailKey=getIntent().getStringExtra("emailKey");
          doctorName=getIntent().getStringExtra("doctorsName");
+         docEmail = getIntent().getStringExtra("docEmail");
+
 
         Toast.makeText(Patient_Chatting_Activity.this,"user's key = "+userEmailKey+" Doc name = "+doctorName,Toast.LENGTH_SHORT).show();
         FirebaseAuth myAuth=FirebaseAuth.getInstance();
@@ -122,7 +130,63 @@ public class Patient_Chatting_Activity extends AppCompatActivity {
             }
         });
 
+        Uri uriImage;
+
+        String emailID = docEmail;
+
+        String imagePathPrefix = emailID + ".";
+        // StorageReference imageRef = storageReference.child("");
+        storageReference.listAll().addOnSuccessListener(new OnSuccessListener<ListResult>() {
+            @Override
+            public void onSuccess(ListResult listResult) {
+               int checker=0;
+                for (StorageReference item : listResult.getItems()) {
+                    String itemName = item.getName();
+                    if (itemName.startsWith(imagePathPrefix)) {
+                        checker=1;
+                        // Found a file with the correct prefix, load the image using Picasso
+                        item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Picasso.get()
+                                        .load(uri)
+                                        .transform(new RoundedTransformation() )
+                                        .into(myUserProfile);
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Handle any errors
+                                Picasso.get()
+                                        .load(R.drawable.doctor)
+                                        .transform(new RoundedTransformation() )
+                                        .into(myUserProfile);
+                            }
+                        });
+                        break; // Break out of the loop since we've found the file we're looking for
+                    }
+                }
+                if(checker==0)
+                {
+                    //if the doctor hasn't set a profile picture
+                    Picasso.get()
+                            .load(R.drawable.doctor)
+                            .transform(new RoundedTransformation() )
+                            .into(myUserProfile);
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // Handle any errors
+            }
+        }); //here
+
+
     }
+
+
 
      private void addMessage()
     {

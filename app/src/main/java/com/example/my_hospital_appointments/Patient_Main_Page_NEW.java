@@ -40,6 +40,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     StorageReference storageReference;
+    View view60;
 
 
     @Override
@@ -58,6 +59,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
 
         textViewDate.setText(formattedDate);
 
+        view60 = (View)  this.findViewById(R.id.view60);
 
        // progressBar.setVisibility(View.INVISIBLE);
         Intent intent =getIntent();
@@ -105,13 +107,27 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
             // Set User DP (After user has uploaded)
             Uri uri = firebaseUser.getPhotoUrl();
 
-            // ImageViewer setImageURI() should not be used with regular URIs. So we are using Picasso
-            Picasso.get().load(uri)
-                    .transform(new RoundedTransformation())
-                    .into(userProfile);
+            if(uri!=null)
+            {
+                // ImageViewer setImageURI() should not be used with regular URIs. So we are using Picasso
+                view60.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
+                Picasso.get().load(uri)
+                        .transform(new RoundedTransformation())
+                        .into(userProfile);
+            }
+            else
+            {
+                Picasso.get()
+                        .load(R.drawable.user_error)
+                        .transform(new RoundedSquareTransformation())
+                        .into(userProfile);
+            }
+
+
         }
         else
         {
+           // view60.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
             Picasso.get()
                     .load(R.drawable.user_error)
                     .transform(new RoundedSquareTransformation())
@@ -169,7 +185,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
         {
             Picasso.get()
                     .load(R.drawable.user_error)
-                    .transform(new RoundedSquareTransformation())
+                    .transform(new RoundedTransformation())
                     .into(userProfile);
 
         }
@@ -186,7 +202,15 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                     DataSnapshot thisDataSnapshot=task.getResult();
                      firstname=String.valueOf(thisDataSnapshot.child("firstName").getValue());
                    // Toast.makeText(Patient_Main_Page_NEW.this," FIRSTNAME "+firstname ,Toast.LENGTH_SHORT).show();
-                    welcomeUser.setText("Hello "+firstname+".");
+                    if(firstname.equals("null"))
+                    {
+                        welcomeUser.setText("Kindly Register With Us.");
+                    }
+                    else
+                    {
+                        welcomeUser.setText("Hello "+firstname+".");
+                    }
+
 
                 }
                 else
@@ -221,7 +245,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                          descriptionTextView.setText(description);
                          dateTextView.setText("Date : "+date);
                          timeTextView.setText("Time : "+time);
-                         ageTextView.setText("D.O.B  : "+age);
+                         ageTextView.setText("Age :  "+age+" Years");
                      }
 
 

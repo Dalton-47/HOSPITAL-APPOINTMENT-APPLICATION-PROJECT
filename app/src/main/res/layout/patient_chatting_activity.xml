@@ -66,8 +66,7 @@
         android:elevation="11dp"
         app:layout_constraintEnd_toEndOf="@+id/view35"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view35"
-        app:srcCompat="@android:drawable/stat_notify_error" />
+        app:layout_constraintTop_toTopOf="@+id/view35" />
 
     <TextView
         android:id="@+id/textViewDoctorNamePatientChatting_new"

@@ -66,10 +66,12 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
                     Doctors doctors= dataList.get(position);
 
                     String doctorName= doctors.getUserName();
+                    String docEmail=doctors.getEmail();
                     Intent myIntent=new Intent(v.getContext(), Patient_Chatting_Activity.class);
                     Bundle bundle=new Bundle();
                     bundle.putString("emailKey",emailKeyID);
                     bundle.putString("doctorsName",doctorName);
+                    bundle.putString("docEmail",docEmail);
                     myIntent.putExtras(bundle);
 
                     v.getContext().startActivity(myIntent);
@@ -111,7 +113,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
         Uri uriImage;
         String[] parts = doctors.getEmail().split("@");
         String emailID = parts[0];
-        emailID = "agathamesh";
+
         String imagePathPrefix = emailID + ".";
        // StorageReference imageRef = storageReference.child("");
         storageReference.listAll().addOnSuccessListener(new OnSuccessListener<ListResult>() {
@@ -127,7 +129,6 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
                             public void onSuccess(Uri uri) {
                                 Picasso.get().load(uri).into(holder.doctorsProfile);
 
-                               
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -144,7 +145,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
             public void onFailure(@NonNull Exception e) {
                 // Handle any errors
             }
-        });
+        }); //here
 
 
 
