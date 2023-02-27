@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppt">
         <activity
+            android:name=".Doc_Update_ProfilePicture_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Doc_User_Profile"
             android:exported="false" />
         <activity

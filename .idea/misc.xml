@@ -28,6 +28,7 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/navy_blue.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/navy_blue_circle.xml" value="0.1735" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/navy_blue_curved_top.xml" value="0.1735" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/personwhite.xml" value="0.1735" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/pop_up_appointments_background.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/progress_icon.xml" value="0.1735" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/rounded_square_new.xml" value="0.1" />
@@ -50,6 +51,7 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_available_doctors.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_chattingpage.xml" value="0.22" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_contacts.xml" value="0.25" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doc_update_profile_picture.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doc_user_profile.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doctor_appointments.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_doctor_chatting.xml" value="0.22" />

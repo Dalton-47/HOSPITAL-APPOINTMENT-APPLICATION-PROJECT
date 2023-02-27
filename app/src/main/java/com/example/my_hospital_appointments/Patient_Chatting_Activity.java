@@ -59,8 +59,8 @@ public class Patient_Chatting_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.patient_chatting_activity);
 
-        //change the reference
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference("PatientPictures");
+
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference("DoctorsPictures");
 
         ImageView myUserProfile=(ImageView)  this.findViewById(R.id.imageViewPatientChattingPage_icon);
 
@@ -72,7 +72,7 @@ public class Patient_Chatting_Activity extends AppCompatActivity {
          docEmail = getIntent().getStringExtra("docEmail");
 
 
-        Toast.makeText(Patient_Chatting_Activity.this,"user's key = "+userEmailKey+" Doc name = "+doctorName,Toast.LENGTH_SHORT).show();
+        Toast.makeText(Patient_Chatting_Activity.this,"user's key = "+userEmailKey+" Doc Email = "+docEmail,Toast.LENGTH_SHORT).show();
         FirebaseAuth myAuth=FirebaseAuth.getInstance();
         FirebaseUser currentUser=myAuth.getCurrentUser();
         String userId= currentUser.getUid();
@@ -132,7 +132,9 @@ public class Patient_Chatting_Activity extends AppCompatActivity {
 
         Uri uriImage;
 
-        String emailID = docEmail;
+        String parts[]=docEmail.split("@");
+        String emailID=parts[0];
+
 
         String imagePathPrefix = emailID + ".";
         // StorageReference imageRef = storageReference.child("");

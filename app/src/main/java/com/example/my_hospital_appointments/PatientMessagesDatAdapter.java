@@ -1,17 +1,25 @@
 package com.example.my_hospital_appointments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.ListResult;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -40,12 +48,14 @@ public class PatientMessagesDatAdapter extends RecyclerView.Adapter<PatientMessa
     public static class DataViewHolder extends RecyclerView.ViewHolder {
         DatabaseReference patientsData;
         TextView patientName,patientAge,patientCounty;
+        ImageView imageViewPatientMessages;
 
 
 
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            imageViewPatientMessages = (ImageView)  itemView.findViewById(R.id.imageViewPatientMessagesIcon);
             patientName=(TextView) itemView.findViewById(R.id.textViewPatientMessagesName);
             patientAge =(TextView) itemView.findViewById(R.id.textViewPatientMessagesAge);
             patientCounty=(TextView) itemView.findViewById(R.id.textViewPatientMessagesResidence);
@@ -104,7 +114,71 @@ public class PatientMessagesDatAdapter extends RecyclerView.Adapter<PatientMessa
         holder.patientAge.setText("Age : "+patients.getAge());
         holder.patientCounty.setText("Residence : "+patients.getCounty());
 
-    }
+
+
+            Uri uriImage;
+
+            String email = patients.getEmailAddress();
+            String Parts[]=email.split("@");
+           String emailID=Parts[0];
+
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference("PatientPictures");
+        String imagePathPrefix = emailID + ".";
+            // StorageReference imageRef = storageReference.child("");
+            storageReference.listAll().addOnSuccessListener(new OnSuccessListener<ListResult>() {
+                @Override
+                public void onSuccess(ListResult listResult) {
+                    int checker=0;
+                    for (StorageReference item : listResult.getItems()) {
+                        String itemName = item.getName();
+                        if (itemName.startsWith(imagePathPrefix)) {
+                            checker=1;
+                            // Found a file with the correct prefix, load the image using Picasso
+                            item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+
+                                    Picasso.get()
+                                            .load(uri)
+                                            .transform(new RoundedTransformation() )
+                                            .into(holder.imageViewPatientMessages);
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // Handle any errors
+                                    Picasso.get()
+                                            .load(R.drawable.iconpatient)
+                                            .transform(new RoundedTransformation() )
+                                            .into(holder.imageViewPatientMessages);
+                                }
+                            });
+                            break; // Break out of the loop since we've found the file we're looking for
+                        }
+                    }
+                    if(checker==0)
+                    {
+
+                        //if the doctor hasn't set a profile picture
+                        Picasso.get()
+                                .load(R.drawable.iconpatient)
+                                .transform(new RoundedTransformation() )
+                                .into(holder.imageViewPatientMessages);
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    // Handle any errors
+                }
+            }); //here
+
+        }
+
+
+
 
     @Override
     public int getItemCount() {

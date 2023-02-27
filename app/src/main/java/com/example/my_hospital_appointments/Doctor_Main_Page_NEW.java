@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,21 +32,58 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
     String emailID,userName;
     TextView textViewDocName,textViewDate;
     ImageView docImage;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
+    View view61;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_main_page_new);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
         textViewDocName = (TextView)  this.findViewById(R.id.textViewDocUserName_NEW);
         docImage =(ImageView)  this.findViewById(R.id.imageViewDocProfile_MAIN);
 
+        view61=(View)  this.findViewById(R.id.view61);
 
-        //let's picasso the imageView
-        Picasso.get()
-                .load(R.drawable.blackfemaledoctor)
-                .transform(new RoundedTransformation() )
-                .into(docImage);
+
+        if(firebaseUser!=null)
+        {
+            // Set User DP (After user has uploaded)
+            Uri uri = firebaseUser.getPhotoUrl();
+
+            if(uri!=null)
+            {
+                // ImageViewer setImageURI() should not be used with regular URIs. So we are using Picasso
+                view61.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
+                Picasso.get().load(uri)
+                        .transform(new RoundedTransformation())
+                        .into(docImage);
+            }
+            else
+            {
+                Picasso.get()
+                        .load(R.drawable.user_error)
+                        .transform(new RoundedSquareTransformation())
+                        .into(docImage);
+            }
+
+
+        }
+        else
+        {
+            // view60.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
+            Picasso.get()
+                    .load(R.drawable.user_error)
+                    .transform(new RoundedSquareTransformation())
+                    .into(docImage);
+
+        }//here
+
+        
         docImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

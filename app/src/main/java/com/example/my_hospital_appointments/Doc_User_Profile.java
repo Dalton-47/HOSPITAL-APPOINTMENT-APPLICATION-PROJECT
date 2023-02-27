@@ -47,6 +47,12 @@ public class Doc_User_Profile extends AppCompatActivity {
 
         progressBar = (ProgressBar)  this.findViewById(R.id.progressBarDoc_PROF);
 
+        imageViewDOC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Doc_User_Profile.this, Doc_Update_ProfilePicture_Activity.class));
+            }
+        });
 
         //get Current User
         authProfile = FirebaseAuth.getInstance();
@@ -98,6 +104,9 @@ public class Doc_User_Profile extends AppCompatActivity {
 
                             if(uri==null)
                             {
+                                Toast.makeText(Doc_User_Profile.this, "UPLOAD YOUR PROFILE PICTURE", Toast.LENGTH_SHORT).show();
+
+                                startActivity(new Intent(Doc_User_Profile.this,Doc_Update_ProfilePicture_Activity.class));
 
                             }
                             else
@@ -113,13 +122,17 @@ public class Doc_User_Profile extends AppCompatActivity {
                         else
                         {
                             progressBar.setVisibility(View.GONE);
+
                             Toast.makeText(Doc_User_Profile.this, "Error 202: User Not Found!", Toast.LENGTH_SHORT).show();
+                            showUserProfile(firebaseUser);
                         }
                     }
                     else
                     {
                         progressBar.setVisibility(View.GONE);
+
                         Toast.makeText(Doc_User_Profile.this, "Error 404: Check Network Connection!", Toast.LENGTH_SHORT).show();
+                        showUserProfile(firebaseUser);
                     }
                 }
             });

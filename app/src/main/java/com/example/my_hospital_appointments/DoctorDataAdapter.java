@@ -14,10 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
@@ -34,7 +32,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
     FirebaseAuth authProfile = FirebaseAuth.getInstance();
     FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
-    StorageReference storageReference = FirebaseStorage.getInstance().getReference("PatientPictures");
+
 
     public void setData(ArrayList<Doctors> dataList) {
         this.dataList=dataList;
@@ -43,17 +41,19 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
 
     protected class DataViewHolder extends RecyclerView.ViewHolder {
         DatabaseReference doctorsData;
-        ImageView doctorsProfile;
+        ImageView imageViewDocProfile;
         TextView doctorsName;
         TextView doctorsEmail;
         TextView doctorsPhone;
         TextView doctorsProfession;
 
+
         //a constructor
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            doctorsProfile =(ImageView)  itemView.findViewById(R.id.imageViewDoctorRecyclerView);
+
+            imageViewDocProfile =(ImageView)  itemView.findViewById(R.id.imageViewDoctorRecyclerView);
             doctorsName =(TextView)   itemView.findViewById(R.id.textViewRecyclerDoctorName);
             doctorsEmail =(TextView)  itemView.findViewById(R.id.textViewRecyclerDoctorEmail);
             doctorsPhone =(TextView)  itemView.findViewById(R.id.textViewRecyclerDoctorPhone) ;
@@ -110,12 +110,14 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
         holder.doctorsPhone.setText(doctors.getPhoneNumber());
         holder.doctorsProfession.setText(doctors.getDepartment());
 
+        String email= doctors.getEmail();
         Uri uriImage;
-        String[] parts = doctors.getEmail().split("@");
+        String[] parts = email.split("@");
         String emailID = parts[0];
 
         String imagePathPrefix = emailID + ".";
        // StorageReference imageRef = storageReference.child("");
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference("DoctorsPictures");
         storageReference.listAll().addOnSuccessListener(new OnSuccessListener<ListResult>() {
             @Override
             public void onSuccess(ListResult listResult) {
@@ -127,7 +129,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
                         item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
-                                Picasso.get().load(uri).into(holder.doctorsProfile);
+                                Picasso.get().load(uri).into(holder.imageViewDocProfile);
 
                             }
                         }).addOnFailureListener(new OnFailureListener() {
