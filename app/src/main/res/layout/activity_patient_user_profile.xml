@@ -80,7 +80,7 @@
         android:drawablePadding="8dp"
         android:padding="8dp"
         android:textColor="#1A446B"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/view55"
         app:layout_constraintStart_toStartOf="@+id/view55"

@@ -4,6 +4,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1A446B"
     tools:context=".Doc_User_Profile">
 
+    <View
+        android:id="@+id/view64"
+        android:layout_width="310dp"
+        android:layout_height="560dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/whiterectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view65"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:background="#1A446B"
+        app:layout_constraintEnd_toEndOf="@+id/view64"
+        app:layout_constraintStart_toStartOf="@+id/view64"
+        app:layout_constraintTop_toTopOf="@+id/view64" />
+
+    <TextView
+        android:id="@+id/textView80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="@string/profile"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/view65"
+        app:layout_constraintStart_toStartOf="@+id/view65"
+        app:layout_constraintTop_toTopOf="@+id/view64" />
+
+    <View
+        android:id="@+id/view66"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="24dp"
+        android:background="#1A446B"
+        app:layout_constraintEnd_toEndOf="@+id/view64"
+        app:layout_constraintStart_toStartOf="@+id/view64"
+        app:layout_constraintTop_toBottomOf="@+id/view65" />
+
+    <ImageView
+        android:id="@+id/imageViewDocImage_PROF"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view66"
+        app:layout_constraintEnd_toEndOf="@+id/view66"
+        app:layout_constraintStart_toStartOf="@+id/view66"
+        app:layout_constraintTop_toTopOf="@+id/view66" />
+
+    <View
+        android:id="@+id/view67"
+        android:layout_width="290dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/pop_up_appointments_background"
+        app:layout_constraintEnd_toEndOf="@+id/view64"
+        app:layout_constraintStart_toStartOf="@+id/view64"
+        app:layout_constraintTop_toBottomOf="@+id/view66" />
+
+    <TextView
+        android:id="@+id/textViewDocName_PROF"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view67"
+        app:layout_constraintStart_toStartOf="@+id/view67"
+        app:layout_constraintTop_toTopOf="@+id/view67" />
+
+    <TextView
+        android:id="@+id/textViewDocEmail_PROF"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_email_new_24"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view67"
+        app:layout_constraintStart_toStartOf="@+id/view67"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDocName_PROF" />
+
+    <TextView
+        android:id="@+id/textViewDocOccupation_PROF"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_work_24"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view67"
+        app:layout_constraintStart_toStartOf="@+id/view67"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDocEmail_PROF" />
+
+    <TextView
+        android:id="@+id/textViewDocBadgeNumber_PROF"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_badge_24"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view67"
+        app:layout_constraintStart_toStartOf="@+id/view67"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDocOccupation_PROF" />
+
+    <TextView
+        android:id="@+id/textViewDocPhoneNumber_PROF"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textview_background"
+        android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view67"
+        app:layout_constraintStart_toStartOf="@+id/view67"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDocBadgeNumber_PROF" />
+
+    <ProgressBar
+        android:id="@+id/progressBarDoc_PROF"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:indeterminateDrawable="@drawable/progress_icon"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/view64"
+        app:layout_constraintStart_toStartOf="@+id/view64"
+        app:layout_constraintTop_toBottomOf="@+id/view66" />
 </androidx.constraintlayout.widget.ConstraintLayout>

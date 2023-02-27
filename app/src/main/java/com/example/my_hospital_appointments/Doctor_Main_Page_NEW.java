@@ -38,11 +38,18 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
         textViewDocName = (TextView)  this.findViewById(R.id.textViewDocUserName_NEW);
         docImage =(ImageView)  this.findViewById(R.id.imageViewDocProfile_MAIN);
 
+
         //let's picasso the imageView
         Picasso.get()
                 .load(R.drawable.blackfemaledoctor)
                 .transform(new RoundedTransformation() )
                 .into(docImage);
+        docImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Doctor_Main_Page_NEW.this ,Doc_User_Profile.class  ));
+            }
+        });
 
         Intent intent =getIntent();
         String myUsersEmail=intent.getExtras().getString("usersEmail");
