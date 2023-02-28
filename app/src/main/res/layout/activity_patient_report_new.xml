@@ -4,6 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1A446B"
     tools:context=".Patient_Report_Activity_New">
+
+    <View
+        android:id="@+id/view70"
+        android:layout_width="350dp"
+        android:layout_height="600dp"
+        android:background="@drawable/whiterectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/appointmentName"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/view70"
+        app:layout_constraintStart_toStartOf="@+id/view70"
+        app:layout_constraintTop_toTopOf="@+id/view70" />
+
+    <TextView
+        android:id="@+id/textView84"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textview_background"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view70"
+        app:layout_constraintStart_toStartOf="@+id/view70"
+        app:layout_constraintTop_toBottomOf="@+id/textView70" />
+
+    <TextView
+        android:id="@+id/textView89"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textview_background"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view70"
+        app:layout_constraintStart_toStartOf="@+id/view70"
+        app:layout_constraintTop_toBottomOf="@+id/textView84" />
+
+    <TextView
+        android:id="@+id/textView107"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textview_background"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view70"
+        app:layout_constraintStart_toStartOf="@+id/view70"
+        app:layout_constraintTop_toBottomOf="@+id/textView89" />
+
+    <TextView
+        android:id="@+id/textView108"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textview_background"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view70"
+        app:layout_constraintStart_toStartOf="@+id/view70"
+        app:layout_constraintTop_toBottomOf="@+id/textView107" />
+
+    <View
+        android:id="@+id/view71"
+        android:layout_width="330dp"
+        android:layout_height="293dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/pop_up_appointments_background"
+        app:layout_constraintEnd_toEndOf="@+id/view70"
+        app:layout_constraintStart_toStartOf="@+id/view70"
+        app:layout_constraintTop_toBottomOf="@+id/textView108" />
+
+    <TextView
+        android:id="@+id/textView109"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/doc_report"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/view71"
+        app:layout_constraintStart_toStartOf="@+id/view71"
+        app:layout_constraintTop_toTopOf="@+id/view71" />
+
+    <TextView
+        android:id="@+id/textView110"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textview_background"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view71"
+        app:layout_constraintStart_toStartOf="@+id/view71"
+        app:layout_constraintTop_toBottomOf="@+id/textView109" />
+
+    <TextView
+        android:id="@+id/textView111"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textview_background"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view71"
+        app:layout_constraintStart_toStartOf="@+id/view71"
+        app:layout_constraintTop_toBottomOf="@+id/textView110" />
+
+    <TextView
+        android:id="@+id/textView112"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textview_background"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view71"
+        app:layout_constraintStart_toStartOf="@+id/view71"
+        app:layout_constraintTop_toBottomOf="@+id/textView111" />
+
+    <TextView
+        android:id="@+id/textView113"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textview_background"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textColor="#1A446B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view71"
+        app:layout_constraintStart_toStartOf="@+id/view71"
+        app:layout_constraintTop_toBottomOf="@+id/textView112" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,7 +47,7 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
             appointmentDescription = (TextView)  itemView.findViewById(R.id.textViewAppointmentDescriptionNew);
-            appointmentDepartment = (TextView)  itemView.findViewById(R.id.textViewAppointmentDepartmentNew);
+            appointmentDepartment = (TextView)  itemView.findViewById(R.id.textViewAppointmentAgeNew);
             appointmentDate = (TextView)  itemView.findViewById(R.id.textViewAppointmentDateNew);
             appointmentTime = (TextView)  itemView.findViewById(R.id.textViewAppointmentTimeNew);
 
@@ -74,9 +74,9 @@ public class Patients_Appointments_Adapter extends RecyclerView.Adapter<Patients
         PatientAppointmentData  appoints=appointmentsList.get(position);
 
         holder.appointmentDescription.setText(appoints.getDescription());
-        holder.appointmentDepartment.setText(appoints.getAge()+" Years"); //where age should be
-        holder.appointmentDate.setText(appoints.getDate());
-        holder.appointmentTime.setText(appoints.getTime());
+        holder.appointmentDepartment.setText("Age : "+appoints.getAge()+" Years"); //where age should be
+        holder.appointmentDate.setText("Date : "+appoints.getDate());
+        holder.appointmentTime.setText("Time : "+appoints.getTime());
 
     // myDoctor newDoctor= assignedDoctorList.get(position);
         if(!Objects.equals(email, "null"))

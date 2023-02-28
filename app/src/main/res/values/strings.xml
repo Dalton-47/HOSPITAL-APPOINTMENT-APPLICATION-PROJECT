@@ -56,7 +56,7 @@
     <string name="manageappointments">MANAGE APPOINTMENTS</string>
     <string name="managedoctors">MANAGE DOCTORS</string>
     <string name="managepatients">MANAGE PATIENTS</string>
-    <string name="doctorassigned">DOCTOR ASSIGNED</string>
+    <string name="doctorassigned">Doctor Assigned</string>
     <string name="name">Name</string>
     <string name="pending">Pending......</string>
     <string name="selectanappointment">SELECT AN APPOINTMENT TO  VIEW DETAILS</string>
@@ -148,4 +148,6 @@
     <string name="choosePicture">Choose Picture</string>
     <string name="upload">Upload Picture</string>
     <string name="patient_age">Patient\'s Age</string>
+    <string name="appointmentName">My Appointment</string>
+    <string name="doc_report">Doctor\'s Report</string>
 </resources>

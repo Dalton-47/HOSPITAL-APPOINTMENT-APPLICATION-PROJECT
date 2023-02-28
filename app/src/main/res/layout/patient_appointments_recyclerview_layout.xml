@@ -13,7 +13,7 @@
         <View
             android:id="@+id/view42"
             android:layout_width="match_parent"
-            android:layout_height="520dp"
+            android:layout_height="500dp"
             android:background="@drawable/pop_up_appointments_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
             android:id="@+id/textViewAppointmentDescriptionNew"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/textview_background"
             android:hint="@string/descriptiontext"
             android:padding="8dp"
@@ -33,10 +33,10 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentTimeNew" />
 
         <TextView
-            android:id="@+id/textViewAppointmentDepartmentNew"
+            android:id="@+id/textViewAppointmentAgeNew"
             android:layout_width="300dp"
             android:layout_height="45dp"
             android:layout_marginTop="16dp"
@@ -49,13 +49,13 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescriptionNew" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewAppointmentDateNew"
             android:layout_width="300dp"
             android:layout_height="45dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/textview_background"
             android:hint="@string/date_available"
             android:padding="8dp"
@@ -65,13 +65,13 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDepartmentNew" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentAgeNew" />
 
         <TextView
             android:id="@+id/textViewAppointmentTimeNew"
             android:layout_width="300dp"
             android:layout_height="45dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/textview_background"
             android:hint="@string/time_availability"
             android:padding="8dp"
@@ -87,55 +87,49 @@
 
         <TextView
             android:id="@+id/textView88"
-            android:layout_width="340dp"
+            android:layout_width="310dp"
             android:layout_height="34dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:elevation="5dp"
             android:text="@string/doctorassigned"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textColor="#B3A4A4"
+            android:textSize="22sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="@+id/view42"
             app:layout_constraintStart_toStartOf="@+id/view42"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentTimeNew" />
+            app:layout_constraintTop_toTopOf="@+id/view50" />
 
         <View
             android:id="@+id/view50"
-            android:layout_width="340dp"
-            android:layout_height="170dp"
-            android:layout_marginTop="-12dp"
-            android:background="@drawable/pop_up_appointments_background"
+            android:layout_width="310dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_background_gradient"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView88" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescriptionNew" />
 
         <TextView
             android:id="@+id/textViewDocName_APP"
             android:layout_width="300dp"
             android:layout_height="45dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/textview_background"
+            android:layout_marginTop="8dp"
             android:hint="@string/pending"
-            android:paddingStart="4dp"
-            android:paddingTop="12dp"
-            android:textAlignment="center"
-            android:textColor="#1A446B"
+            android:padding="8dp"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/view42"
-            app:layout_constraintTop_toTopOf="@+id/view50" />
+            app:layout_constraintTop_toBottomOf="@+id/textView88" />
 
         <TextView
             android:id="@+id/textViewDocPhone_APP"
             android:layout_width="300dp"
             android:layout_height="45dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/textview_background"
             android:hint="@string/pending"
-            android:paddingStart="4dp"
-            android:paddingTop="12dp"
-            android:textAlignment="center"
-            android:textColor="#1A446B"
+            android:padding="8dp"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -146,13 +140,9 @@
             android:id="@+id/textViewDocEmail_APP"
             android:layout_width="300dp"
             android:layout_height="45dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/textview_background"
             android:hint="@string/pending"
-            android:paddingStart="4dp"
-            android:paddingTop="12dp"
-            android:textAlignment="center"
-            android:textColor="#1A446B"
+            android:padding="8dp"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

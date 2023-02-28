@@ -163,6 +163,14 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
             }
         });
 
+        Button btnPatientReports=(Button)  this.findViewById(R.id.buttonPatientReportsNew);
+        btnPatientReports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Patient_Main_Page_NEW.this, Patient_Report_Activity_New.class));
+            }
+        });
+
 
     }
 

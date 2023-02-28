@@ -109,7 +109,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
         holder.doctorsEmail.setText(doctors.getEmail());
         holder.doctorsPhone.setText(doctors.getPhoneNumber());
         holder.doctorsProfession.setText(doctors.getDepartment());
-
+//textViewAppointmentDescriptionNew
         String email= doctors.getEmail();
         Uri uriImage;
         String[] parts = email.split("@");
