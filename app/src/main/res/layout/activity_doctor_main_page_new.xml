@@ -406,4 +406,16 @@
         app:layout_constraintStart_toStartOf="@+id/view62"
         app:layout_constraintTop_toTopOf="@+id/view62" />
 
+    <ProgressBar
+        android:id="@+id/progressBarMainDocPage"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:indeterminateDrawable="@drawable/progress_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/view61"
+        app:layout_constraintEnd_toEndOf="@+id/view61"
+        app:layout_constraintStart_toStartOf="@+id/imageViewDocProfile_MAIN"
+        app:layout_constraintTop_toTopOf="@+id/imageViewDocProfile_MAIN" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

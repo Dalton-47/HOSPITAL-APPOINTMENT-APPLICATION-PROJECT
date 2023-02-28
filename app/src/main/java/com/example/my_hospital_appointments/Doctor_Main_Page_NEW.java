@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     View view61;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,9 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+        progressBar = (ProgressBar)  this.findViewById(R.id.progressBarMainDocPage);
+
 
         textViewDocName = (TextView)  this.findViewById(R.id.textViewDocUserName_NEW);
         docImage =(ImageView)  this.findViewById(R.id.imageViewDocProfile_MAIN);
@@ -57,29 +62,35 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
 
             if(uri!=null)
             {
+                progressBar.setVisibility(View.GONE);
                 // ImageViewer setImageURI() should not be used with regular URIs. So we are using Picasso
-                view61.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
+
                 Picasso.get().load(uri)
                         .transform(new RoundedTransformation())
                         .into(docImage);
+                view61.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
             }
             else
             {
+                progressBar.setVisibility(View.GONE);
                 Picasso.get()
                         .load(R.drawable.user_error)
                         .transform(new RoundedSquareTransformation())
                         .into(docImage);
+                view61.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
             }
 
 
         }
         else
         {
-            // view60.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
+
+            progressBar.setVisibility(View.GONE);
             Picasso.get()
                     .load(R.drawable.user_error)
                     .transform(new RoundedSquareTransformation())
                     .into(docImage);
+            view61.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
 
         }//here
 
