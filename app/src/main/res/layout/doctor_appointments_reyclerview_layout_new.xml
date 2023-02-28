@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/imageViewPatientAppointments_DOC"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="8dp"
@@ -50,7 +50,7 @@
             android:text="@string/patient_name"
             android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPatientAppointments_DOC" />
 
         <TextView
             android:id="@+id/textViewPatientName_SET"
@@ -189,7 +189,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/button15"
+            android:id="@+id/buttonMarkAttendanceAppointment"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -202,7 +202,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewPatientDescription_SET" />
 
         <Button
-            android:id="@+id/button16"
+            android:id="@+id/buttonCancelAppointmentAttendance"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

@@ -150,4 +150,7 @@
     <string name="patient_age">Patient\'s Age</string>
     <string name="appointmentName">My Appointment</string>
     <string name="doc_report">Doctor\'s Report</string>
+    <string name="report">Patient\'s Report</string>
+    <string name="report_title">Add Title For Your Report Here</string>
+    <string name="description_report">Write Report For Patient To Read</string>
 </resources>

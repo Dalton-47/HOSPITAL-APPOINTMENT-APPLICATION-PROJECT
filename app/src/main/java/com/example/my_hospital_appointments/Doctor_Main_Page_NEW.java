@@ -144,6 +144,7 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
                 Intent myIntent=new Intent(Doctor_Main_Page_NEW.this,Messages_From_Patients.class);
                 myIntent.putExtra("doctorName",userName);
                 startActivity(myIntent);
+
             }
         });
 
