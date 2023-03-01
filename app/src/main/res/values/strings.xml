@@ -44,7 +44,7 @@
     <string name="departmentCAPS">DEPARTMENT</string>
     <string name="dateCAPS">DATE</string>
     <string name="timeavailableCAPS">Time Available</string>
-    <string name="details">FILL IN YOUR DETAILS</string>
+    <string name="details">Fill in your details</string>
     <string name="symptomshint">Describe your symptoms</string>
     <string name="newAppointment">NEW APPOINTMENT</string>
     <string name="canelAppointment">ARE YOU SURE YOU WANT TO CANCEL THIS APPOINTMENT?</string>

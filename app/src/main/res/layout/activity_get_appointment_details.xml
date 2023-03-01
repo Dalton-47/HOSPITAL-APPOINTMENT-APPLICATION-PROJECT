@@ -10,7 +10,7 @@
     <View
         android:id="@+id/view43"
         android:layout_width="match_parent"
-        android:layout_height="470dp"
+        android:layout_height="500dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/whiterectangle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
     <View
         android:id="@+id/view44"
         android:layout_width="340dp"
-        android:layout_height="287dp"
+        android:layout_height="340dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/pop_up_appointments_background"
         app:layout_constraintEnd_toEndOf="@+id/view43"
@@ -42,13 +42,13 @@
 
     <EditText
         android:id="@+id/editTextTextMyDescription"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="210dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="28dp"
         android:ellipsize="end"
         android:hint="@string/symptomshint"
-        android:inputType="textPersonName"
-        android:maxLines="3"
+        android:inputType="textMultiLine"
+        android:minHeight="100dp"
         android:textColor="#1A446B"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
         app:layout_constraintStart_toEndOf="@+id/textView15" />
@@ -87,7 +87,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="70dp"
         android:contentDescription="@string/time_availability"
-        android:popupBackground="@drawable/spinnerbackground"
+        android:popupBackground="@drawable/pop_up_appointments_background"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMyDescription" />

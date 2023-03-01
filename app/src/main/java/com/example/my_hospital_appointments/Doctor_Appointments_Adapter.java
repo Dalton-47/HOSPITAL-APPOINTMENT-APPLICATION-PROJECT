@@ -1,5 +1,8 @@
 package com.example.my_hospital_appointments;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,11 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,18 +36,22 @@ import java.util.ArrayList;
 public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Appointments_Adapter.myDataViewHolder>{
 
 
-
-     String docID,titleOriginal,reportContentOriginal,patientEmail,emailID;
+     Context context;
+    String docID,titleOriginal,reportContentOriginal,patientEmail,emailID;
      String patientName,description,appointmentDate,patientAge;
     ArrayList<myPatient> patientList=new ArrayList<>();
     ArrayList<PatientAppointmentData> appointmentsList=new ArrayList<>();
     RelativeLayout relativeLayout;
     Doctor_View_Appointments_NEW  docApp = new Doctor_View_Appointments_NEW();
     EditText editTextReportTitle,editTextReportContent;
+     ProgressBar progressBar;
+     TextView textViewPatientName;
 
 
-    public Doctor_Appointments_Adapter(ArrayList<myPatient> patientAppointmentsList, RelativeLayout relativeLayout, String id, EditText editTextReportTitle, EditText editTextReportContent, String titleOriginal, String userID) {
-   this.docID=userID;
+    public Doctor_Appointments_Adapter(Context context,TextView textViewPatientName, ArrayList<myPatient> patientAppointmentsList, RelativeLayout relativeLayout, String id, EditText editTextReportTitle, EditText editTextReportContent, String titleOriginal, String userID) {
+   this.context=context;
+        this.textViewPatientName=textViewPatientName;
+        this.docID=userID;
       this.relativeLayout =relativeLayout;
         this.patientList=patientAppointmentsList;
         notifyDataSetChanged();
@@ -85,38 +94,92 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
 
     }
 
-    void setReportData(EditText editTextReportTitle,EditText editTextReportContent,String titleOriginal,String reportContentOriginal,String docName,String reportDate)
+    private void showAlertDialogue() {
+        // Set up the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Cancel Appointment");
+        builder.setMessage("Are You Sure You want to cancel "+patientName+"'s Appointment?");
+
+        // Open email Apps if User clicks/taps Continue button
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                DatabaseReference patientRef= FirebaseDatabase.getInstance().getReference("PatientReport").child(emailID);
+             patientRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                 @Override
+                 public void onComplete(@NonNull Task<Void> task) {
+                    //do something to notify appointment is cancelled
+                 }
+             });
+            }
+        });
+
+        // Close the AlertDialog if User clicks/taps No button
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+
+
+        // Create the AlertDialog
+        AlertDialog alertDialog = builder.create();
+
+        // Show the AlertDialog
+        alertDialog.show();
+    }
+
+    void setReportData( ProgressBar progressBar, EditText editTextReportTitle, EditText editTextReportContent, String titleOriginal, String reportContentOriginal, String docName, String reportDate)
     {
+
+        this.progressBar =progressBar;
         this.editTextReportTitle =editTextReportTitle;
         this.editTextReportContent=editTextReportContent;
         this.titleOriginal=titleOriginal;
         this.reportContentOriginal =reportContentOriginal;
         String title= editTextReportTitle.getText().toString().trim();
         String reportContent=editTextReportContent.getText().toString().trim();
+        progressBar.setVisibility(View.VISIBLE);
+
 
         if(title.equals(titleOriginal))
         {
+            progressBar.setVisibility(View.GONE);
             editTextReportTitle.setError("Cannot be blank");
         }
         else if(reportContent.equals(reportContentOriginal))
         {
+            progressBar.setVisibility(View.GONE);
             editTextReportContent.setError("Cannot be blank");
         }
         else
         {
-
             DatabaseReference patientRef= FirebaseDatabase.getInstance().getReference("PatientReport").child(emailID);
-            patientRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                 patientRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     if(task.isSuccessful())
                     {
                         PatientAppointmentClass patientAppointment=new PatientAppointmentClass(patientEmail,patientName,description,appointmentDate,patientAge, reportDate,docName,title,reportContent);
-
+                        progressBar.setVisibility(View.GONE);
                         patientRef.setValue(patientAppointment);
                        // Toast.makeText(Doctor_View_Appointments_NEW.this, "REPORT SAVED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
                         relativeLayout.setVisibility(View.GONE);
+                        editTextReportTitle.setText("");
+                        editTextReportContent.setText("");
 
+
+                    }
+                    else
+                    {
+                        editTextReportTitle.setError("Not Saved, Check Network!");
+
+
+                        editTextReportContent.setError("Not Saved, Check Network");
+                        progressBar.setVisibility(View.GONE);
                     }
                 }
             });
@@ -140,7 +203,6 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
         description=patients.getDescription();
         appointmentDate=patients.getDate();
         patientAge=patients.getAge();
-
 
         Uri uriImage;
 
@@ -204,6 +266,7 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 relativeLayout.setVisibility(View.GONE);
             }
         });
@@ -213,9 +276,17 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
 
               //  docApp.getDetails(email,patients.getName(),patients.getAge(),patients.getDate(),patients.getDescription());
 
+                textViewPatientName.setText(patientName+"'s"+" Report");
                 relativeLayout.bringToFront();
                 relativeLayout.setVisibility(View.VISIBLE);
                  }
+        });
+
+        holder.btnAppointmentCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertDialogue();
+            }
         });
 
 

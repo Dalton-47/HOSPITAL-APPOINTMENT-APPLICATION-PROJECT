@@ -1,16 +1,20 @@
 package com.example.my_hospital_appointments;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,8 +36,10 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
     RelativeLayout relativeLayout;
     EditText editTextReportTitle,editTextReportContent;
     Button btnSendReport;
-     String patientEmail,patientName,description,appointmentDate,patientAge, reportDate,docName,titleOriginal,reportContentOriginal;
+     String  reportDate,docName,titleOriginal,reportContentOriginal;
      DatabaseReference docRef;
+     ProgressBar progressBar;
+     TextView textViewPatientName;
 
 
 
@@ -47,6 +53,8 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
            editTextReportTitle =(EditText)  this.findViewById(R.id.editTextTextReportTitle_NEW);
            editTextReportContent = (EditText)  this.findViewById(R.id.editTextTextrReportContent_NEW);
            btnSendReport = (Button)  this.findViewById(R.id.buttonSendReport_NEW);
+           progressBar = (ProgressBar)  this.findViewById(R.id.progressBarSaveReportsDOC);
+           textViewPatientName = (TextView)  this.findViewById(R.id.textViewReportPatientName);
 
 
         Intent intent =getIntent();
@@ -71,7 +79,7 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
         getPatientData();
         RecyclerView myRecyclerView=(RecyclerView)  this.findViewById(R.id.recyclerViewDoctorAppointments);
 
-         myAdapter=new Doctor_Appointments_Adapter(patientAppointmentsList,relativeLayout,userID,editTextReportTitle,editTextReportContent,titleOriginal,reportContentOriginal);
+         myAdapter=new Doctor_Appointments_Adapter(this,textViewPatientName,patientAppointmentsList,relativeLayout,userID,editTextReportTitle,editTextReportContent,titleOriginal,reportContentOriginal);
         myRecyclerView.setAdapter(myAdapter);
 
         LinearLayoutManager myLayout=new LinearLayoutManager(this);
@@ -83,21 +91,13 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                 myAdapter.setReportData(editTextReportTitle,editTextReportContent,titleOriginal,reportContentOriginal,docName,reportDate);
+                 myAdapter.setReportData(progressBar,editTextReportTitle,editTextReportContent,titleOriginal,reportContentOriginal,docName,reportDate);
 
             }
         });
 
     }
-    void getDetails(String email, String patientName, String patientAge, String appointmentDate, String description)
-    {
-        this.patientEmail=email;
-         this.patientName=patientName;
-         this.patientAge=patientAge;
-         this.appointmentDate=appointmentDate;
-         this.description=description;
 
-         }
 
     void getPatientData()
     {
@@ -118,6 +118,10 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void showErrorText() {
+        Toast.makeText(Doctor_View_Appointments_NEW.this, "Data Not Saved!", Toast.LENGTH_SHORT).show();
     }
 
 

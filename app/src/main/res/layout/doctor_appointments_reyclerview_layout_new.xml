@@ -192,26 +192,26 @@
             android:id="@+id/buttonMarkAttendanceAppointment"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/textview_background"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/navy"
             android:text="@string/mark_attended"
-            android:textColor="#05C108"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/view46"
             app:layout_constraintTop_toBottomOf="@+id/textViewPatientDescription_SET" />
 
         <Button
             android:id="@+id/buttonCancelAppointmentAttendance"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/textview_background"
             android:text="@string/cancel_Appointment"
-            android:textColor="#BA0202"
+            android:textColor="#1A446B"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/view46"
             app:layout_constraintTop_toBottomOf="@+id/textViewPatientDescription_SET" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

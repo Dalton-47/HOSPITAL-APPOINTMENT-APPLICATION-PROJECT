@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable-v24/incoming_speech_bubble.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable-v24/outgoing_chat_bubble.xml" value="0.1" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/black_icon_progress.xml" value="0.1695" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/blue_gradient.xml" value="0.1735" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/bottom_left_curve.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/bottom_left_pink.xml" value="0.1735" />
@@ -39,6 +40,7 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/white_background_circle.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/white_background_curved_tops.xml" value="0.1" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/drawable/whiterectangle.xml" value="0.1" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/font/archivo_black.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout-v21/activity_chattingpage.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout-v23/activity_main_page.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout-v23/recycle_viewer_item_received_message.xml" value="0.17074275362318841" />
@@ -93,6 +95,8 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/patients_new_messages_layout_view.xml" value="0.33" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/menu/menu_navigation.xml" value="0.2" />
+        <entry key="..\:/Users/dalto/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.18659420289855072" />
+        <entry key="..\:/Users/dalto/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.18659420289855072" />
         <entry key="..\:/Windows.old/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_admin_doctor_approval.xml" value="0.22" />
         <entry key="..\:/Windows.old/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_admin_main_page.xml" value="0.17074275362318841" />
         <entry key="..\:/Windows.old/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_final_appointment_page.xml" value="0.17074275362318841" />

@@ -19,7 +19,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewDoctorAppointments"
         android:layout_width="match_parent"
-        android:layout_height="620dp"
+        android:layout_height="640dp"
         app:layout_constraintBottom_toBottomOf="@+id/view47"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#A1000000"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -55,17 +55,16 @@
                 android:layout_width="350dp"
                 android:layout_height="350dp"
                 android:layout_marginBottom="75dp"
-                android:background="@drawable/blue_gradient"
+                android:background="@drawable/pop_up_appointments_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/textView114"
+                android:id="@+id/textViewReportPatientName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/report"
                 android:textSize="25sp"
                 app:layout_constraintEnd_toEndOf="@+id/view72"
                 app:layout_constraintStart_toStartOf="@+id/view72"
@@ -86,18 +85,18 @@
                 android:textColor="#1A446B"
                 app:layout_constraintEnd_toEndOf="@+id/view72"
                 app:layout_constraintStart_toStartOf="@+id/view72"
-                app:layout_constraintTop_toBottomOf="@+id/textView114" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewReportPatientName" />
 
             <EditText
                 android:id="@+id/editTextTextrReportContent_NEW"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/textview_background"
                 android:ems="10"
                 android:hint="@string/description_report"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
+                android:inputType="textMultiLine"
+                android:minHeight="100dp"
                 android:padding="8dp"
                 android:textColor="#1A446B"
                 app:layout_constraintEnd_toEndOf="@+id/view72"
@@ -117,7 +116,19 @@
                 app:layout_constraintEnd_toEndOf="@+id/view72"
                 app:layout_constraintStart_toStartOf="@+id/view72"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextrReportContent_NEW" />
+
+            <ProgressBar
+                android:id="@+id/progressBarSaveReportsDOC"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:indeterminateDrawable="@drawable/black_icon_progress"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/view72"
+                app:layout_constraintStart_toStartOf="@+id/view72"
+                app:layout_constraintTop_toTopOf="@+id/editTextTextReportTitle_NEW" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
