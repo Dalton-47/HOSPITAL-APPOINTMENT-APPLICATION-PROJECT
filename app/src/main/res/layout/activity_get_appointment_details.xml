@@ -43,9 +43,9 @@
     <EditText
         android:id="@+id/editTextTextMyDescription"
         android:layout_width="210dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:ellipsize="end"
+        android:ellipsize="middle"
         android:hint="@string/symptomshint"
         android:inputType="textMultiLine"
         android:minHeight="100dp"

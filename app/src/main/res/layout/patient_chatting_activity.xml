@@ -37,9 +37,10 @@
         android:ems="10"
         android:hint="@string/ClickHereToTypeAMessage"
         android:includeFontPadding="true"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
         android:minHeight="48dp"
         android:padding="5dp"
+        android:maxHeight="150dp"
         android:paddingStart="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

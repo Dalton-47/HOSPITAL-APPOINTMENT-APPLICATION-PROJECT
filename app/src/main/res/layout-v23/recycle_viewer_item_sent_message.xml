@@ -2,6 +2,7 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -10,20 +11,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/sentTextViewMessage"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/outgoing_chat_bubble"
-            android:ellipsize="middle"
-            android:padding="8dp"
-            android:paddingEnd="15dp"
-            android:text="TextView"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/sentTextViewMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/outgoing_chat_bubble"
+                    android:ellipsize="start"
+                    android:padding="8dp"
+                    android:paddingEnd="15dp"
+                    android:text="TextView"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
