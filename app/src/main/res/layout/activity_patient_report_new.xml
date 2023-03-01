@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="@+id/view70" />
 
     <TextView
-        android:id="@+id/textView84"
+        android:id="@+id/textViewPatientName"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView70" />
 
     <TextView
-        android:id="@+id/textView89"
+        android:id="@+id/textViewPatientAge"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -55,10 +55,10 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/view70"
         app:layout_constraintStart_toStartOf="@+id/view70"
-        app:layout_constraintTop_toBottomOf="@+id/textView84" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPatientName" />
 
     <TextView
-        android:id="@+id/textView107"
+        android:id="@+id/textViewAppointmentDate"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -69,10 +69,10 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/view70"
         app:layout_constraintStart_toStartOf="@+id/view70"
-        app:layout_constraintTop_toBottomOf="@+id/textView89" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPatientAge" />
 
     <TextView
-        android:id="@+id/textView108"
+        android:id="@+id/textViewAppointmentDescription"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -83,7 +83,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/view70"
         app:layout_constraintStart_toStartOf="@+id/view70"
-        app:layout_constraintTop_toBottomOf="@+id/textView107" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDate" />
 
     <View
         android:id="@+id/view71"
@@ -93,7 +93,7 @@
         android:background="@drawable/pop_up_appointments_background"
         app:layout_constraintEnd_toEndOf="@+id/view70"
         app:layout_constraintStart_toStartOf="@+id/view70"
-        app:layout_constraintTop_toBottomOf="@+id/textView108" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescription" />
 
     <TextView
         android:id="@+id/textView109"
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toTopOf="@+id/view71" />
 
     <TextView
-        android:id="@+id/textView110"
+        android:id="@+id/textViewDocName"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -122,7 +122,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView109" />
 
     <TextView
-        android:id="@+id/textView111"
+        android:id="@+id/textViewReportDate"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -133,10 +133,10 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/view71"
         app:layout_constraintStart_toStartOf="@+id/view71"
-        app:layout_constraintTop_toBottomOf="@+id/textView110" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDocName" />
 
     <TextView
-        android:id="@+id/textView112"
+        android:id="@+id/textViewReportTitle"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -147,10 +147,10 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/view71"
         app:layout_constraintStart_toStartOf="@+id/view71"
-        app:layout_constraintTop_toBottomOf="@+id/textView111" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewReportDate" />
 
     <TextView
-        android:id="@+id/textView113"
+        android:id="@+id/textViewReportContent"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -161,6 +161,6 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/view71"
         app:layout_constraintStart_toStartOf="@+id/view71"
-        app:layout_constraintTop_toBottomOf="@+id/textView112" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewReportTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

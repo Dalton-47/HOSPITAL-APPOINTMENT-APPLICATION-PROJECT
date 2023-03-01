@@ -94,7 +94,7 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
 
     }
 
-    private void showAlertDialogue() {
+    private void showAlertDialogue(int position) {
         // Set up the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Cancel Appointment");
@@ -104,12 +104,17 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                patientList.remove(position);
+                notifyDataSetChanged();
+                DatabaseReference assignedDocRef= FirebaseDatabase.getInstance().getReference().child("AssignedDoctor").child(emailID);
 
-                DatabaseReference patientRef= FirebaseDatabase.getInstance().getReference("PatientReport").child(emailID);
+                DatabaseReference patientRef= FirebaseDatabase.getInstance().getReference().child("PatientAppointments").child(emailID);
              patientRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                  @Override
                  public void onComplete(@NonNull Task<Void> task) {
                     //do something to notify appointment is cancelled
+
+                     assignedDocRef.removeValue();
                  }
              });
             }
@@ -205,10 +210,10 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
         patientAge=patients.getAge();
 
         Uri uriImage;
-
         String email = patients.getEmail();
         String Parts[]=email.split("@");
-         emailID=Parts[0];
+        emailID=Parts[0];
+
 
         StorageReference storageReference = FirebaseStorage.getInstance().getReference("PatientPictures");
         String imagePathPrefix = emailID + ".";
@@ -276,6 +281,9 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
 
               //  docApp.getDetails(email,patients.getName(),patients.getAge(),patients.getDate(),patients.getDescription());
 
+                String email = patients.getEmail();
+                String Parts[]=email.split("@");
+                emailID=Parts[0];
                 textViewPatientName.setText(patientName+"'s"+" Report");
                 relativeLayout.bringToFront();
                 relativeLayout.setVisibility(View.VISIBLE);
@@ -285,7 +293,11 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
         holder.btnAppointmentCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showAlertDialogue();
+                String email = patients.getEmail();
+                String Parts[]=email.split("@");
+                emailID=Parts[0];
+
+                showAlertDialogue(holder.getAdapterPosition());
             }
         });
 
