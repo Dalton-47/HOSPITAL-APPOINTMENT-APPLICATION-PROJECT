@@ -224,8 +224,9 @@ public class PatientRegistration extends AppCompatActivity {
                                     btnProceed.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            Intent myIntent=new Intent(PatientRegistration.this,secondLoginPage.class);
+                                            Intent myIntent=new Intent(PatientRegistration.this,Launcher_Screen.class);
                                             myIntent.putExtra("usersEmail",emailAddress);
+                                            Toast.makeText(PatientRegistration.this, "LOG IN WITH CREDENTIALS", Toast.LENGTH_SHORT).show();
                                             startActivity(myIntent);
                                             finish();
                                         }

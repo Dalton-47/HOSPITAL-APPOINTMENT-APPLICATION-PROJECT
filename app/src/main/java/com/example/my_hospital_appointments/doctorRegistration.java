@@ -347,7 +347,8 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
                                                            public void onClick(View view) {
                                                                myRelativeLayout.setVisibility(View.GONE);
                                                                btnRegisterDoc.setVisibility(View.GONE);
-                                                               Intent myIntent=new Intent(doctorRegistration.this,secondLoginPage.class);
+                                                               Toast.makeText(doctorRegistration.this, "LOG IN WITH CREDENTIALS", Toast.LENGTH_SHORT).show();
+                                                               Intent myIntent=new Intent(doctorRegistration.this,Launcher_Screen.class);
                                                                myIntent.putExtra("usersEmail",email);
                                                                startActivity(myIntent);
                                                                finish();

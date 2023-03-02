@@ -114,7 +114,6 @@ public class Login_Activity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(Login_Activity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
 
                         // Get instance of the current user
                         FirebaseUser firebaseUser = authProfile.getCurrentUser();
@@ -125,10 +124,11 @@ public class Login_Activity extends AppCompatActivity {
 
                             // Open user profile
                             // Start the main homepage.
+                            Toast.makeText(Login_Activity.this, "You are logged in now", Toast.LENGTH_SHORT).show();
 
                             String usersEmail = editTextEmail.getText().toString().trim();
 
-                           Toast.makeText(Login_Activity.this,"EMAIL : "+usersEmail,Toast.LENGTH_SHORT).show();
+                          // Toast.makeText(Login_Activity.this,"EMAIL : "+usersEmail,Toast.LENGTH_SHORT).show();
                             Intent myIntent=new Intent(Login_Activity.this,secondLoginPage.class);
                             myIntent.putExtra("usersEmail",usersEmail);
                             startActivity(myIntent); //start next Activity

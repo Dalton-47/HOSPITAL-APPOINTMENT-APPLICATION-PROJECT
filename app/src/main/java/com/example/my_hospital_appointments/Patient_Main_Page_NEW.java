@@ -117,21 +117,19 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
             }
             else
             {
-                Picasso.get()
-                        .load(R.drawable.user_error)
-                        .transform(new RoundedSquareTransformation())
-                        .into(userProfile);
+                view60.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
+
+                userProfile.setBackground(getResources().getDrawable(R.drawable.user_error));
+
             }
 
 
         }
         else
         {
-           // view60.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
-            Picasso.get()
-                    .load(R.drawable.user_error)
-                    .transform(new RoundedSquareTransformation())
-                    .into(userProfile);
+            view60.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
+            userProfile.setBackground(getResources().getDrawable(R.drawable.user_error));
+
 
         }
 
