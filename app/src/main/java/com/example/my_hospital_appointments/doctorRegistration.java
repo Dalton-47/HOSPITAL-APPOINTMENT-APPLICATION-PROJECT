@@ -84,8 +84,8 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
 
    public Spinner spin1;
    public  Spinner spin2;
-   public String doctorID,doctorPhoneNumber,doctorEmployeeNumber,doctorUserName,doctorEmail,doctorTime,doctorDepartment;
-   public  String doctorKey="";
+   public String doctorID,doctorPhoneNumber,doctorEmployeeNumber,doctorUserName,doctorTime,doctorDepartment;
+   public  String doctorKey;
 
     DatabaseReference usersRef;
     @Override
@@ -199,22 +199,14 @@ public class doctorRegistration extends AppCompatActivity implements View.OnClic
         userName=myUserName.getText().toString().trim();
         doctorUserName=userName;
         email=myEmail.getText().toString().trim();
-        doctorEmail=email;
+        //doctorEmail=email;
         password=myPassword.getText().toString().trim();
 
-        int Counter=doctorEmail.length();
-        for(int a=0; a<Counter; a++)
-        {
-            if(doctorEmail.charAt(a)=='@')
-            {
-                break;
-            }
-            else
-            {
-                doctorKey=doctorKey+doctorEmail.charAt(a);
-            }
-        }
-        doctorKey =doctorKey.trim();
+        String parts[] =email.split("@");
+        doctorKey=parts[0];
+
+
+
 
         if (userName.isEmpty() )
         {
