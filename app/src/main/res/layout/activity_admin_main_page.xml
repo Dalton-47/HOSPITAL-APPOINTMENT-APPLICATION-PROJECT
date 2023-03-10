@@ -10,9 +10,9 @@
     <View
         android:id="@+id/view11"
         android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:background="@drawable/shape_bottom_left"
-        android:rotationX="180"
+        android:layout_height="50dp"
+        android:background="@drawable/navy_blue_curved_top"
+        android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -21,7 +21,8 @@
         android:id="@+id/view13"
         android:layout_width="wrap_content"
         android:layout_height="146dp"
-        android:background="@drawable/shape_bottom_left"
+        android:background="#1A446B"
+        android:rotationX="-180"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +30,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout5"
         android:layout_width="300dp"
-        android:layout_height="455dp"
+        android:layout_height="500dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view13">
 
@@ -53,7 +54,7 @@
                         <ImageView
                             android:id="@+id/imageView18"
                             android:layout_width="300dp"
-                            android:layout_height="455dp"
+                            android:layout_height="500dp"
                             android:background="@drawable/blackfemaledoctor"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -71,12 +72,11 @@
                         <ImageView
                             android:id="@+id/imageView6"
                             android:layout_width="300dp"
-                            android:layout_height="455dp"
+                            android:layout_height="500dp"
                             android:background="@drawable/doctorgreen"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </RelativeLayout>
@@ -92,7 +92,7 @@
                         <ImageView
                             android:id="@+id/imageView17"
                             android:layout_width="300dp"
-                            android:layout_height="455dp"
+                            android:layout_height="500dp"
                             android:background="@drawable/happydoctor"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -110,6 +110,8 @@
         android:layout_marginTop="60dp"
         android:background="@drawable/shape_left"
         android:text="@string/manageappointments"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view13" />
 
@@ -120,6 +122,8 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/shape_left"
         android:text="@string/managedoctors"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonManageAppointmentsAdmin" />
 
@@ -129,7 +133,9 @@
         android:layout_height="80dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/shape_left"
-        android:text="@string/reports"
+        android:text="VIEW REPORTS"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonManageDoctors" />
 
@@ -141,7 +147,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/medicalteam" />
+        app:srcCompat="@drawable/doctor" />
 
     <TextView
         android:id="@+id/textView27"

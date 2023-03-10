@@ -24,7 +24,7 @@ public class Launcher_Screen extends AppCompatActivity {
          textView = findViewById(R.id.textViewLauncher);
         String text = "Appointments Scheduler";
         SpannableString spannableString = new SpannableString(text);
-        int duration = 150; // Delay between each letter in milliseconds
+        int duration = 50; // Delay between each letter in milliseconds
 
         for (int i = 0; i < text.length(); i++) {
             TextAppearanceSpan appearanceSpan = new TextAppearanceSpan(this, R.style.TextAppearance);
