@@ -1,1 +1,1 @@
-# HOSPITAL-APPOINTMENT-APPPLICATION-PROJECT - A mobile application that helps patients to book appointments with doctors easily as well having consultations remotely with verified doctors. Database - Firebase Realtime Database.
+# HOSPITAL-APPOINTMENT-APPLICATION-PROJECT - A mobile application that helps patients to book appointments with doctors easily as well having consultations remotely with verified doctors. Database - Firebase Realtime Database.
