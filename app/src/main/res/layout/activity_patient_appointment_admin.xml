@@ -19,7 +19,7 @@
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="382dp"
-        android:layout_height="545dp"
+        android:layout_height="500dp"
         android:layout_marginStart="4dp"
         android:background="@drawable/pop_up_appointments_background"
         android:isScrollContainer="false"
@@ -231,6 +231,22 @@
                                 app:layout_constraintStart_toStartOf="parent" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/textView84"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginBottom="4dp"
+                        android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+                        android:drawablePadding="10dp"
+                        android:padding="8dp"
+                        android:text="@string/swipe"
+                        android:textColor="#1A446B"
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </RelativeLayout>
 
@@ -393,8 +409,8 @@
 
     <Button
         android:id="@+id/buttonAssignDoctor"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
         android:background="@drawable/button_white_and_blue_border_background"
         android:padding="10sp"
         android:text="@string/assign"

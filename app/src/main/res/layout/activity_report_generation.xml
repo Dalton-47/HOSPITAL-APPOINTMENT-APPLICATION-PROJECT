@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pink_background"
+    android:background="#1A446B"
     tools:context=".ReportGeneration">
 
     <View
@@ -30,7 +30,7 @@
         android:id="@+id/relativeLayout11"
         android:layout_width="340dp"
         android:layout_height="350dp"
-        android:background="@drawable/center_shape"
+        android:background="@drawable/pop_up_appointments_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,8 +56,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/doctorregistered"
+                android:textColor="#1A446B"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewReports" />
 
@@ -68,6 +70,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/patientregistered"
+                android:textColor="#1A446B"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
@@ -78,6 +82,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/appointmentsattended"
+                android:textColor="#1A446B"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView59" />
 
@@ -85,6 +91,7 @@
                 android:id="@+id/textViewDoctorsRegistered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView58"
                 app:layout_constraintStart_toEndOf="@+id/divider24" />
 
@@ -92,10 +99,9 @@
                 android:id="@+id/divider24"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.646"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView60"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
@@ -103,6 +109,7 @@
                 android:id="@+id/textViewPatientsRegistered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView59"
                 app:layout_constraintStart_toEndOf="@+id/divider24" />
 
@@ -110,6 +117,7 @@
                 android:id="@+id/textViewAppointmentsAtttended"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView60"
                 app:layout_constraintStart_toEndOf="@+id/divider24" />
 
@@ -123,7 +131,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="monospace"
         android:text="@string/adminreports"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout11"
         app:layout_constraintEnd_toEndOf="parent"

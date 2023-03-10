@@ -9,15 +9,15 @@
     <string name="Occupation">SELECT A SUITABLE OPTION BELOW</string>
     <string name="Doctor">DOCTOR</string>
     <string name="PATIENT">PATIENT</string>
-    <string name="id_number">ID NUMBER</string>
+    <string name="id_number">ID Number</string>
     <string name="phone_no">Phone No</string>
-    <string name="employee">Employee NO:</string>
+    <string name="employee">Employee no:</string>
     <string name="time_availability">Time Available</string>
     <string name="department">Department</string>
     <string name="specialist">Specialist</string>
     <string name="register">REGISTER</string>
     <string name="register_with_us">Register With Us?</string>
-    <string name="username">USERNAME</string>
+    <string name="username">Username</string>
     <string name="title_activity_user_code">userCode</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -41,7 +41,7 @@
     <string name="contact_us">CONTACT US</string>
     <string name="view_lab_reports">VIEW LAB REPORTS</string>
     <string name="descriptiontext">Description</string>
-    <string name="departmentCAPS">DEPARTMENT</string>
+    <string name="departmentCAPS">Department</string>
     <string name="dateCAPS">DATE</string>
     <string name="timeavailableCAPS">Time Available</string>
     <string name="details">Fill in your details</string>
@@ -153,4 +153,6 @@
     <string name="report">Patient\'s Report</string>
     <string name="report_title">Add Title For Your Report Here</string>
     <string name="description_report">Write Report For Patient To Read</string>
+    <string name="select_email">Select an Email To View Doctors Details</string>
+    <string name="swipe">swipe</string>
 </resources>

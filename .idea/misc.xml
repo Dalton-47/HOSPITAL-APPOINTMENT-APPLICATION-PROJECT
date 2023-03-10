@@ -87,6 +87,7 @@
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_patient_upload_pic.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_patient_user_profile.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_patient_view_doctor_consult.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_report_generation.xml" value="0.18568840579710144" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/activity_second_login_page.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/doctor_appointments_reyclerview_layout_new.xml" value="0.25" />
         <entry key="..\:/Users/dalto/AndroidStudioProjects/MyAppt/app/src/main/res/layout/doctors_data_layout_view.xml" value="0.46600741656365885" />
@@ -107,7 +108,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

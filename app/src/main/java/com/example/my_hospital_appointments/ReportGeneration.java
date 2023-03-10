@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,12 +26,22 @@ public class ReportGeneration extends AppCompatActivity {
     DatabaseReference  myPatients;
     DatabaseReference myAssignments;
     int counter=0;
+    int DoctorsCount,PatientsCount,AssignmentCount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_generation);
 
-       // myArrayList.add("Select One");
+
+
+
+        TextView doctors=(TextView) findViewById(R.id.textViewDoctorsRegistered);
+        TextView patients=(TextView) findViewById(R.id.textViewPatientsRegistered);
+        TextView appointments=(TextView) findViewById(R.id.textViewAppointmentsAtttended);
+
+
+
+        // myArrayList.add("Select One");
         myReport = FirebaseDatabase.getInstance().getReference().child("Doctors");
         myReport.addValueEventListener(new ValueEventListener() {
             @Override
@@ -39,6 +50,9 @@ public class ReportGeneration extends AppCompatActivity {
                 {
                     myArrayList.add(snapshot.child("email").getValue().toString());
                 }
+                 DoctorsCount=myArrayList.size();
+                String numberOfDocs=Integer.toString(DoctorsCount);
+                doctors.setText(numberOfDocs);
 
             }
             @Override
@@ -53,8 +67,12 @@ public class ReportGeneration extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren())
                 {
+
                     myPatientsArrayList.add(snapshot.child("emailAddress").getValue().toString());
                 }
+                 PatientsCount=myPatientsArrayList.size();
+                String numberOfPatients=Integer.toString(PatientsCount);
+                patients.setText(numberOfPatients);
 
             }
             @Override
@@ -71,6 +89,9 @@ public class ReportGeneration extends AppCompatActivity {
                 {
                     myAppointmentsArrayList.add(snapshot.child("email").getValue().toString());
                 }
+                 AssignmentCount=myAppointmentsArrayList.size();
+                String numberOfAssignments=Integer.toString(AssignmentCount);
+                appointments.setText(numberOfAssignments);
 
             }
             @Override
@@ -82,25 +103,20 @@ public class ReportGeneration extends AppCompatActivity {
 
 
 
-        int AssignmentCount=myAppointmentsArrayList.size();
-        int PatientsCount=myPatientsArrayList.size();
-        int DoctorsCount=myArrayList.size();
-        TextView doctors=(TextView) findViewById(R.id.textViewDoctorsRegistered);
-        TextView patients=(TextView) findViewById(R.id.textViewPatientsRegistered);
-        TextView appointments=(TextView) findViewById(R.id.textViewAppointmentsAtttended);
-        doctors.setText(Integer.toString(DoctorsCount));
-        patients.setText(Integer.toString(PatientsCount));
-        appointments.setText(Integer.toString(AssignmentCount));
+
+
 
         ImageView myImage=(ImageView) findViewById(R.id.imageViewReports);
         myImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 counter++;
-
+/*
                 doctors.setText(Integer.toString(counter));
                 patients.setText(Integer.toString(counter));
                 appointments.setText(Integer.toString(counter));
+
+ */
 
             }
         });
