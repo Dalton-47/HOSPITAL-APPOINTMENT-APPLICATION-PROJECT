@@ -12,4 +12,3 @@ Login Page authenticated and validated using Firebase RealTime Database
 Patient DashBoard Layout
 .
 ![Patient Dashboard](https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/image_three.png)
-
