@@ -32,7 +32,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
     FirebaseAuth authProfile = FirebaseAuth.getInstance();
     FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
-
+    int checker =0;
 
     public void setData(ArrayList<Doctors> dataList) {
         this.dataList=dataList;
@@ -125,6 +125,7 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
                 for (StorageReference item : listResult.getItems()) {
                     String itemName = item.getName();
                     if (itemName.startsWith(imagePathPrefix)) {
+                        checker=1;
                         // Found a file with the correct prefix, load the image using Picasso
                         item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
@@ -148,7 +149,13 @@ public class DoctorDataAdapter extends RecyclerView.Adapter<DoctorDataAdapter.Da
                 // Handle any errors
             }
         }); //here
-
+         if (checker ==0)
+         {
+             //if the doctor hasn't set a profile picture
+             Picasso.get()
+                     .load(R.drawable.doctor)
+                     .into(holder.imageViewDocProfile);
+         }
 
 
     }

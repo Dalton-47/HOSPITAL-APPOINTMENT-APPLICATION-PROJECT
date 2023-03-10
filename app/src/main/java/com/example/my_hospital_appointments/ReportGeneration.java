@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,19 +28,18 @@ public class ReportGeneration extends AppCompatActivity {
     DatabaseReference myAssignments;
     int counter=0;
     int DoctorsCount,PatientsCount,AssignmentCount;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_generation);
 
-
-
-
+        progressBar =(ProgressBar)  this.findViewById(R.id.progressBarAdminReports);
         TextView doctors=(TextView) findViewById(R.id.textViewDoctorsRegistered);
         TextView patients=(TextView) findViewById(R.id.textViewPatientsRegistered);
         TextView appointments=(TextView) findViewById(R.id.textViewAppointmentsAtttended);
 
-
+progressBar.setVisibility(View.VISIBLE);
 
         // myArrayList.add("Select One");
         myReport = FirebaseDatabase.getInstance().getReference().child("Doctors");
@@ -53,6 +53,7 @@ public class ReportGeneration extends AppCompatActivity {
                  DoctorsCount=myArrayList.size();
                 String numberOfDocs=Integer.toString(DoctorsCount);
                 doctors.setText(numberOfDocs);
+
 
             }
             @Override
@@ -89,6 +90,7 @@ public class ReportGeneration extends AppCompatActivity {
                 {
                     myAppointmentsArrayList.add(snapshot.child("email").getValue().toString());
                 }
+                progressBar.setVisibility(View.GONE);
                  AssignmentCount=myAppointmentsArrayList.size();
                 String numberOfAssignments=Integer.toString(AssignmentCount);
                 appointments.setText(numberOfAssignments);
@@ -96,7 +98,7 @@ public class ReportGeneration extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                  progressBar.setVisibility(View.GONE);
             }
         });
 
