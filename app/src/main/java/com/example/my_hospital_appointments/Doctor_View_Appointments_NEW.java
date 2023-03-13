@@ -58,12 +58,12 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
 
 
         Intent intent =getIntent();
-        String userID=intent.getExtras().getString("docEmailId");
-        Toast.makeText(this, "DOC ID : "+userID, Toast.LENGTH_SHORT).show();
+        String docEmailId=intent.getExtras().getString("docEmailId");
+        Toast.makeText(this, "DOC ID : "+docEmailId, Toast.LENGTH_SHORT).show();
 
 
-        docRef = FirebaseDatabase.getInstance().getReference("Doctors").child(userID);
-        appointmentsRef = FirebaseDatabase.getInstance().getReference("AssignedPatient").child(userID);
+        docRef = FirebaseDatabase.getInstance().getReference("Doctors").child(docEmailId);
+        appointmentsRef = FirebaseDatabase.getInstance().getReference("AssignedPatient").child(docEmailId);
 
         //let us get the doctor's name
         getUserName();
@@ -79,7 +79,7 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
         getPatientData();
         RecyclerView myRecyclerView=(RecyclerView)  this.findViewById(R.id.recyclerViewDoctorAppointments);
 
-         myAdapter=new Doctor_Appointments_Adapter(this,textViewPatientName,patientAppointmentsList,relativeLayout,userID,editTextReportTitle,editTextReportContent,titleOriginal,reportContentOriginal);
+         myAdapter=new Doctor_Appointments_Adapter(this,textViewPatientName,patientAppointmentsList,relativeLayout,docEmailId,editTextReportTitle,editTextReportContent,titleOriginal,reportContentOriginal);
         myRecyclerView.setAdapter(myAdapter);
 
         LinearLayoutManager myLayout=new LinearLayoutManager(this);
