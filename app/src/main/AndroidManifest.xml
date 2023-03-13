@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppt">
         <activity
+            android:name=".Doctor_History_New"
+            android:exported="false" />
+        <activity
             android:name=".Patient_Report_Activity_New"
             android:exported="false" />
         <activity

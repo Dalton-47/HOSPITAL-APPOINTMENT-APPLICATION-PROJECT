@@ -1,8 +1,10 @@
 package com.example.my_hospital_appointments;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -42,6 +44,15 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_main_page_new);
+
+        //when user clicks dashboard imageView
+        ImageView docImageViewNews = (ImageView)  this.findViewById(R.id.imageViewDocNews);
+        docImageViewNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                     showNewsAlertDialog();// call method to move to MOH Website
+            }
+        });
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
@@ -168,4 +179,33 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
             }
         });
     }
+
+    //
+    private void showNewsAlertDialog() {
+// Set up the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(Doctor_Main_Page_NEW.this);
+        builder.setTitle("Ministry of Health Kenya");
+        builder.setMessage("Get Updated With the Current News from M.O.H Kenya.");
+
+        // Open email Apps if User clicks/taps Continue button
+        builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Uri myUri=Uri.parse("https://www.health.go.ke/category/news/");
+                Intent intent=new Intent(Intent.ACTION_VIEW,myUri);
+                startActivity(intent);
+
+            }
+        });
+
+        // Create the AlertDialog
+        AlertDialog alertDialog = builder.create();
+
+        // Show the AlertDialog
+        alertDialog.show();
+    }
+
+    //
+
 }
+

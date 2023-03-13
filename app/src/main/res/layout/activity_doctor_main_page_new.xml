@@ -82,6 +82,7 @@
         android:id="@+id/view51"
         android:layout_width="325dp"
         android:layout_height="150dp"
+        android:elevation="5dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/button_white_and_blue_border_background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,34 +90,15 @@
         app:layout_constraintTop_toTopOf="@+id/view49" />
 
     <ImageView
-        android:id="@+id/imageView45"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/rating"
+        android:id="@+id/imageViewDocNews"
+        android:layout_width="315dp"
+        android:layout_height="145dp"
+        android:background="@drawable/hospital"
+        android:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="@+id/view51"
-        app:layout_constraintStart_toEndOf="@+id/imageView44" />
-
-    <ImageView
-        android:id="@+id/imageView44"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/star"
-        app:layout_constraintBottom_toBottomOf="@+id/view51"
-        app:layout_constraintStart_toEndOf="@+id/imageView43" />
-
-    <ImageView
-        android:id="@+id/imageView41"
-        android:layout_width="135dp"
-        android:layout_height="135dp"
-        android:layout_marginStart="4dp"
-        android:background="@drawable/doc_snipe"
-        app:layout_constraintBottom_toBottomOf="@+id/view51"
+        app:layout_constraintEnd_toEndOf="@+id/view51"
         app:layout_constraintStart_toStartOf="@+id/view51"
-        app:layout_constraintTop_toBottomOf="@+id/textView93" />
+        app:layout_constraintTop_toTopOf="@+id/view51" />
 
     <TextView
         android:id="@+id/textView93"
@@ -125,57 +107,13 @@
         android:layout_marginTop="5dp"
         android:elevation="5dp"
         android:padding="8dp"
-        android:text="@string/scoreboard"
+        android:text="@string/title_dashboard"
         android:textColor="#1A446B"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/view49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view49" />
-
-    <TextView
-        android:id="@+id/textView95"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/attended"
-        android:textColor="#1F7102"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView41"
-        app:layout_constraintTop_toTopOf="@+id/view51" />
-
-    <TextView
-        android:id="@+id/textView96"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/cancelled"
-        android:textColor="#830101"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView41"
-        app:layout_constraintTop_toBottomOf="@+id/textView95" />
-
-    <TextView
-        android:id="@+id/textView98"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/zero"
-        android:textSize="17sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView95"
-        app:layout_constraintEnd_toEndOf="@+id/view51" />
-
-    <TextView
-        android:id="@+id/textView99"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/zero"
-        android:textSize="17sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView96"
-        app:layout_constraintEnd_toEndOf="@+id/view51" />
 
     <Button
         android:id="@+id/buttonDocAppointments_MAN"
@@ -239,58 +177,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonDocReports_MAN" />
-
-    <ImageView
-        android:id="@+id/imageView42"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/star"
-        app:layout_constraintBottom_toBottomOf="@+id/view51"
-        app:layout_constraintStart_toEndOf="@+id/imageView47" />
-
-    <ImageView
-        android:id="@+id/imageView47"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/star"
-        app:layout_constraintBottom_toBottomOf="@+id/view51"
-        app:layout_constraintStart_toEndOf="@+id/imageView41" />
-
-    <ImageView
-        android:id="@+id/imageView43"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/star"
-        app:layout_constraintBottom_toBottomOf="@+id/view51"
-        app:layout_constraintStart_toEndOf="@+id/imageView42" />
-
-    <TextView
-        android:id="@+id/textView101"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/rescheduled"
-        android:textColor="#1C1C1C"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView41"
-        app:layout_constraintTop_toBottomOf="@+id/textView96" />
-
-    <TextView
-        android:id="@+id/textView102"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/zero"
-        android:textSize="17sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView101"
-        app:layout_constraintEnd_toEndOf="@+id/view51" />
 
     <ImageView
         android:id="@+id/imageView46"
@@ -417,5 +303,20 @@
         app:layout_constraintEnd_toEndOf="@+id/view61"
         app:layout_constraintStart_toStartOf="@+id/imageViewDocProfile_MAIN"
         app:layout_constraintTop_toTopOf="@+id/imageViewDocProfile_MAIN" />
+
+    <TextView
+        android:id="@+id/textView89"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="2dp"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+        android:drawablePadding="8dp"
+        android:elevation="6.1dp"
+        android:text="@string/health_updates"
+        android:textColor="#1A446B"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view51"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDocNews" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
