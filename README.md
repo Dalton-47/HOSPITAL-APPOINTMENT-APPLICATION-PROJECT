@@ -2,7 +2,7 @@
  
  Launcher Screen Layout
  
-![Launcher Screen]https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/Launcher-Screen-Mock-Up.jpg)
+![Launcher Screen](https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/Launcher-Screen-Mock-Up.jpg)
 
 
 Login Page authenticated and validated using Firebase RealTime Database
