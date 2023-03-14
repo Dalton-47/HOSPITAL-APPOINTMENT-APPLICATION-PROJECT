@@ -40,6 +40,7 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
      DatabaseReference docRef;
      ProgressBar progressBar;
      TextView textViewPatientName;
+     RelativeLayout relativeLayoutNoAppointments;
 
 
 
@@ -49,6 +50,7 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_view_appointments_new);
 
 
+        relativeLayoutNoAppointments = (RelativeLayout)  this.findViewById(R.id.relativeLayoutDocAppointments);
            relativeLayout = (RelativeLayout)  this.findViewById(R.id.relativeLayoutDocReport_NEW);
            editTextReportTitle =(EditText)  this.findViewById(R.id.editTextTextReportTitle_NEW);
            editTextReportContent = (EditText)  this.findViewById(R.id.editTextTextrReportContent_NEW);
@@ -59,7 +61,7 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
 
         Intent intent =getIntent();
         String docEmailId=intent.getExtras().getString("docEmailId");
-        Toast.makeText(this, "DOC ID : "+docEmailId, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "DOC ID : "+docEmailId, Toast.LENGTH_SHORT).show();
 
 
         docRef = FirebaseDatabase.getInstance().getReference("Doctors").child(docEmailId);
@@ -98,6 +100,17 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        relativeLayoutNoAppointments.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        relativeLayoutNoAppointments.setVisibility(View.GONE);
+    }
 
     void getPatientData()
     {
@@ -110,6 +123,12 @@ public class Doctor_View_Appointments_NEW extends AppCompatActivity {
                     patientAppointmentsList.add(appointments);
                 }
                 myAdapter.setData(patientAppointmentsList);
+
+                if(patientAppointmentsList.size()==0)
+                {
+                    relativeLayoutNoAppointments.setVisibility(View.VISIBLE);
+                    //Toast.makeText(Doctor_View_Appointments_NEW.this, "No New Appointments Today", Toast.LENGTH_SHORT).show();
+                }
 
             }
 

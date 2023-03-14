@@ -1,6 +1,6 @@
 package com.example.my_hospital_appointments;
 
-public class PatientAppointmentClass {
+public class Appointment_Data_Class {
 
      String patientEmail;
     String patientName;
@@ -85,7 +85,7 @@ public class PatientAppointmentClass {
     String reportTitle;
     String reportContent;
 
-    public PatientAppointmentClass(String patientEmail, String patientName, String appointmentDescription, String appointmentDate, String patientAge, String reportDate, String docName, String reportTitle, String reportContent) {
+    public Appointment_Data_Class(String patientEmail, String patientName, String appointmentDescription, String appointmentDate, String patientAge, String reportDate, String docName, String reportTitle, String reportContent) {
         this.patientEmail=patientEmail;
         this.patientName=patientName;
         this.patientAge =patientAge;

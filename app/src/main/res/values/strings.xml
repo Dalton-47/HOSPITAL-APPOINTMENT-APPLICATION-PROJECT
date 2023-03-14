@@ -156,4 +156,5 @@
     <string name="select_email">Select an Email To View Doctors Details</string>
     <string name="swipe">swipe</string>
     <string name="health_updates">Get Health Updates</string>
+    <string name="no_appointments">No New  Appointments Today</string>
 </resources>

@@ -1,10 +1,7 @@
 package com.example.my_hospital_appointments;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -134,7 +131,7 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
                 });
 
 
-            }
+            }//here
         });
 
         // Close the AlertDialog if User clicks/taps No button
@@ -185,13 +182,51 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     if(task.isSuccessful())
                     {
-                        PatientAppointmentClass patientAppointment=new PatientAppointmentClass(patientEmail,patientName,description,appointmentDate,patientAge, reportDate,docName,title,reportContent);
-                        progressBar.setVisibility(View.GONE);
-                        patientRef.setValue(patientAppointment);
+                        //class to hold all appointment data relevant to use in our database
+                        Appointment_Data_Class appointmentDataObj=new Appointment_Data_Class(patientEmail,patientName,description,appointmentDate,patientAge, reportDate,docName,title,reportContent);
+
+
+                        //we save the appointment to attended appointments
+                        DatabaseReference attendedAppointmentsRef= FirebaseDatabase.getInstance().getReference("Attended Appointments");
+                        String key= attendedAppointmentsRef.push().getKey();
+                        assert key != null;
+                        attendedAppointmentsRef.child(key).setValue(appointmentDataObj);
+
+                        //we send report to patient
+                           progressBar.setVisibility(View.GONE);
+                        patientRef.setValue(appointmentDataObj);
                        // Toast.makeText(Doctor_View_Appointments_NEW.this, "REPORT SAVED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
                         relativeLayout.setVisibility(View.GONE);
                         editTextReportTitle.setText("");
                         editTextReportContent.setText("");
+
+
+                        //we then remove this data from the doctors and patients appointment list because it has been attended
+                       // patientList.remove(position);
+
+                        DatabaseReference assignedDocRef= FirebaseDatabase.getInstance().getReference().child("AssignedDoctor").child(emailID);
+
+                        DatabaseReference patientRef= FirebaseDatabase.getInstance().getReference("AssignedPatient").child(docID);
+
+                        Query query = patientRef.orderByChild("email").equalTo(emailID);
+                        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
+                                    // delete the child node that contains the email address
+                                    childSnapshot.getRef().removeValue();
+                                    assignedDocRef.removeValue();
+
+                                    notifyDataSetChanged();
+
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                // handle errors here
+                            }
+                        });
 
 
                     }
@@ -215,11 +250,10 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
         builder.setTitle("Appointment Cancelled");
         builder.setMessage("You have cancelled appointment with "+userName);
 
-        // Open email Apps if User clicks/taps Continue button
+
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
 
             }
         });
