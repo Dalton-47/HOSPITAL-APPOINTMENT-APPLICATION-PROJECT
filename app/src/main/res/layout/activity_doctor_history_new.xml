@@ -4,16 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3F2FD"
+    android:background="#1A446B"
     tools:context=".Doctor_History_New">
 
     <View
         android:id="@+id/view74"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
+        android:layout_width="330dp"
+        android:layout_height="180dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/whiterectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view75"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/pop_up_appointments_background"
+        app:layout_constraintBottom_toBottomOf="@+id/view74"
+        app:layout_constraintStart_toStartOf="@+id/view74"
+        app:layout_constraintTop_toTopOf="@+id/view74" />
+
+    <View
+        android:id="@+id/view76"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/pop_up_appointments_background"
+        app:layout_constraintBottom_toBottomOf="@+id/view74"
+        app:layout_constraintEnd_toEndOf="@+id/view74"
+        app:layout_constraintTop_toTopOf="@+id/view74" />
+
+    <TextView
+        android:id="@+id/textView95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/attended"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/view75"
+        app:layout_constraintStart_toStartOf="@+id/view75"
+        app:layout_constraintTop_toTopOf="@+id/view75" />
+
+    <TextView
+        android:id="@+id/textView98"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="0"
+        android:textColor="#4CAF50"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view75"
+        app:layout_constraintEnd_toEndOf="@+id/view75"
+        app:layout_constraintStart_toStartOf="@+id/view75"
+        app:layout_constraintTop_toBottomOf="@+id/textView95" />
+
+    <TextView
+        android:id="@+id/textView99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/cancelled"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/view76"
+        app:layout_constraintStart_toStartOf="@+id/view76"
+        app:layout_constraintTop_toTopOf="@+id/view76" />
+
+    <TextView
+        android:id="@+id/textView101"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="0"
+        android:textColor="#B71C1C"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view76"
+        app:layout_constraintEnd_toEndOf="@+id/view76"
+        app:layout_constraintStart_toStartOf="@+id/view76"
+        app:layout_constraintTop_toBottomOf="@+id/textView99" />
+
+    <View
+        android:id="@+id/view77"
+        android:layout_width="330dp"
+        android:layout_height="440dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/pop_up_appointments_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view74" />
 </androidx.constraintlayout.widget.ConstraintLayout>

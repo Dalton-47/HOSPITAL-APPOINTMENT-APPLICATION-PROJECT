@@ -106,6 +106,7 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
                 patientList.remove(position);
                 notifyDataSetChanged();
                 DatabaseReference assignedDocRef= FirebaseDatabase.getInstance().getReference().child("AssignedDoctor").child(patientID);
@@ -120,6 +121,28 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
                             // delete the child node that contains the email address
                             childSnapshot.getRef().removeValue();
                             assignedDocRef.removeValue();
+                            //
+                            //class to hold all appointment data relevant to use in our database
+                            Appointment_Data_Class appointmentDataObj=new Appointment_Data_Class(patientEmail,patientName,description,appointmentDate,patientAge, "N/A","N/A","N/A","N/A");
+
+                            //we save the appointment to attended appointments
+                            DatabaseReference attendedAppointmentsRef= FirebaseDatabase.getInstance().getReference("Appointments History").child("Cancelled");
+                            String key= attendedAppointmentsRef.push().getKey();
+                            assert key != null;
+                            attendedAppointmentsRef.child(key).setValue(appointmentDataObj);
+
+                            //we save the appointment to Doctor Appointments under the specific doctor
+                            DatabaseReference myDocAttendedAppointments= FirebaseDatabase.getInstance().getReference("Doctor Appointments History").child("Cancelled").child(docID);
+                            //we use the key from attendedAppointments
+                            myDocAttendedAppointments.child(key).setValue(appointmentDataObj);
+
+                            //we then save the appointment to Patient Appointments under the patients email
+                            DatabaseReference myPatientAttendedAppointments= FirebaseDatabase.getInstance().getReference("Patient Appointments History").child("Cancelled").child(emailID);
+                            //we use the key from attendedAppointments
+                            myPatientAttendedAppointments.child(key).setValue(appointmentDataObj);
+
+                            //
+
                             showUserAlertDialog(patientName);
 
                         }
@@ -188,18 +211,18 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
 
 
                         //we save the appointment to attended appointments
-                        DatabaseReference attendedAppointmentsRef= FirebaseDatabase.getInstance().getReference("Attended Appointments History");
+                        DatabaseReference attendedAppointmentsRef= FirebaseDatabase.getInstance().getReference("Appointments History").child("Attended");
                         String key= attendedAppointmentsRef.push().getKey();
                         assert key != null;
                         attendedAppointmentsRef.child(key).setValue(appointmentDataObj);
 
                         //we save the appointment to Doctor Appointments under the specific doctor
-                        DatabaseReference myDocAttendedAppointments= FirebaseDatabase.getInstance().getReference("Doctor Appointments History").child(docID);
+                        DatabaseReference myDocAttendedAppointments= FirebaseDatabase.getInstance().getReference("Doctor Appointments History").child("Attended").child(docID);
                        //we use the key from attendedAppointments
                         myDocAttendedAppointments.child(key).setValue(appointmentDataObj);
 
                         //we then save the appointment to Patient Appointments under the patients email
-                        DatabaseReference myPatientAttendedAppointments= FirebaseDatabase.getInstance().getReference("Patient Appointments History").child(emailID);
+                        DatabaseReference myPatientAttendedAppointments= FirebaseDatabase.getInstance().getReference("Patient Appointments History").child("Attended").child(emailID);
                         //we use the key from attendedAppointments
                         myPatientAttendedAppointments.child(key).setValue(appointmentDataObj);
 
@@ -232,8 +255,7 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
                                     patientList.remove(positionChecker); //refresh the recyclerView
                                     notifyDataSetChanged();
 
-
-
+                                    showReportSentAlert(patientName);
                                 }
                             }
 
@@ -279,6 +301,29 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
         // Show the AlertDialog
         alertDialog.show();
     }
+    //
+    private void showReportSentAlert(String userName) {
+// Set up the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Report Sent Successfully");
+        builder.setMessage("You have sent a report to "+userName);
+
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        // Create the AlertDialog
+        AlertDialog alertDialog = builder.create();
+
+        // Show the AlertDialog
+        alertDialog.show();
+    }
+
+
     //
 
     @Override

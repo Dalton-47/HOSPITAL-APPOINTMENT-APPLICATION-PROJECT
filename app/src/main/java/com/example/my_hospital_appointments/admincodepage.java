@@ -41,6 +41,7 @@ public class admincodepage extends AppCompatActivity {
                     Intent myIntent=new Intent(admincodepage.this,AdminMainPage.class);
                     startActivity(myIntent);
                     adminCode.setText("");
+                    finish();
                 }
 
                 /*
