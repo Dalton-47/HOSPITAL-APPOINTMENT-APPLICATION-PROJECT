@@ -47,6 +47,7 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
     EditText editTextReportTitle,editTextReportContent;
      ProgressBar progressBar;
      TextView textViewPatientName;
+    int positionChecker;
 
 
     public Doctor_Appointments_Adapter( Context context, TextView textViewPatientName, ArrayList<myPatient> patientAppointmentsList, RelativeLayout relativeLayout, String id, EditText editTextReportTitle, EditText editTextReportContent, String titleOriginal, String userID) {
@@ -187,10 +188,22 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
 
 
                         //we save the appointment to attended appointments
-                        DatabaseReference attendedAppointmentsRef= FirebaseDatabase.getInstance().getReference("Attended Appointments");
+                        DatabaseReference attendedAppointmentsRef= FirebaseDatabase.getInstance().getReference("Attended Appointments History");
                         String key= attendedAppointmentsRef.push().getKey();
                         assert key != null;
                         attendedAppointmentsRef.child(key).setValue(appointmentDataObj);
+
+                        //we save the appointment to Doctor Appointments under the specific doctor
+                        DatabaseReference myDocAttendedAppointments= FirebaseDatabase.getInstance().getReference("Doctor Appointments History").child(docID);
+                       //we use the key from attendedAppointments
+                        myDocAttendedAppointments.child(key).setValue(appointmentDataObj);
+
+                        //we then save the appointment to Patient Appointments under the patients email
+                        DatabaseReference myPatientAttendedAppointments= FirebaseDatabase.getInstance().getReference("Patient Appointments History").child(emailID);
+                        //we use the key from attendedAppointments
+                        myPatientAttendedAppointments.child(key).setValue(appointmentDataObj);
+
+
 
                         //we send report to patient
                            progressBar.setVisibility(View.GONE);
@@ -215,9 +228,11 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
                                 for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
                                     // delete the child node that contains the email address
                                     childSnapshot.getRef().removeValue();
-                                    assignedDocRef.removeValue();
-
+                                    assignedDocRef.removeValue();//remove appointment from Doctor's list
+                                    patientList.remove(positionChecker); //refresh the recyclerView
                                     notifyDataSetChanged();
+
+
 
                                 }
                             }
@@ -362,6 +377,7 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
                 textViewPatientName.setText(patientName + "'s" + " Report");
                 relativeLayout.bringToFront();
                 relativeLayout.setVisibility(View.VISIBLE);
+                 positionChecker=holder.getAdapterPosition();
                  }
         });
 
