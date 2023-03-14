@@ -1,8 +1,10 @@
 package com.example.my_hospital_appointments;
 
 public class Appointment_Data_Class {
+    public Appointment_Data_Class() {
+    }
 
-     String patientEmail;
+    String patientEmail;
     String patientName;
    String patientAge;
      String appointmentDate;

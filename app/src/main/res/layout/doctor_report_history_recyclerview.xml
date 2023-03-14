@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp">
+
+        <View
+            android:id="@+id/view80"
+            android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:background="@drawable/whiterectangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewAppointmentDate_REC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/dateCAPS"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewPatientName_REC"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="-6dp"
+            android:background="@drawable/textview_background"
+            android:padding="8dp"
+            android:text="TextView"
+            android:textColor="#1A446B"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView108" />
+
+        <TextView
+            android:id="@+id/textView108"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#FFFFFF"
+            android:elevation="0.1dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/patient_name"
+            app:layout_constraintStart_toStartOf="@+id/textViewPatientName_REC"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDate_REC" />
+
+        <TextView
+            android:id="@+id/textView110"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
+            android:elevation="0.1dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/patient_age"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPatientName_REC" />
+
+        <TextView
+            android:id="@+id/textViewPatientAge_REC"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="-6dp"
+            android:background="@drawable/textview_background"
+            android:padding="8dp"
+            android:text="TextView"
+            android:textColor="#1A446B"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView110" />
+
+        <TextView
+            android:id="@+id/textView112"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
+            android:elevation="0.1dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPatientAge_REC" />
+
+        <TextView
+            android:id="@+id/textViewAppointmentDescription_REC"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="-6dp"
+            android:background="@drawable/textview_background"
+            android:padding="8dp"
+            android:text="TextView"
+            android:textColor="#1A446B"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView112" />
+
+        <TextView
+            android:id="@+id/textView114"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
+            android:elevation="0.1dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/doc_report"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAppointmentDescription_REC" />
+
+        <TextView
+            android:id="@+id/textViewReportContent_REC"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="-6dp"
+            android:background="@drawable/textview_background"
+            android:padding="8dp"
+            android:text="TextView"
+            android:textColor="#1A446B"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView114" />
+
+        <View
+            android:id="@+id/view81"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:background="#E3F2FD"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view80" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -107,7 +107,7 @@
         app:layout_constraintTop_toTopOf="@+id/view74" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewDocHistory"
         android:layout_width="320dp"
         android:layout_height="400dp"
         android:layout_marginTop="32dp"
@@ -129,7 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/appointmentattended"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewDocHistory"
         app:layout_constraintEnd_toEndOf="@+id/view78"
         app:layout_constraintStart_toStartOf="@+id/view78"
         app:layout_constraintTop_toTopOf="@+id/view77" />

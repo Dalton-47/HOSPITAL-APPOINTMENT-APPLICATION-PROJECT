@@ -75,7 +75,7 @@
     <string name="rejectbutton">REJECT</string>
     <string name="emailViewAppointmentsdetails">SELECT AN EMAIL TO VIEW APPOINTMENT DETAILS</string>
     <string name="cancelAppointment">CANCEL APPOINTMENT</string>
-    <string name="appointmentattended">APPOINTMENT ATTENDED</string>
+    <string name="appointmentattended">APPOINTMENTS ATTENDED</string>
     <string name="detailsAppointment">APPOINTMENT DETAILS CAPTURED SUCCESSFULLY</string>
     <string name="ClickHereToTypeAMessage">Type A Message</string>
     <string name="refresh">REFRESH</string>
