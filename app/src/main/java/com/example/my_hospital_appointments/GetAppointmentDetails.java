@@ -257,8 +257,10 @@ public class GetAppointmentDetails extends AppCompatActivity {
                            //change firstSpinnerText to age
 
                                DataSnapshot thisDataSnapshot=task.getResult();
-                               String Name=String.valueOf(thisDataSnapshot.child("secondName").getValue());
+                               String secondName=String.valueOf(thisDataSnapshot.child("secondName").getValue());
+                               String firstName=String.valueOf(thisDataSnapshot.child("firstName").getValue());
 
+                                       String Name=firstName +" "+secondName;
                                PatientAppointmentData myPatientsData=new PatientAppointmentData(Name,myUsersEmail,descriptionText,patientAge,newDate,secondSpinnerText);
                                patientAppointments.child(userID).setValue(myPatientsData);
 

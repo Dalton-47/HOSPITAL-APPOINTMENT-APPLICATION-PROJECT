@@ -337,6 +337,7 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
         holder.textViewPatientTime.setText(patients.getTime());
         holder.textViewPatientDescription.setText(patients.getDescription());
 
+
         patientEmail=patients.getEmail();
         patientName=patients.getName();
         description=patients.getDescription();
