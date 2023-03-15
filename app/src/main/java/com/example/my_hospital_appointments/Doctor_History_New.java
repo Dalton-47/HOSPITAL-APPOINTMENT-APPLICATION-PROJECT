@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +27,7 @@ public class Doctor_History_New extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     TextView txtViewAttended, txtViewCancelled;
-    String userEmail;
+    String userEmail,thisUserType;
     int attendedCounter=0;
     int cancelledCounter=0;
     ArrayList <Appointment_Data_Class> appointmentList = new ArrayList<>();
@@ -38,6 +38,9 @@ public class Doctor_History_New extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_history_new);
+
+        Intent intent =getIntent();
+         thisUserType=intent.getExtras().getString("checkUser");
 
            txtViewAttended =(TextView)  this.findViewById(R.id.textViewAppointmentsAttended_HISTORY);
            txtViewCancelled = (TextView)  this.findViewById(R.id.textViewAppointmentsCancelled_HISTORY);
@@ -62,14 +65,23 @@ public class Doctor_History_New extends AppCompatActivity {
             userEmail="Null";
         }
 
-        checkAppointments();
-        getAttendedAppointments();
-
+        if(Objects.equals(thisUserType, "Patient"))
+        {
+            checkPatientAppointments();
+            getPatientAttendedAppointments();
+        }
+        else if(Objects.equals(thisUserType, "Doctor"))
+        {
+            checkDoctorAppointments();
+            getDoctorAttendedAppointments();
+        }
 
 
     }
 
-    void checkAppointments()
+
+
+    void checkDoctorAppointments()
     {
 
 
@@ -125,7 +137,7 @@ public class Doctor_History_New extends AppCompatActivity {
 
     }
 
-    void getAttendedAppointments()
+    void getDoctorAttendedAppointments()
     {
         if(!Objects.equals(userEmail, "Null")) {
             String [] parts= userEmail.split("@");
@@ -161,4 +173,98 @@ public class Doctor_History_New extends AppCompatActivity {
 
 
     }
+
+    //
+    void checkPatientAppointments()
+    {
+        if(!Objects.equals(userEmail, "Null"))
+        {
+
+            String [] parts= userEmail.split("@");
+            String patientEmailID= parts[0];
+
+            appointmentsHistoryRef_Attended =  FirebaseDatabase.getInstance().getReference("Patient Appointments History").child("Attended").child(patientEmailID);
+            appointmentsHistoryRef_Attended.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren())
+                    {
+                        attendedCounter++;
+                    }
+                    String attended=Integer.toString(attendedCounter);
+                    txtViewAttended.setText(attended);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+            //we now check the number of cancelled appointments
+            appointmentsHistoryRef_Attended =  FirebaseDatabase.getInstance().getReference("Patient Appointments History").child("Cancelled").child(patientEmailID);
+            appointmentsHistoryRef_Attended.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren())
+                    {
+                        cancelledCounter++;
+                    }
+                    String attended=Integer.toString(cancelledCounter);
+                    txtViewCancelled.setText(attended);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+
+        }
+        else {
+            Toast.makeText(Doctor_History_New.this, "CHECK NETWORK CONNECTION", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    //
+
+    void getPatientAttendedAppointments()
+    {
+        if(!Objects.equals(userEmail, "Null")) {
+            String [] parts= userEmail.split("@");
+            String patientEmailID= parts[0];
+            appointmentsHistoryRef_Attended =  FirebaseDatabase.getInstance().getReference("Patient Appointments History").child("Attended").child(patientEmailID);
+
+            appointmentsHistoryRef_Attended.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot thisDataSnapshot : snapshot.getChildren())
+                    {
+                        Appointment_Data_Class  appointments=thisDataSnapshot.getValue(Appointment_Data_Class.class);
+                        appointmentList.add(appointments);
+                    }
+
+
+                    historyAdapter.setData(appointmentList);
+                    if(appointmentList.size()==0)
+                    {
+                        //relativeLayoutNoAppointments.setVisibility(View.VISIBLE);
+                        Toast.makeText(Doctor_History_New.this, "No Appointments Booked ", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+        }
+
+
+    }
+
 }

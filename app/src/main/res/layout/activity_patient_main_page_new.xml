@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button_Book_Appointments_New" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/buttonPatientHistory_NEW"
         android:layout_width="156dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
@@ -221,10 +221,10 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_baseline_history_24"
         android:elevation="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPatientHistory_NEW"
         app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="@+id/button10"
-        app:layout_constraintTop_toTopOf="@+id/button10" />
+        app:layout_constraintStart_toStartOf="@+id/buttonPatientHistory_NEW"
+        app:layout_constraintTop_toTopOf="@+id/buttonPatientHistory_NEW" />
 
     <TextView
         android:id="@+id/textView79"
@@ -235,9 +235,9 @@
         android:text="@string/history"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPatientHistory_NEW"
         app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="@+id/button10"
+        app:layout_constraintStart_toStartOf="@+id/buttonPatientHistory_NEW"
         app:layout_constraintTop_toBottomOf="@+id/imageView37" />
 
     <ImageView

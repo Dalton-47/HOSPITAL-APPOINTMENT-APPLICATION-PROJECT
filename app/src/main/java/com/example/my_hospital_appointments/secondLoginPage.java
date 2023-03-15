@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 public class secondLoginPage extends AppCompatActivity {
 
     public Button adminBtn,btnPatient,btnDoctor;
-    DatabaseReference docRef;
+    DatabaseReference docRef,patientRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,8 @@ public class secondLoginPage extends AppCompatActivity {
         String emailID=parts[0];
 
         docRef=FirebaseDatabase.getInstance().getReference("Doctors").child(emailID);
+        patientRef=FirebaseDatabase.getInstance().getReference("Patients").child(emailID);
+
 
 
         // Toast.makeText(secondLoginPage.this,"Your Email = "+myUsersEmail,Toast.LENGTH_SHORT).show();
@@ -53,10 +55,33 @@ public class secondLoginPage extends AppCompatActivity {
         btnPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent myIntent=new Intent(secondLoginPage.this,MainPage.class);
-                Intent myIntent=new Intent(secondLoginPage.this,Patient_Main_Page_NEW.class);
-                myIntent.putExtra("usersEmail",myUsersEmail);
-                startActivity(myIntent);
+
+                patientRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Patients patients=snapshot.getValue(Patients.class); //get the value from the doctors database
+                        if(patients==null)
+                        {
+                            //If  details aren't found access is denied
+                            Toast.makeText(secondLoginPage.this, "Register As a Patient!", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            // Intent myIntent=new Intent(secondLoginPage.this,MainPage.class);
+                            Intent myIntent=new Intent(secondLoginPage.this,Patient_Main_Page_NEW.class);
+                            myIntent.putExtra("usersEmail",myUsersEmail);
+                            startActivity(myIntent);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(secondLoginPage.this, "USER NOT FOUND, CHECK NETWORK CONNECTION!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
             }
         });
 
@@ -87,7 +112,7 @@ public class secondLoginPage extends AppCompatActivity {
                     }
                 });
 
-
+                //here
             }
         });
 

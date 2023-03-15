@@ -43,7 +43,7 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
          myUserID=getIntent().getStringExtra("userID");
           firstname=getIntent().getStringExtra("firstname");
 
-        Toast.makeText(this,"Your ID is "+myUserID ,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this,"Your ID is "+myUserID ,Toast.LENGTH_SHORT).show();
 
 
         userRef= FirebaseDatabase.getInstance().getReference("Appointments");

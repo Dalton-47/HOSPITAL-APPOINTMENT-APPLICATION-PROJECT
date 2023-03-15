@@ -72,7 +72,7 @@ public class Patient_Chatting_Activity extends AppCompatActivity {
          docEmail = getIntent().getStringExtra("docEmail");
 
 
-        Toast.makeText(Patient_Chatting_Activity.this,"user's key = "+userEmailKey+" Doc Email = "+docEmail,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(Patient_Chatting_Activity.this,"user's key = "+userEmailKey+" Doc Email = "+docEmail,Toast.LENGTH_SHORT).show();
         FirebaseAuth myAuth=FirebaseAuth.getInstance();
         FirebaseUser currentUser=myAuth.getCurrentUser();
         String userId= currentUser.getUid();

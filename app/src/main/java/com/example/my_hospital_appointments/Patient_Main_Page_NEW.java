@@ -64,7 +64,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
        // progressBar.setVisibility(View.INVISIBLE);
         Intent intent =getIntent();
         String myUsersEmail=intent.getExtras().getString("usersEmail");
-         Toast.makeText(this,"Your Email is "+myUsersEmail ,Toast.LENGTH_SHORT).show();
+       //  Toast.makeText(this,"Your Email is "+myUsersEmail ,Toast.LENGTH_SHORT).show();
 
          welcomeUser =(TextView)  this.findViewById(R.id.textViewPatientMainPageWelcome);
 
@@ -151,6 +151,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
             }
         });
 
+
         Button consultDoctor=(Button)  this.findViewById(R.id.buttonPatientConsultDocNew);
         consultDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,6 +161,19 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        //button to open Patient's History
+        String checkUser = "Patient";
+        Button btnPatientHistory =(Button) this.findViewById(R.id.buttonPatientHistory_NEW);
+        btnPatientHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent=new Intent(Patient_Main_Page_NEW.this,Doctor_History_New.class);
+                myIntent.putExtra("checkUser",checkUser);
+                startActivity(myIntent);
+            }
+        });
+
 
         Button btnPatientReports=(Button)  this.findViewById(R.id.buttonPatientReportsNew);
         btnPatientReports.setOnClickListener(new View.OnClickListener() {

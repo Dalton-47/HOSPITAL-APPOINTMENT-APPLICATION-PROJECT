@@ -137,10 +137,14 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
         btnDocReports = (Button)  this.findViewById(R.id.buttonDocReports_MAN);
         btnDocHistory = (Button)  this.findViewById(R.id.buttonDocHistory_MAN);
 
+        String checkUser="Doctor";
         btnDocHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Doctor_Main_Page_NEW.this, Doctor_History_New.class));
+                Intent myIntent=new Intent(Doctor_Main_Page_NEW.this,Doctor_History_New.class);
+                myIntent.putExtra("checkUser",checkUser);
+                startActivity(myIntent);
+               // startActivity(new Intent(Doctor_Main_Page_NEW.this, Doctor_History_New.class));
             }
         });
 
