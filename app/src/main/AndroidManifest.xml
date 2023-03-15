@@ -31,13 +31,16 @@
             android:name=".Patient_User_Profile_Activity"
             android:exported="false" />
         <activity
+            android:name=".Launcher_Screen"
+            android:exported="false" />
+        <activity
             android:name=".Forgot_Password_Activity"
             android:exported="false" />
         <activity
             android:name=".Login_Activity"
             android:exported="false" />
         <activity
-            android:name=".Launcher_Screen"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -78,19 +81,14 @@
         <activity android:name=".ReportGeneration" />
         <activity android:name=".PatientMedicalReport" />
         <activity android:name=".MedicalReport" />
-        <activity android:name=".PatientConsultDoctor" />
-        <activity android:name=".PatientViewDoctorConsult" />
-        <activity android:name=".DoctorConsultation" />
         <activity android:name=".DoctorAppointments" />
         <activity android:name=".AdminDoctorApproval" />
-        <activity android:name=".DoctorWaitingPage" />
         <activity android:name=".MainPageDoctor" />
         <activity android:name=".FinalAppointmentPage" />
         <activity android:name=".PatientRegistration" />
         <activity android:name=".Admin_Appointment_Booking" />
         <activity android:name=".AdminMainPage" />
         <activity android:name=".GetAppointmentDetails" />
-        <activity android:name=".AppointmentBooking" />
         <activity android:name=".MainPage" />
         <activity android:name=".admincodepage" />
         <activity android:name=".secondLoginPage" />

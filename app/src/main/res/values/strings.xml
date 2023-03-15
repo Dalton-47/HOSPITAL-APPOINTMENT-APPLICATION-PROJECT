@@ -158,4 +158,5 @@
     <string name="health_updates">Get Health Updates</string>
     <string name="no_appointments">No New  Appointments Today</string>
     <string name="appointments_cancelled">APPOINTMENTS CANCELLED</string>
+    <string name="bookyourappointment">Book Your Appointment Conveniently!</string>
 </resources>
