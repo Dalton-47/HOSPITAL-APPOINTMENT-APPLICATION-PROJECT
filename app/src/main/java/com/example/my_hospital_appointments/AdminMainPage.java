@@ -17,7 +17,7 @@ public class AdminMainPage extends AppCompatActivity {
         myAppointments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent=new Intent(AdminMainPage.this,PatientAppointmentAdmin.class);
+                Intent myIntent=new Intent(AdminMainPage.this, Admin_Appointment_Booking.class);
                 startActivity(myIntent);
             }
         });

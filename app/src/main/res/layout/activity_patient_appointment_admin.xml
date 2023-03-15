@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1A446B"
-    tools:context=".PatientAppointmentAdmin">
+    tools:context=".Admin_Appointment_Booking">
 
     <View
         android:id="@+id/view12"
@@ -58,7 +58,7 @@
                         android:layout_height="40dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
-                        android:popupBackground="@drawable/bottom_left_curve"
+                        android:popupBackground="@drawable/textview_background"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
@@ -312,6 +312,7 @@
                                 android:layout_width="130dp"
                                 android:layout_height="130dp"
                                 android:layout_marginStart="8dp"
+                                android:layout_marginBottom="8dp"
                                 android:background="@drawable/doctor"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"

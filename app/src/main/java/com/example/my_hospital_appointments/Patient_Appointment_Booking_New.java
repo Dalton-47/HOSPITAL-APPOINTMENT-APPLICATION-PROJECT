@@ -46,7 +46,7 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
         Toast.makeText(this,"Your ID is "+myUserID ,Toast.LENGTH_SHORT).show();
 
 
-        userRef= FirebaseDatabase.getInstance().getReference("PatientAppointments");
+        userRef= FirebaseDatabase.getInstance().getReference("Appointments");
         assignedDoc=FirebaseDatabase.getInstance().getReference("AssignedDoctor").child(myUserID);
 
         TextView textViewUserName_new=(TextView)  this.findViewById(R.id.textViewUserName_new);
@@ -64,9 +64,21 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
         newAppt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent=new Intent(Patient_Appointment_Booking_New.this,GetAppointmentDetails.class);
-                myIntent.putExtra("userID",myUserID);
-                startActivity(myIntent);
+                if(appointmentsList.size()==0)
+                {
+                    Intent myIntent=new Intent(Patient_Appointment_Booking_New.this,GetAppointmentDetails.class);
+                    myIntent.putExtra("userID",myUserID);
+                    startActivity(myIntent);
+                }
+                else if(Objects.equals(firstname, "null"))
+                {
+                    Toast.makeText(Patient_Appointment_Booking_New.this, "Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(Patient_Appointment_Booking_New.this, "You Have a Pending Appointment", Toast.LENGTH_SHORT).show();
+
+                }
+
             }
         });
 
@@ -84,21 +96,14 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
     void getAppointmentDetails()
     {
 
-       userRef.orderByChild("email").addValueEventListener(new ValueEventListener() {
+       userRef.child(myUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                for(DataSnapshot childSnapShot:snapshot.getChildren())
-                {
-                    PatientAppointmentData app= childSnapShot.getValue(PatientAppointmentData.class);
-                    assert app != null;
-                    if(Objects.equals(app.getEmail(), myUserID))
-                    {
-                        appointmentsList.add(app);
-                        break;
-                    }
+                PatientAppointmentData app= snapshot.getValue(PatientAppointmentData.class);
+                assert app!=null;
+                appointmentsList.add(app);
 
-                }
 
                 myAdapter.setData(appointmentsList);
             }

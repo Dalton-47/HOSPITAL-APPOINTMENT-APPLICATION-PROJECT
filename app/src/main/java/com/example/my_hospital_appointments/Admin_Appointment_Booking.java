@@ -21,15 +21,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class PatientAppointmentAdmin extends AppCompatActivity {
+public class Admin_Appointment_Booking extends AppCompatActivity {
     DatabaseReference myPatientsData;
     DatabaseReference myDoctorsData;
     DatabaseReference myAssignedDoctorData;
     DatabaseReference myAssignedPatientData;
     DatabaseReference myDataStatus;
     private Spinner spinnerEmails,spinnerDoctorEmails1;
-    public String  patientEmail,doctorEmail;
+    public String  patientEmail,doctorEmail,myText;
     public String emailKey="";
     public String doctorKey="";
     private TextView textViewName,textViewEmail, textViewAge,textViewDate,textViewTime,textViewDescription;
@@ -79,7 +80,8 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren())
                 {
-                    myArrayList.add(snapshot.child("email").getValue().toString());
+                    //here incase of error
+                    myArrayList.add(Objects.requireNonNull(snapshot.child("email").getValue()).toString());
                 }
 
             }
@@ -99,14 +101,14 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                 String myText=spinnerEmails.getSelectedItem().toString().trim();
+                  myText=spinnerEmails.getSelectedItem().toString().trim();
                 if(myText=="Select One".trim())
                 {
                     //Nothing
                 }
                 else
                 {
-                    Toast.makeText(PatientAppointmentAdmin.this,"You have Selected "+myText,Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(Admin_Appointment_Booking.this,"You have Selected "+myText,Toast.LENGTH_SHORT).show();
                     patientEmail=myText;
                 }
             }
@@ -139,7 +141,14 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
         viewAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                patientData(patientEmail);
+                if(patientEmail!=null)
+                {
+                    patientData(patientEmail);
+                }
+                else {
+                    Toast.makeText(Admin_Appointment_Booking.this, "Select a Patient First", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -161,7 +170,7 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(PatientAppointmentAdmin.this,"You have Selected "+myText2,Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(Admin_Appointment_Booking.this,"You have Selected "+myText2,Toast.LENGTH_SHORT).show();
                     doctorEmail=myText2;
                 }
 
@@ -173,29 +182,19 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
             }
         });
 
-        assignAppointment =(Button) findViewById(R.id.buttonAssignDoctor);
-        assignAppointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               /* Intent myIntent=new Intent(PatientAppointmentAdmin.this,)
-                Intent myIntent=new Intent(AppointmentBooking.this, GetAppointmentDetails.class);
-                Bundle extras = new Bundle();
-                extras.putString("usersEmail",myUsersEmail);
-                extras.putString("textDescription1",textDescription1);
-                extras.putString("textDescription2",textDescription2);
-                extras.putString("textDescription3",textDescription3);
-                myIntent.putExtras(extras);
-                startActivity(myIntent);
-                */
-
-            }
-        });
 
         viewDoctorDetails=(Button) findViewById(R.id.buttonViewDoctorDetails3);
         viewDoctorDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getDoctorData(doctorEmail);
+                if(doctorEmail!=null)
+                {
+                    getDoctorData(doctorEmail);
+                }
+                else {
+                    Toast.makeText(Admin_Appointment_Booking.this, "Select a Doctor First", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -203,7 +202,16 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
         assignAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                assignAppointment(patientEmail,doctorEmail);
+              //  assert patientEmail !=null;
+                if(doctorEmail != null && patientEmail!=null)
+                {
+                    assignAppointment(patientEmail,doctorEmail);
+                }
+                else
+                {
+                    Toast.makeText(Admin_Appointment_Booking.this, "Select a Doctor and Patient", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -230,13 +238,13 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
 
         if(emailKey.isEmpty())
         {
-            Toast.makeText(PatientAppointmentAdmin.this,"KINDLY SELECT AN EMAIL TO VIEW THE PATIENTS DATA",Toast.LENGTH_SHORT ).show();
+            Toast.makeText(Admin_Appointment_Booking.this,"KINDLY SELECT AN EMAIL TO VIEW THE PATIENTS DATA",Toast.LENGTH_SHORT ).show();
 
         }
         else
         {
 
-            Toast.makeText(PatientAppointmentAdmin.this,"YOUR KEY = "+emailKey,Toast.LENGTH_SHORT ).show();
+        //    Toast.makeText(Admin_Appointment_Booking.this,"YOUR KEY = "+emailKey,Toast.LENGTH_SHORT ).show();
 
             myPatientsData.child(emailKey).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
@@ -262,17 +270,17 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
                             textViewTime.setText(patientTime);
                             textViewDescription.setText(patientDescription);
 
-                            myArrayList.remove(myKey);
+                           // myArrayList.remove(myKey);
                         }
                         else
                         {
-                            Toast.makeText(PatientAppointmentAdmin.this,"ERROR!!! EMAIL DOESN'T EXIST",Toast.LENGTH_SHORT ).show();
+                            Toast.makeText(Admin_Appointment_Booking.this,"ERROR!!! EMAIL DOESN'T EXIST",Toast.LENGTH_SHORT ).show();
 
                         }
                     }
                     else
                     {
-                        Toast.makeText(PatientAppointmentAdmin.this,"ERROR WHILE READING THE SELECTED PATIENT'S EMAIL",Toast.LENGTH_SHORT ).show();
+                        Toast.makeText(Admin_Appointment_Booking.this,"ERROR WHILE READING THE SELECTED PATIENT'S EMAIL",Toast.LENGTH_SHORT ).show();
 
                     }
                 }
@@ -299,12 +307,12 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
 
         if(doctorKey.isEmpty())
         {
-            Toast.makeText(PatientAppointmentAdmin.this,"KINDLY SELECT AN EMAIL TO VIEW THE DOCTOR'S DATA",Toast.LENGTH_SHORT ).show();
+            Toast.makeText(Admin_Appointment_Booking.this,"KINDLY SELECT AN EMAIL TO VIEW THE DOCTOR'S DATA",Toast.LENGTH_SHORT ).show();
 
         }
         else
         {
-            Toast.makeText(PatientAppointmentAdmin.this,"YOUR KEY = "+doctorKey,Toast.LENGTH_SHORT ).show();
+          //  Toast.makeText(Admin_Appointment_Booking.this,"YOUR KEY = "+doctorKey,Toast.LENGTH_SHORT ).show();
 
             myDoctorsData.child(doctorKey).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
@@ -331,14 +339,14 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
                         else
                         {
 
-                            Toast.makeText(PatientAppointmentAdmin.this,"ERROR!!! EMAIL DOESN'T EXIST",Toast.LENGTH_SHORT ).show();
+                            Toast.makeText(Admin_Appointment_Booking.this,"ERROR!!! EMAIL DOESN'T EXIST",Toast.LENGTH_SHORT ).show();
 
                         }
                     }
                     else
                     {
 
-                        Toast.makeText(PatientAppointmentAdmin.this,"ERROR WHILE READING THE SELECTED DOCTOR'S EMAIL",Toast.LENGTH_SHORT ).show();
+                        Toast.makeText(Admin_Appointment_Booking.this,"ERROR WHILE READING THE SELECTED DOCTOR'S EMAIL",Toast.LENGTH_SHORT ).show();
 
                     }
                 }
@@ -389,31 +397,47 @@ public class PatientAppointmentAdmin extends AppCompatActivity {
         String myPatientTime=textViewTime.getText().toString().trim();
         String myPatientAge= textViewAge.getText().toString().trim();
 
-String Key= myAssignedPatientData.push().getKey();
+        String myDoctorName=doctorTextViewName.getText().toString().trim();
+        String myDoctorEmail=doctorTextViewEmail.getText().toString().trim();
+        String myDoctorPhone=doctorTextViewPhone.getText().toString().trim();
 
-        myPatient myAssignedPatient=new myPatient(myPatientName,myPatientEmail,myPatientDescription,myPatientDate,myPatientTime,myPatientAge);
-        myAssignedPatientData.child(doctorKey).child(Key).setValue(myAssignedPatient).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful())
-                {
-                    String myDoctorName=doctorTextViewName.getText().toString().trim();
-                    String myDoctorEmail=doctorTextViewEmail.getText().toString().trim();
-                    String myDoctorPhone=doctorTextViewPhone.getText().toString().trim();
-                    myDoctor myAssignedDoctor=new myDoctor(myDoctorName,myDoctorEmail,myDoctorPhone);
-                    myAssignedDoctorData.child(emailKey).setValue(myAssignedDoctor);
-
-                    String status="BOOKED";
-                    AppointmentStatus myStatus=new AppointmentStatus(status);
-                    myDataStatus.child(emailKey).setValue(myStatus);
+        if(!myPatientAge.equals("") || !myDoctorName.equals("null")) {
 
 
-                    Toast.makeText(PatientAppointmentAdmin.this,"APPOINTMENT BOOKED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
+            String Key = myAssignedPatientData.push().getKey();
+
+            myPatient myAssignedPatient = new myPatient(myPatientName, myPatientEmail, myPatientDescription, myPatientDate, myPatientTime, myPatientAge);
+            myAssignedPatientData.child(doctorKey).child(Key).setValue(myAssignedPatient).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        String myDoctorName = doctorTextViewName.getText().toString().trim();
+                        String myDoctorEmail = doctorTextViewEmail.getText().toString().trim();
+                        String myDoctorPhone = doctorTextViewPhone.getText().toString().trim();
+                        myDoctor myAssignedDoctor = new myDoctor(myDoctorName, myDoctorEmail, myDoctorPhone);
+                        myAssignedDoctorData.child(emailKey).setValue(myAssignedDoctor);
+
+                        String status = "BOOKED";
+                        AppointmentStatus myStatus = new AppointmentStatus(status);
+                        myDataStatus.child(emailKey).setValue(myStatus);
+
+                        myPatientsData.child(emailKey).removeValue();
+                        myArrayList.remove(myText);
+                        textViewName.setText("");
+                        textViewEmail.setText("");
+                        textViewDescription.setText("");
+                        textViewDate.setText("");
+                        textViewTime.setText("");
+                        textViewAge.setText("");
+                        Toast.makeText(Admin_Appointment_Booking.this, "APPOINTMENT BOOKED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
-        
-        
+            });
+
+        }
+        else {
+            Toast.makeText(Admin_Appointment_Booking.this, "Check Patient & Doctor Details!", Toast.LENGTH_SHORT).show();
+        }
 
 
 

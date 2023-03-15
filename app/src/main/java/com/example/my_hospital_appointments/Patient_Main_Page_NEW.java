@@ -85,7 +85,7 @@ public class Patient_Main_Page_NEW extends AppCompatActivity {
         }
 
         myReference =FirebaseDatabase.getInstance().getReference("Patients").child(userID);
-        patientRefAppointment =FirebaseDatabase.getInstance().getReference("PatientAppointments").child(userID);
+        patientRefAppointment =FirebaseDatabase.getInstance().getReference("Appointments").child(userID);
 
         userProfile =(ImageView)  findViewById(R.id.imageViewPatientProfileNew);
 

@@ -87,7 +87,7 @@
         <activity android:name=".MainPageDoctor" />
         <activity android:name=".FinalAppointmentPage" />
         <activity android:name=".PatientRegistration" />
-        <activity android:name=".PatientAppointmentAdmin" />
+        <activity android:name=".Admin_Appointment_Booking" />
         <activity android:name=".AdminMainPage" />
         <activity android:name=".GetAppointmentDetails" />
         <activity android:name=".AppointmentBooking" />
