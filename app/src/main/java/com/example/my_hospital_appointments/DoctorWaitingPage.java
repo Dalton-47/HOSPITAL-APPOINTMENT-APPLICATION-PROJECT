@@ -38,9 +38,7 @@ public class DoctorWaitingPage extends AppCompatActivity {
         btnProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent=new Intent(DoctorWaitingPage.this,MainPageDoctor.class);
-                myIntent.putExtra("usersEmail",myUsersEmail);
-                startActivity(myIntent);
+
             }
         });
 
