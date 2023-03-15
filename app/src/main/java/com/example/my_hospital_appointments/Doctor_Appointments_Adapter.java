@@ -108,7 +108,9 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 patientList.remove(position);
-                notifyDataSetChanged();
+               // patientList.clear();
+               // notifyDataSetChanged();
+                notifyItemChanged(position);
                 DatabaseReference assignedDocRef= FirebaseDatabase.getInstance().getReference().child("AssignedDoctor").child(patientID);
 
                 DatabaseReference patientRef= FirebaseDatabase.getInstance().getReference("AssignedPatient").child(docID);

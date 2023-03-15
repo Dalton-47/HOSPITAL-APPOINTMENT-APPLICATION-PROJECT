@@ -35,7 +35,7 @@ public class Messages_From_Patients extends AppCompatActivity {
 
         Intent intent =getIntent();
          docName=intent.getExtras().getString("doctorName");
-        Toast.makeText(Messages_From_Patients.this, "Doctor's Name = "+docName, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(Messages_From_Patients.this, "Doctor's Name = "+docName, Toast.LENGTH_SHORT).show();
 
 
         RecyclerView myRecyclerView=(RecyclerView)  findViewById(R.id.recyclerViewPatientsMessages);

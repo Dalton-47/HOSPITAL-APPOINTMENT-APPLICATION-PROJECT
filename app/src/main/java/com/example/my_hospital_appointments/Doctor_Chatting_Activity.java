@@ -76,7 +76,7 @@ public class Doctor_Chatting_Activity extends AppCompatActivity {
         getProfilePicture();
 
 
-        Toast.makeText(Doctor_Chatting_Activity.this,"user's key = "+userEmailKey+" Doc name = "+doctorName,Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(Doctor_Chatting_Activity.this,"user's key = "+userEmailKey+" Doc name = "+doctorName,Toast.LENGTH_SHORT).show();
         FirebaseAuth myAuth=FirebaseAuth.getInstance();
         FirebaseUser currentUser=myAuth.getCurrentUser();
         String userId= currentUser.getUid();

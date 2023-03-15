@@ -115,7 +115,7 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
 
         Intent intent =getIntent();
         String myUsersEmail=intent.getExtras().getString("usersEmail");
-        Toast.makeText(this,"Your Email is "+myUsersEmail ,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this,"Your Email is "+myUsersEmail ,Toast.LENGTH_SHORT).show();
 
         String [] parts= myUsersEmail.split("@"); //split the email to get users ID
          emailID=parts[0];
@@ -166,6 +166,24 @@ public class Doctor_Main_Page_NEW extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+         super.onResume();
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+        Uri uri = firebaseUser.getPhotoUrl();
+
+
+            progressBar.setVisibility(View.GONE);
+            // ImageViewer setImageURI() should not be used with regular URIs. So we are using Picasso
+
+            Picasso.get().load(uri)
+                    .transform(new RoundedTransformation())
+                    .into(docImage);
+            view61.setBackground(getResources().getDrawable(R.drawable.white_background_circle));
     }
 
     void getUserName()

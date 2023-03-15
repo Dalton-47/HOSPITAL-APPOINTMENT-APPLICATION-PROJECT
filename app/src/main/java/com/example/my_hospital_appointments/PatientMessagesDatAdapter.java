@@ -111,7 +111,7 @@ public class PatientMessagesDatAdapter extends RecyclerView.Adapter<PatientMessa
 
         Patients  patients=dataList.get(position);
         holder.patientName.setText("Name : "+patients.getFirstName());
-        holder.patientAge.setText("Age : "+patients.getAge());
+        holder.patientAge.setText("D.O.B : "+patients.getAge());
         holder.patientCounty.setText("Residence : "+patients.getCounty());
 
 
