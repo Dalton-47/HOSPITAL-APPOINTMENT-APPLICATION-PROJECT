@@ -2,11 +2,14 @@
  
  Launcher Screen Layout
  
-![Launcher Screen](https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/image_one.png)
+![Launcher Screen](https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/Launcher-Screen-Mock-Up.jpg)
 
 
 Login Page authenticated and validated using Firebase RealTime Database
-![Login Page](https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/image_two.png)
+![Login Page](https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/Login-Mock-Up.jpg)
 
 Patient DashBoard Layout
-![Patient Dashboard](https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/image_three.png)
+![Patient Dashboard](https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/Patient-Mock-Up.jpg)
+
+Doctor DashBoard Layout
+![Doctor DashBoard](https://github.com/Dalton-47/HOSPITAL-APPOINTMENT-APPLICATION-PROJECT/blob/master/Doc-Dashboard-MockUp.jpg)
