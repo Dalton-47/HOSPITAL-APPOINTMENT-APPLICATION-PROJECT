@@ -1,4 +1,4 @@
-# HOSPITAL-APPOINTMENT-Scheduler
+# HOSPITAL-APPOINTMENT-SCHEDULER
 <p>Appointment scheduler application for hospitals is an innovative solution designed to improve the efficiency and effectiveness of the healthcare industry. Our platform allows patients to easily schedule appointments with healthcare providers, and helps hospitals manage their appointments more effectively. With features like automated appointment reminders, real-time appointment scheduling, and robust reporting capabilities, our application streamlines the appointment booking process, reduces wait times, and improves patient outcomes.</p>
  
  Launcher Screen Layout
