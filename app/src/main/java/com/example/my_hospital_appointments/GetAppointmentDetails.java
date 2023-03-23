@@ -96,7 +96,7 @@ public class GetAppointmentDetails extends AppCompatActivity {
                 userID=userID+myUsersEmail.charAt(a);
             }
         }
-        Toast.makeText(this, "USER ID :"+userID, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "USER ID :"+userID, Toast.LENGTH_SHORT).show();
 
         for(int a=0; a<Counter; a++)
         {

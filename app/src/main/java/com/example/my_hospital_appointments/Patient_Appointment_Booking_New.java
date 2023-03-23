@@ -101,9 +101,11 @@ public class Patient_Appointment_Booking_New extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 PatientAppointmentData app= snapshot.getValue(PatientAppointmentData.class);
-                assert app!=null;
-                appointmentsList.add(app);
-
+                if(app!=null)
+                {
+                    //   assert app!=null;
+                    appointmentsList.add(app);
+                }
 
                 myAdapter.setData(appointmentsList);
             }
