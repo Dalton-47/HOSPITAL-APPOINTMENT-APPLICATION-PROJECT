@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -71,12 +73,18 @@ public class GetAppointmentDetails extends AppCompatActivity {
 
     private DatePickerDialog picker;
     EditText editTextPatientAge;
-
+    FirebaseUser firebaseUser;
+    FirebaseAuth firebaseAuth;
+    String thisUserEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_appointment_details);
+
+        firebaseAuth  = FirebaseAuth.getInstance();
+        firebaseUser =firebaseAuth.getCurrentUser();
+         thisUserEmail=firebaseUser.getEmail();
 
         Intent intent =getIntent();
         Bundle extras = intent.getExtras();
@@ -261,7 +269,7 @@ public class GetAppointmentDetails extends AppCompatActivity {
                                String firstName=String.valueOf(thisDataSnapshot.child("firstName").getValue());
 
                                        String Name=firstName +" "+secondName;
-                               PatientAppointmentData myPatientsData=new PatientAppointmentData(Name,myUsersEmail,descriptionText,patientAge,newDate,secondSpinnerText);
+                               PatientAppointmentData myPatientsData=new PatientAppointmentData(Name,thisUserEmail,descriptionText,patientAge,newDate,secondSpinnerText);
                                patientAppointments.child(userID).setValue(myPatientsData);
 
                                String data="PENDING...";
@@ -284,53 +292,6 @@ public class GetAppointmentDetails extends AppCompatActivity {
                        }
                    }
                });
-
-
-
-
-           /*
-           else if(textDescription2.isEmpty())
-           {
-
-               String myTime="DATE : "+myDayOfMonth+"/"+myMonth+"/"+myYear;
-               // String id=databaseAppointments.push().getKey(); //unique path that identifies the location of the data
-               //String description, String department, String date, String time
-
-               String data="Pending...";
-               Appointments myAppointments=new Appointments(descriptionText,firstSpinnerText,myTime,secondSpinnerText);
-
-               databaseAppointments.child(emailSecondAppt).setValue(myAppointments);// changed
-               Toast.makeText(GetAppointmentDetails .this,"SECOND APPOINTMENT BOOKED SUCCESSFULLY",Toast.LENGTH_LONG).show();
-
-               AppointmentStatus myAppointmentStatus=new AppointmentStatus(data);
-               myDataStatus.child(emailSecondAppt).setValue(myAppointmentStatus);
-
-           }
-           else if(textDescription3.isEmpty())
-           {
-               String myTime="DATE : "+myDayOfMonth+"/"+myMonth+"/"+myYear;
-               // String id=databaseAppointments.push().getKey(); //unique path that identifies the location of the data
-               //String description, String department, String date, String time
-
-               String data="Pending...";
-               Appointments myAppointments=new Appointments(descriptionText,firstSpinnerText,myTime,secondSpinnerText);
-
-               databaseAppointments.child(emailThirdAppt).setValue(myAppointments);// changed
-
-               AppointmentStatus myAppointmentStatus=new AppointmentStatus(data);
-               myDataStatus.child(emailThirdAppt).setValue(myAppointmentStatus);
-
-
-               Toast.makeText(GetAppointmentDetails .this,"THIRD BOOKED SUCCESSFULLY",Toast.LENGTH_LONG).show();
-
-           }
-           else
-           {
-               Toast.makeText(GetAppointmentDetails .this,"AN ERROR HAS OCCURRED WHILE BOOKING",Toast.LENGTH_LONG).show();
-           }
-
-            */
-
 
         }
     }

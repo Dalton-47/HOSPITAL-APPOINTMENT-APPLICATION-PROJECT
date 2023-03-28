@@ -156,10 +156,10 @@ public class Login_Activity extends AppCompatActivity {
                         } catch (Exception e) {
                             Log.e(TAG,e.getMessage());
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(Login_Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        //    Toast.makeText(Login_Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
 
-                        Toast.makeText(Login_Activity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login_Activity.this, "Check Network Connection!", Toast.LENGTH_SHORT).show();
                     }
                     progressBar.setVisibility(View.GONE);
                 }

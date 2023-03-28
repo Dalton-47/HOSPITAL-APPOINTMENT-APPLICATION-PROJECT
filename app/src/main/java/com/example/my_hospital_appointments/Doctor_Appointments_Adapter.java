@@ -33,6 +33,7 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Appointments_Adapter.myDataViewHolder>{
 
@@ -123,7 +124,11 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
                             // delete the child node that contains the email address
                             childSnapshot.getRef().removeValue();
                             assignedDocRef.removeValue();
-                            //
+
+                            //we remove the cancelled appointment from patient's side
+                            DatabaseReference patientAppRef= FirebaseDatabase.getInstance().getReference("Appointments").child(emailID);
+                            patientAppRef.removeValue();
+
                             //class to hold all appointment data relevant to use in our database
                             Appointment_Data_Class appointmentDataObj=new Appointment_Data_Class(patientEmail,patientName,description,appointmentDate,patientAge, "N/A","N/A","N/A","N/A");
 
@@ -228,6 +233,9 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
                         //we use the key from attendedAppointments
                         myPatientAttendedAppointments.child(key).setValue(appointmentDataObj);
 
+                        //we clear the attended appointment on the patient's side
+                        DatabaseReference patientAppointmentRef= FirebaseDatabase.getInstance().getReference("Appointments").child(emailID);
+                        patientAppointmentRef.removeValue();
 
 
                         //we send report to patient
@@ -244,20 +252,46 @@ public class Doctor_Appointments_Adapter extends RecyclerView.Adapter <Doctor_Ap
 
                         DatabaseReference assignedDocRef= FirebaseDatabase.getInstance().getReference().child("AssignedDoctor").child(emailID);
 
-                        DatabaseReference patientRef= FirebaseDatabase.getInstance().getReference("AssignedPatient").child(docID);
+                        DatabaseReference newPatientRef= FirebaseDatabase.getInstance().getReference("AssignedPatient").child(docID);
 
-                        Query query = patientRef.orderByChild("email").equalTo(emailID);
-                        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        Query query = newPatientRef.orderByChild("email");
+
+                        query.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
                                     // delete the child node that contains the email address
-                                    childSnapshot.getRef().removeValue();
-                                    assignedDocRef.removeValue();//remove appointment from Doctor's list
-                                    patientList.remove(positionChecker); //refresh the recyclerView
-                                    notifyDataSetChanged();
 
-                                    showReportSentAlert(patientName);
+                                    myPatient myAssignedPatient = childSnapshot.getValue(myPatient.class);
+                                    assert myAssignedPatient != null;
+                                     String patientEmail= myAssignedPatient.getEmail();
+                                     String[] parts =patientEmail.split("@");
+                                     String patientEmailID=parts[0];
+
+                                    myDoctor myAssignedDoctor= childSnapshot.getValue(myDoctor.class);
+                                    assert myAssignedDoctor != null;
+                                    String docEmail=myAssignedDoctor.getEmail();
+                                     String [] docParts=docEmail.split("@");
+                                     String docEmailID=docParts[0];
+
+
+
+                                    if(Objects.equals(patientEmailID, emailID))
+                                    {
+                                        childSnapshot.getRef().removeValue();
+                                        assignedDocRef.removeValue();//remove appointment from Patient's list
+                                    }
+
+
+                                    if(Objects.equals(docEmailID, docID))
+                                    {
+                                        newPatientRef.removeValue();//remove appointment from Doctor's List
+                                        patientList.remove(positionChecker); //refresh the recyclerView
+                                        showReportSentAlert(patientName);
+                                        notifyDataSetChanged();
+
+                                    }
+
                                 }
                             }
 
