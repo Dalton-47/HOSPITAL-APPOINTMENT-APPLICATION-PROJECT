@@ -4,19 +4,7 @@ buildscript {
         google()
         jcenter()
     }
-//added this if it fails remove from here
-plugins {
-  id "org.sonarqube" version "4.2.1.3168"
-}
 
-sonar {
-  properties {
-    property "sonar.projectKey", "dalty-technologies_hospital-appointment-scanning"
-    property "sonar.organization", "dalty-technologies"
-    property "sonar.host.url", "https://sonarcloud.io"
-  }
-}
-    //to here
     
     dependencies {
         classpath 'com.android.tools.build:gradle:7.2.1'
